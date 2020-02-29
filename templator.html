@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Template Maker</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #bbe1fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .title{
+      margin: 30px 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #9f9f9f;
+    }
+    .row {
+      padding: 0;
+      margin: 0;
+    }
+
+    .template {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    .top-container {
+      margin-top:20px;
+    }
+
+    .col-sm-3 {
+      padding: 2px;
+    }
+
+    .col-sm-4 {
+      padding: 2px;
+    }
+    .col-sm-6 {
+      padding:2px;
+
+    }
+
+    button {
+      width: 100%;
+      background-color: #fff1ff;
+      border: 1px solid #9f9f9f;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px -2px #3282b8;
+      max-height: 30px;
+      outline:none;
+      height: 30px;
+    }
+    button:focus{
+      outline:none;
+    }
+    button:active{
+      opacity: 0.7;
+      box-shadow: inset 2px 2px 5px 2px #6f6f6f;
+      outline:none;
+    }
+    .toggle {
+      opacity: 0.7;
+      box-shadow: inset 2px 2px 5px 2px #6f6f6f;
+      outline:none;
+    }
+
+    input {
+      border: 1px inset #9f9f9f;
+      box-shadow:0 0 5px -1px #fff;
+      padding-left: 10px;
+      border-radius: 4px;
+      outline:none;
+    }
+    .second {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .called-container {
+      margin: 5px 0;
+    }
+    .para {
+      margin: 10px 0;
+      background-color: #fff;
+      border: 1px inset #9f9f9f;
+      padding:10px;
+      border-radius: 5px;
+    }
+
+    .textarea {
+      margin: 5px 0;
+    }
+
+    textarea {
+      width: 100%;
+      border-radius: 4px;
+      padding: 10px;
+      outline:none;
+    }
+
+    .copier {
+      margin: 10px 0;
+      padding:0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="template">
+    <h3 class="title">&copy Nathaniel Detsicas</h3>
+    <div class="row top-container">
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="NCD">NCD</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Convictions">Convictions</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Occupation">Occupation</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Ownership">Ownership</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Useage">Useage</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Address">Address</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Residency">Residency</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Driving Licence Number">DLN</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Driver Age">Driver Age</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Mileage">Mileage</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Claims History">Claims</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Licence Type">L Type</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" key="true" value="qm" name="Licence Years">L Years</button>
+      </div>
+    </div>
+    <div class="row policy-container">
+      <div class="col-sm-6 input-p">
+        <input type="text" class="second previous" placeholder="Previous Insurer">
+      </div>
+      <div class="col-sm-6 input-p">
+        <input type="text" class="second policy-number" placeholder="Policy Number">
+      </div>
+    </div>
+    <div class="row called-container">
+      <div class="row col-sm-6">
+        <div class="col-sm-4"><button value="called" class="call" name="Left Message on Mobile">LM Mobile</button></div>
+        <div class="col-sm-4"><button value="called" class="call" name="Left Message on LandLine">LM Land</button></div>
+        <div class="col-sm-4"><button value="called" class="call" name="Number Not provide on policy">No Num</button></div>
+      </div>
+      <div class="row col-sm-6">
+        <div class="col-sm-4"><button class="sent-msg" value="sent" name="Email">Email</button></div>
+        <div class="col-sm-4"><button class="sent-msg" value="sent" name="Letter">Letter</button></div>
+        <div class="col-sm-4"><button class="sent-msg" value="sent" name="SMS">SMS</button></div>
+      </div>
+    </div>
+    <div class="row bottom-container">
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="NCD">NCD</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Driving licence">DLN</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Convictions">Convictions</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Occupation">Occupation</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="V5">Ownership</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Useage">Useage</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Address">Address</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Residency">Residency</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Mileage">Mileage</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="primary-button" value="required" name="Claims History">Claims</button>
+      </div>
+    </div>
+
+    <div class="para" id="para">
+      <p class="qm" >QM:</p>
+      <p class="prev" >Previous Insurer:</p>
+      <p class="called" >Called:</p>
+      <p class="sent" >Sent:</p>
+      <p class="required" >Required:</p>
+    </div>
+    <div class="row copier">
+    <div class="col-sm-6">
+      <button type="button" value="copy" name="button" onClick="copy('para')">Copy Template</button>
+    </div>
+    <div class="col-sm-6">
+      <button type="button" name="button" onClick="window.location.reload()"> Clear Template</button>
+    </div>
+    </div>
+    <div class="textarea">
+      <textarea name="name" rows="8" cols="80" placeholder="Further Notes..."></textarea>
+    </div>
+  </div>
+  <script>
+    const template = {
+      qm: ['QM:'],
+      previous: ['Previous Insurer: '],
+      called: '',
+      sent: ['Sent: '],
+      required: ['Required: ']
+    }
+    document.querySelectorAll('button').forEach((elem) => {
+
+      elem.addEventListener('click', (e) => {
+        if(e.target.value !== 'copy'){
+        e.target.classList.add('toggle');
+      };
+        const label = e.target.name;
+        let cat = e.target.value;
+        if (cat === 'called') {
+          template.called = label;
+          document.querySelector('.called').innerText = 'Called: ' + template.called;
+        } else {
+          template[cat].push(label);
+          document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
+        };
+      });
+
+    });
+    document.querySelectorAll('.second').forEach((elem) => {
+      elem.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const label = e.target.value;
+          template.previous.push(label);
+          document.querySelector('.prev').innerText = template.previous.join(' - ');
+        };
+      });
+    });
+    function copy(id){
+      let from = document.getElementById(id);
+      let range = document.createRange();
+      window.getSelection().removeAllRanges();
+      range.selectNode(from);
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    }
+  </script>
+
+</body>
+
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
