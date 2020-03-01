@@ -9,10 +9,52 @@
     body {
       padding: 0;
       margin: 0;
+      min-width:600px;
       background-color: #bbe1fa;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    hr{
+      margin: 10px auto;
+      width: 200px;
+    }
+
+    button {
+          width: 100%;
+          background-color: #fff1ff;
+          border: 1px solid #9f9f9f;
+          border-radius: 5px;
+          box-shadow: 0 2px 10px -3px #3282b8;
+
+          outline:none;
+          height: 30px;
+        }
+    button:focus{
+          outline:none;
+        }
+    button:active{
+          opacity: 0.7;
+          box-shadow: inset 2px 2px 8px 2px #6f6f6f;
+          outline:none;
+        }
+        input, textarea {
+          border: 1px inset #9f9f9f;
+          box-shadow:0 0 10px -2px #fff;
+          padding-left: 10px;
+          border-radius: 4px;
+          outline:none;
+        }
+        .page-holder{
+          text-align: center;
+        }
+    .header-title{
+      margin: 30px 0 0;
+      display: flex;
+      text-shadow: 0 0 10px #fff;
+      justify-content: center;
+      align-items: center;
+      color: #5f5f5f;
     }
     .title{
       margin: 30px 0 0;
@@ -42,42 +84,17 @@
     .col-sm-4 {
       padding: 2px;
     }
-    .col-sm-6 {
-      padding:2px;
-
+    .col-sm-6{
+      padding:1px;
     }
 
-    button {
-      width: 100%;
-      background-color: #fff1ff;
-      border: 1px solid #9f9f9f;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px -2px #3282b8;
-      max-height: 30px;
-      outline:none;
-      height: 30px;
-    }
-    button:focus{
-      outline:none;
-    }
-    button:active{
-      opacity: 0.7;
-      box-shadow: inset 2px 2px 5px 2px #6f6f6f;
-      outline:none;
-    }
     .toggle {
       opacity: 0.7;
       box-shadow: inset 2px 2px 5px 2px #6f6f6f;
       outline:none;
     }
 
-    input {
-      border: 1px inset #9f9f9f;
-      box-shadow:0 0 5px -1px #fff;
-      padding-left: 10px;
-      border-radius: 4px;
-      outline:none;
-    }
+
     .second {
       width: 100%;
       margin-top: 10px;
@@ -87,6 +104,7 @@
       margin: 5px 0;
     }
     .para {
+      text-align: left;
       margin: 10px 0;
       background-color: #fff;
       border: 1px inset #9f9f9f;
@@ -109,12 +127,16 @@
       margin: 10px 0;
       padding:0;
     }
+    .copy-button {
+      height: 50px;
+    }
   </style>
 </head>
 
 <body>
+  <div class="page-holder">
   <div class="template">
-    <h3 class="title">&copy Nathaniel Detsicas</h3>
+    <h3 class="header-title">Note maker</h3>
     <div class="row top-container">
       <div class="col-sm-3">
         <button class="primary-button" key="true" value="qm" name="NCD">NCD</button>
@@ -156,7 +178,9 @@
         <button class="primary-button" key="true" value="qm" name="Licence Years">L Years</button>
       </div>
     </div>
+    <hr>
     <div class="row policy-container">
+
       <div class="col-sm-6 input-p">
         <input type="text" class="second previous" placeholder="Previous Insurer">
       </div>
@@ -164,6 +188,7 @@
         <input type="text" class="second policy-number" placeholder="Policy Number">
       </div>
     </div>
+    <hr>
     <div class="row called-container">
       <div class="row col-sm-6">
         <div class="col-sm-4"><button value="called" class="call" name="Left Message on Mobile">LM Mobile</button></div>
@@ -176,15 +201,13 @@
         <div class="col-sm-4"><button class="sent-msg" value="sent" name="SMS">SMS</button></div>
       </div>
     </div>
+    <hr>
     <div class="row bottom-container">
       <div class="col-sm-3">
         <button class="primary-button" value="required" name="NCD">NCD</button>
       </div>
       <div class="col-sm-3">
         <button class="primary-button" value="required" name="Driving licence">DLN</button>
-      </div>
-      <div class="col-sm-3">
-        <button class="primary-button" value="required" name="Convictions">Convictions</button>
       </div>
       <div class="col-sm-3">
         <button class="primary-button" value="required" name="Occupation">Occupation</button>
@@ -218,20 +241,23 @@
     </div>
     <div class="row copier">
     <div class="col-sm-6">
-      <button type="button" value="copy" name="button" onClick="copy('para')">Copy Template</button>
+      <button class="copy-button"type="button" value="copy" name="button" onClick="copy('para')">Copy Template</button>
     </div>
     <div class="col-sm-6">
-      <button type="button" name="button" onClick="window.location.reload()"> Clear Template</button>
+      <button class="copy-button" type="button" name="button" onClick="window.location.reload()"> Clear Template</button>
     </div>
     </div>
     <div class="textarea">
-      <textarea name="name" rows="8" cols="80" placeholder="Further Notes..."></textarea>
+      <textarea name="name" rows="3" cols="80" placeholder="Further Notes..."></textarea>
+    </div>
+    <h3 class="title">2020 &copy Nathaniel Detsicas</h3>
     </div>
   </div>
   <script>
     const template = {
       qm: ['QM:'],
-      previous: ['Previous Insurer: '],
+      previous: [''],
+      policy: [' ',''],
       called: '',
       sent: ['Sent: '],
       required: ['Required: ']
@@ -239,8 +265,10 @@
     document.querySelectorAll('button').forEach((elem) => {
 
       elem.addEventListener('click', (e) => {
+
         if(e.target.value !== 'copy'){
         e.target.classList.add('toggle');
+
       };
         const label = e.target.name;
         let cat = e.target.value;
@@ -248,19 +276,28 @@
           template.called = label;
           document.querySelector('.called').innerText = 'Called: ' + template.called;
         } else {
+
+          console.log(label)
           template[cat].push(label);
           document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
         };
       });
 
     });
+
     document.querySelectorAll('.second').forEach((elem) => {
-      elem.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          const label = e.target.value;
-          template.previous.push(label);
-          document.querySelector('.prev').innerText = template.previous.join(' - ');
+      elem.addEventListener('keyup', (e) => {
+        let pcat = e.target.classList[1];
+        if(pcat === 'previous'){
+          template.previous.pop();
+          template.previous.push(e.target.value);
+          console.log(this.value)
+        } else if(pcat === 'policy-number'){
+          template.policy.pop();
+          template.policy.push(e.target.value);
         };
+        document.querySelector('.prev').innerText = 'Previous Insurer: ' + template.previous.join('') + " - " + template.policy.join('')
+
       });
     });
     function copy(id){
@@ -271,8 +308,7 @@
       window.getSelection().addRange(range);
       document.execCommand('copy');
       window.getSelection().removeAllRanges();
-    }
-  </script>
+    }  </script>
 
 </body>
 

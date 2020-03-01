@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Guide</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <style>
+  /* tag names css */
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      overflow: hidden;
+      background-color: #bbe1fa;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: 0.5s ease;
+    }
+    ul {
+      text-decoration:none;
+      list-style-type: none;
+    }
+    span{
+      font-weight: bold;
+    }
+    select {
+      width: 250px;
+      height: 30px;
+      margin: 0 auto;
+      border-radius: 5px;
+      outline: none;
+    }
+    option{
+      border-radius: 5px;
+      border: 1px solid #9f9f9f;
+    }
+    h7{
+      font-weight: bold;
+    }
+/* classes css */
+/* colors */
+.o{
+  background-color: #f18867;
+}
+.b{
+  background-color: #05dfd7;
+}
+.g{
+  background-color: #a3f7bf;
+}
+/* containers */
+.main-container{
+  position: relative;
+}
+.top-container {
+  z-index: 1;
+  position:absolute;
+  top:0;
+  padding-top: 20px;
+  background-color: #bbe1fa;
+  width:100%;
+  height: 50px;
+}
+.display {
+  margin: 0 auto;
+  max-width: 600px;
+  overflow: hidden;
+  padding-top:150px;
+  height:100vh;
+}
+.open, .table, .during, .end {
+      margin-bottom: 5px;
+    }
+    /* pages css */
+.slide{
+  margin-bottom: 500px;
+}
+.header {
+  border: 1px solid #000;
+  margin: 5px 0;
+}
+.row {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.content-title {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #000;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  width: 100%;
+  border: 1px solid #000;
+  background-color: #fff;
+  margin:0;
+  padding:0;
+}
+.split {
+  border-right: 1px solid #9f9f9f
+}
+.footer {
+  border: 1px solid #000;
+  border-bottom: 0;
+}
+.spacer {
+  height: 30px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="top-container">
+      <select>
+        <option key="0"value="occupation">Occupation</option>
+        <option key="1"value="mileage">Mileage</option>
+        <option key="2"value="use">Use</option>
+        <option key="3"value="ownership">Ownership</option>
+        <option key="4"value="address">Address</option>
+        <option key="5"value="convictions">Convictions</option>
+        <option key="6"value="claims">Claims</option>
+        <option key="7"value="residency">Residency</option>
+        <option key="8"value="licence-type">Licence Type</option>
+        <option key="9"value="licence-years">Licence Years</option>
+        <option key="10"value="diver-age">Driver Age</option>
+        <option key="11"value="NCD">NCD</option>
+        <option key="12"value="DLN">DLN Removed</option>
+      </select>
+    </div>
+
+    <div class="display">
+      <div class="slide" id="0">
+      <div class="open">
+        <div class="header content-title b">
+          <h1>Occupation</h1>
+        </div>
+        <div class="content">
+          <h3 class="content-title o">On Initial Review</h3>
+          <ul>
+            <li>Unemployed - line of business - Clear Flag</li>
+            <li>Similar occupations - Does not rate - Refer to TA/TL</li>
+            <li>Multiple, unrelated occupations - Refer to TA/TL</li>
+          </ul>
+        </div>
+      </div>
+        <div class="table">
+          <div class="content">
+            <div class="content-title g">
+              <h3>Verbal Contact</h3>
+            </div>
+
+            <div class="row">
+              <div class=" split content-title   col-sm-6">
+                <h5>PH Confirms WCS</h5>
+              </div>
+              <div class="content-title  col-sm-6">
+                <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+              </div>
+              <div class="row">
+                <div class="split col-sm-6">
+                  <p>Complete MTA after introducing quote data</p>
+                </div>
+                <div class="col-sm-6">
+                  <p>Introduce quote data, UW, request proof if required(consult TA/TL/UW) </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="During">
+            <div class="content">
+            <div class="content-title g">
+              <h3>Written</h3>
+            </div>
+              <div class="row">
+                <div class="split content-title  col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-sm-6 split">
+                    <p>Complete MTA</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Close Flag</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="end">
+              <div class="footer content-title o">
+                <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+              </div>
+              <div class="content">
+                <p>Amend to WSC</p>
+              </div>
+            </div>
+            <div class="spacer"></div>
+      </div>
+<!-- mileage -->
+        <div class="slide" id="1">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Mileage</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>Over 40000 (unless policy has business use/ quotes for business use) - clear flag</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <p>Complete MTA after introducing quote data</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Introduce quote data, UW (if required) </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h5>PH Confirms WCS</h5>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <p>Complete MTA</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>Close Flag</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Amend to WSC</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+        <!-- use -->
+        <div class="slide" id="2">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Use</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>SDP&C/business use - if occupation is unemployed (unless ND is employed) - clear flag</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <p>Complete MTA after introducing quote data</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Introduce quote data, UW (if required) </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h5>PH Confirms WCS</h5>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <p>Complete MTA</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>Close Flag</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Amend to WSC</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+        <!-- ownership -->
+        <div class="slide" id="3">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Ownership</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>Matches VDC MM/YY - Clear Flag</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h7>PH Confirms WCS</h7>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h7>PH Does not confirm WCS or confirms what is on the policy</h7>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <p>Complete MTA after introducing quote data</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Confirms VDC date DD/YY - complete MTA regardless of QM data, introduce quote data, request V5 if not</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h7>PH Confirms WCS</h7>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h7>PH Does not confirm WCS or confirms what is on the policy</h7>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <p>Complete MTA</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>Confirms VDC date DD/YY - complete MTA regardless of QM data, introduce quote data, request V5 if not</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Amend to VDC</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+<!-- address -->
+        <div class="slide" id="4">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Address</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>2 Addresses & NCD confirmed with PI using address - clear flag.</li>
+              <li>4+ Addresses - Refer to TA/TL</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <ul>
+                      <li><span>Up to 3</span> Complete MTA after introducing quote data</li>
+                      <li><span>4 or more</span> Request utility bill/DL</li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6">
+                    <ul>
+                      <li>Introduce quote data, close flag</li>
+                      <li>Request utility bill/DL</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h5>PH Confirms WCS</h5>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <ul>
+                        <li>Complete MTA</li>
+                        <li>Request utility bill/DL</li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-6">
+                      <ul>
+                        <li>Close flag</li>
+                        <li>Request utility bill/DL</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Cancel</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+        <!-- convictions -->
+        <div class="slide" id="5">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Convictions</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>Share My Licence worked - Clear flag</li>
+              <li>Driver not on policy - Clear flag</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <p>Complete MTA</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Introduce quote data, Request SML</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h5>PH Confirms WCS</h5>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <p>Complete MTA</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>Request SML</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Amend to WSC</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+        <!-- Claims -->
+        <div class="slide" id="6">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Claims</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>Driver not on policy - clear flag</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <p>Complete MTA</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Introduce quote data, Request claims history</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h5>PH Confirms WCS</h5>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <p>Complete MTA</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>Request Claims History</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Amend to WSC</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+        <!-- residency -->
+        <div class="slide" id="7">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Residency</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>Worst case quote matches policy (MM/YY) - clear Flag</li>
+              <li>Driver not on policy - clear flag</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h7>PH Confirms WCS</h7>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h7>PH Does not confirm WCS or confirms what is on the policy</h7>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <p>Complete MTA</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Introduce quote data - if policy is since date of birth - request licence</p>
+                    <p>If not since date of birth - clear Flag</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h7>PH Confirms WCS</h7>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h7>PH Does not confirm WCS or confirms what is on the policy</h7>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <p>Complete MTA</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>If policy is since date of birth - request licence</p>
+                      <p>if not since birth - close flag</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Amend to WSC</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+
+        <!-- licence type  -->
+        <div class="slide" id="8">
+        <div class="open">
+          <div class="header content-title b">
+            <h1>Licence Type</h1>
+          </div>
+          <div class="content">
+            <h3 class="content-title o">On Initial Review</h3>
+            <ul>
+              <li>ShareMyLicence worked - clear flag</li>
+              <li>Driver not on policy - clear flag</li>
+            </ul>
+          </div>
+        </div>
+          <div class="table">
+            <div class="content">
+              <div class="content-title g">
+                <h3>Verbal Contact</h3>
+              </div>
+
+              <div class="row">
+                <div class=" split content-title   col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title  col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+                <div class="row">
+                  <div class="split col-sm-6">
+                    <p>Request Driving licence</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Request Driving licence</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="During">
+              <div class="content">
+              <div class="content-title g">
+                <h3>Written</h3>
+              </div>
+                <div class="row">
+                  <div class="split content-title  col-sm-6">
+                    <h5>PH Confirms WCS</h5>
+                  </div>
+                  <div class="content-title col-sm-6">
+                    <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-sm-6 split">
+                      <p>Request driving licence</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>Request driving licence</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="end">
+                <div class="footer content-title o">
+                  <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+                </div>
+                <div class="content">
+                  <p>Cancel</p>
+                </div>
+              </div>
+              <div class="spacer"></div>
+        </div>
+<!-- licence years  -->
+      <div class="slide" id="9">
+      <div class="open">
+        <div class="header content-title b">
+          <h1>Licence Years</h1>
+        </div>
+        <div class="content">
+          <h3 class="content-title o">On Initial Review</h3>
+          <ul>
+            <li>ShareMyLicence worked - clear flag</li>
+            <li>Driver not on policy - clear flag</li>
+          </ul>
+        </div>
+      </div>
+        <div class="table">
+          <div class="content">
+            <div class="content-title g">
+              <h3>Verbal Contact</h3>
+            </div>
+
+            <div class="row">
+              <div class=" split content-title   col-sm-6">
+                <h5>PH Confirms WCS</h5>
+              </div>
+              <div class="content-title  col-sm-6">
+                <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+              </div>
+              <div class="row">
+                <div class="split col-sm-6">
+                  <p>Amend</p>
+                </div>
+                <div class="col-sm-6">
+                  <p>Request Driving licence</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="During">
+            <div class="content">
+            <div class="content-title g">
+              <h3>Written</h3>
+            </div>
+              <div class="row">
+                <div class="split content-title  col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-sm-6 split">
+                    <p>Amend</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Request driving licence</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="end">
+              <div class="footer content-title o">
+                <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+              </div>
+              <div class="content">
+                <p>Amend to WSC</p>
+              </div>
+            </div>
+            <div class="spacer"></div>
+      </div>
+      <!-- Driver Age -->
+      <div class="slide" id="10">
+      <div class="open">
+        <div class="header content-title b">
+          <h1>Driver Age</h1>
+        </div>
+        <div class="content">
+          <h3 class="content-title o">On Initial Review</h3>
+          <ul>
+            <li>ShareMyLicence worked - clear flag</li>
+            <li>Driver not on policy - clear flag</li>
+          </ul>
+        </div>
+      </div>
+        <div class="table">
+          <div class="content">
+            <div class="content-title g">
+              <h3>Verbal Contact</h3>
+            </div>
+
+            <div class="row">
+              <div class=" split content-title   col-sm-6">
+                <h5>PH Confirms WCS</h5>
+              </div>
+              <div class="content-title  col-sm-6">
+                <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+              </div>
+              <div class="row">
+                <div class="split col-sm-6">
+                  <p>Request Driving licence</p>
+                </div>
+                <div class="col-sm-6">
+                  <p>Request Driving licence</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="During">
+            <div class="content">
+            <div class="content-title g">
+              <h3>Written</h3>
+            </div>
+              <div class="row">
+                <div class="split content-title  col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-sm-6 split">
+                    <p>Request driving licence</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Request driving licence</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="end">
+              <div class="footer content-title o">
+                <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+              </div>
+              <div class="content">
+                <p>Cancel</p>
+              </div>
+            </div>
+            <div class="spacer"></div>
+      </div>
+      <!-- NCD -->
+      <div class="slide" id="11">
+      <div class="open">
+        <div class="header content-title b">
+          <h1>NCD</h1>
+        </div>
+        <div class="content">
+          <h3 class="content-title o">On Initial Review</h3>
+          <ul>
+            <li>NCD zero on policy - clear flag</li>
+
+          </ul>
+        </div>
+      </div>
+        <div class="table">
+          <div class="content">
+            <div class="content-title g">
+              <h3>Verbal Contact</h3>
+            </div>
+
+            <div class="row">
+              <div class=" split content-title   col-sm-6">
+                <h5>PH Confirms WCS</h5>
+              </div>
+              <div class="content-title  col-sm-6">
+                <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+              </div>
+              <div class="row">
+                <div class="split col-sm-6">
+                  <p>Quote for change & contact PI/request proof (unless its NCD to zero MTA)</p>
+                </div>
+                <div class="col-sm-6">
+                  <p>Contact PI/request written proof</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="During">
+            <div class="content">
+            <div class="content-title g">
+              <h3>Written</h3>
+            </div>
+              <div class="row">
+                <div class="split content-title  col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-sm-6 split">
+                    <ul>
+                      <li>Amend if written proof received</li>
+                      <li>if no proof contact PI/request written proof (unless its NCD to zero - MTA)</li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Contact PI/request written proof</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="end">
+              <div class="footer content-title o">
+                <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+              </div>
+              <div class="content">
+                <p>Reduce to zero (make sure a call to PI has taken place, if the verbally confirm)</p>
+              </div>
+            </div>
+            <div class="spacer"></div>
+      </div>
+      <div class="slide" id="12">
+      <div class="open">
+        <div class="header content-title b">
+          <h1>DLN Removed</h1>
+        </div>
+        <div class="content">
+          <h3 class="content-title o">On Initial Review</h3>
+          <ul>
+            <li>Driver not on policy - clear flag</li>
+          </ul>
+        </div>
+      </div>
+        <div class="table">
+          <div class="content">
+            <div class="content-title g">
+              <h3>Verbal Contact</h3>
+            </div>
+
+            <div class="row">
+              <div class=" split content-title   col-sm-6">
+                <h5>PH Confirms WCS</h5>
+              </div>
+              <div class="content-title  col-sm-6">
+                <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+              </div>
+              <div class="row">
+                <div class="split col-sm-6">
+                  <p>Request SML</p>
+                </div>
+                <div class="col-sm-6">
+                </p>Request SML</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="During">
+            <div class="content">
+            <div class="content-title g">
+              <h3>Written</h3>
+            </div>
+              <div class="row">
+                <div class="split content-title  col-sm-6">
+                  <h5>PH Confirms WCS</h5>
+                </div>
+                <div class="content-title col-sm-6">
+                  <h5>PH Does not confirm WCS or confirms what is on the policy</h5>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-sm-6 split">
+                    <p>Request SML</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Request SML</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="end">
+              <div class="footer content-title o">
+                <h5>No contact/Incomplete/Evidence not reveived by end of chase</h5>
+              </div>
+              <div class="content">
+                <p>Cancel</p>
+              </div>
+            </div>
+          <div class="spacer"></div>
+          </div>
+      </div>
+      <script>
+        document.querySelector('select').addEventListener('change', (e) => {
+          let option = e.target.selectedOptions[0].index;
+          let slide = document.getElementById(`${option}`);
+          console.log(slide);
+          slide.scrollIntoView({block: 'center', behavior: 'smooth'})
+        });
+
+
+      </script>
+</body>
+
+</html>
