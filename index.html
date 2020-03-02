@@ -130,7 +130,8 @@
       border: 1px inset #9f9f9f;
       padding: 10px;
       border-radius: 5px;
-    }
+      line-height: 0.8;
+        }
 
     .textarea {
       margin: 5px 0;
@@ -255,9 +256,13 @@
 
       <div class="para" id="para">
         <p class="qm">QM:</p>
+        <br>
         <p class="prev">Previous Insurer:</p>
+        <br>
         <p class="called">Called:</p>
+        <br>
         <p class="sent">Sent:</p>
+        <br>
         <p class="required">Required:</p>
       </div>
       <div class="row copier">
@@ -269,7 +274,8 @@
         </div>
       </div>
       <div class="textarea">
-        <textarea name="name" rows="3" cols="80" placeholder="Further Notes..."></textarea>
+        <textarea class="further" name="name" rows="3" cols="80" placeholder="Further Notes..."></textarea>
+        <button class="textarea" value="further" onClick="clearText()">Clear Further Notes</button>
       </div>
       <h3 class="title">2020 &copy Nathaniel Detsicas</h3>
     </div>
@@ -295,7 +301,7 @@
             elem.classList.remove('toggle');
           });
           e.target.classList.add('toggle');
-        } else if (btn !== 'copy' && btn !== 'clear') {
+        } else if (btn !== 'copy' && btn !== 'clear' && btn !== 'further') {
           e.target.classList.add('toggle');
         };
         //get button name and value push name to array = to template.name
@@ -355,11 +361,14 @@
       a.querySelector('.required').innerText = 'Required:   ';
       a.querySelectorAll('input').forEach((elem) => {
         elem.value = '';
-      })
+      });
       document.querySelectorAll('button').forEach((elem) => {
         elem.classList.remove('toggle');
-      })
+      });
 
+    };
+    function clearText(){
+      document.querySelector('textarea').innerText = '';
     }
   </script>
 
