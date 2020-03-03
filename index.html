@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>NBR Note Maker</title>
+  <title>NBR: Note Maker</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <style>
     body {
@@ -37,7 +37,7 @@
 
     button:active {
       opacity: 0.7;
-      box-shadow: inset 2px 2px 8px 2px #6f6f6f;
+      box-shadow: inset 3px 3px 8px 2px #6f6f6f;
       outline: none;
     }
 
@@ -109,7 +109,7 @@
 
     .toggle {
       opacity: 0.7;
-      box-shadow: inset 2px 2px 5px 2px #6f6f6f;
+      box-shadow: inset 3px 3px 5px 2px #6f6f6f;
       outline: none;
     }
 
@@ -252,6 +252,9 @@
         <div class="col-3">
           <button class="primary-button" value="required" name="Claims History">Claims</button>
         </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="Share My Licence">SML</button>
+        </div>
       </div>
 
       <div class="para" id="para">
@@ -291,26 +294,24 @@
       required: ['Required: ']
     }
     //button click functions
+
     document.querySelectorAll('button').forEach((elem) => {
 
       elem.addEventListener('click', (e) => {
-        const btn = e.target.value;
-        //toggle buttons down
-        if (btn === 'called') {
-          document.querySelectorAll('.call').forEach(elem => {
-            elem.classList.remove('toggle');
-          });
-          e.target.classList.add('toggle');
-        } else if (btn !== 'copy' && btn !== 'clear' && btn !== 'further') {
-          e.target.classList.add('toggle');
-        };
-        //get button name and value push name to array = to template.name
         const label = e.target.name;
         let cat = e.target.value;
+        //toggle buttons down
         if (cat === 'called') {
-          template.called = label;
-          document.querySelector('.called').innerText = 'Called: ' + template.called;
-        } else {
+          document.querySelectorAll('.call').forEach(elem => {
+            elem.classList.remove('toggle');
+            template.called = label;
+            document.querySelector('.called').innerText = 'Called: ' + template.called;
+          });
+          e.target.classList.add('toggle');
+        } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && template[cat].length < 5) {
+          e.target.classList.add('toggle');
+        //get button name and value push name to array = to template.name
+          template[cat] = template[cat].filter(e =>  !(e == label));
           template[cat].push(label);
           document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
         };
