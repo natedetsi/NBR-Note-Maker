@@ -300,8 +300,14 @@
       elem.addEventListener('click', (e) => {
         const label = e.target.name;
         let cat = e.target.value;
+      // if label is equal at cat array item filter item
+        if(e.target.classList.contains('toggle')){
+        template[cat] = template[cat].filter(item => item !== label);
+        document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
+        e.target.classList.remove('toggle');
+      }
         //toggle buttons down
-        if (cat === 'called') {
+        else if(cat === 'called') {
           document.querySelectorAll('.call').forEach(elem => {
             elem.classList.remove('toggle');
             template.called = label;
@@ -311,7 +317,7 @@
         } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && template[cat].length < 5) {
           e.target.classList.add('toggle');
         //get button name and value push name to array = to template.name
-          template[cat] = template[cat].filter(e =>  !(e == label));
+          // template[cat] = template[cat].filter(e =>  !(e == label));
           template[cat].push(label);
           document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
         };
