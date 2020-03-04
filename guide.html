@@ -1083,7 +1083,6 @@
         document.querySelector('select').addEventListener('change', (e) => {
           let option = e.target.selectedOptions[0].index;
           let slide = document.getElementById(`${option}`);
-          console.log(slide);
           slide.scrollIntoView({block: 'center', behavior: 'smooth'})
         });
 

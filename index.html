@@ -49,6 +49,11 @@
       border-radius: 4px;
       outline: none;
     }
+    select {
+      width: 100%;
+      border-radius: 5px;
+      padding-left: 5px;
+    }
 
     .page-holder {
       text-align: center;
@@ -131,7 +136,7 @@
       padding: 10px;
       border-radius: 5px;
       line-height: 0.8;
-        }
+    }
 
     .textarea {
       margin: 5px 0;
@@ -214,7 +219,7 @@
       <div class="row called-container">
         <div class="row col-6">
           <div class="col-4"><button value="called" class="call" name="Left message on Mobile">LM Mob</button></div>
-          <div class="col-4"><button value="called" class="call" name="Left message on LandLine">LM Land</button></div>
+          <div class="col-4"><button value="called" class="call" name="Policy Holder was unavaiable">No Time</button></div>
           <div class="col-4"><button value="called" class="call" name="Number not provided on policy">No Num</button></div>
         </div>
         <div class="row col-6">
@@ -284,15 +289,17 @@
     </div>
   </div>
   <script>
-    //template object
     let template = {
       qm: ['QM:'],
       previous: [''],
       policy: [' ', ''],
       called: '',
+      type: "",
       sent: ['Sent: '],
       required: ['Required: ']
     }
+
+
     //button click functions
 
     document.querySelectorAll('button').forEach((elem) => {
@@ -300,14 +307,14 @@
       elem.addEventListener('click', (e) => {
         const label = e.target.name;
         let cat = e.target.value;
-      // if label is equal at cat array item filter item
-        if(e.target.classList.contains('toggle')){
-        template[cat] = template[cat].filter(item => item !== label);
-        document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
-        e.target.classList.remove('toggle');
-      }
+        // if label is equal at cat array item filter item
+        if (e.target.classList.contains('toggle')) {
+          template[cat] = template[cat].filter(item => item !== label);
+          document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
+          e.target.classList.remove('toggle');
+        }
         //toggle buttons down
-        else if(cat === 'called') {
+        else if (cat === 'called') {
           document.querySelectorAll('.call').forEach(elem => {
             elem.classList.remove('toggle');
             template.called = label;
@@ -316,7 +323,7 @@
           e.target.classList.add('toggle');
         } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && template[cat].length < 5) {
           e.target.classList.add('toggle');
-        //get button name and value push name to array = to template.name
+          //get button name and value push name to array = to template.name
           // template[cat] = template[cat].filter(e =>  !(e == label));
           template[cat].push(label);
           document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
@@ -350,6 +357,9 @@
       document.execCommand('copy');
       window.getSelection().removeAllRanges();
     }
+
+
+
     //clear template and .para
     function clearTemplate() {
       const a = document;
@@ -374,7 +384,8 @@
       });
 
     };
-    function clearText(){
+
+    function clearText() {
       document.querySelector('textarea').value = '';
     }
   </script>
