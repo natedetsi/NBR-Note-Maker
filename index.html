@@ -20,7 +20,11 @@
       margin: 10px auto;
       width: 200px;
     }
-
+    span{
+      font-size: 2vh;
+      font-weight: bold;
+      font-family: monospace;
+    }
     button {
       width: 100%;
       background-color: #fff1ff;
@@ -54,9 +58,15 @@
       border-radius: 5px;
       padding-left: 5px;
     }
-
+    li {
+      text-decoration: none;
+      list-style: none;
+    }
     .page-holder {
       text-align: center;
+      max-width:1200px;
+      width:100%;
+      height:100%;
     }
 
     .header-title {
@@ -93,6 +103,9 @@
 
       button {
         font-size: 1.5vh;
+      }
+      .side-notes{
+        width:100%;
       }
     }
 
@@ -149,6 +162,9 @@
       outline: none;
     }
 
+    #futher-notes{
+      height:1500px;
+    }
     .copier {
       margin: 10px 0;
       padding: 0;
@@ -156,6 +172,61 @@
 
     .copy-button {
       height: 50px;
+    }
+    .hover-button{
+      width:20px;
+      height:100%;
+      background-color: none;
+      position: absolute;
+      left: -20px;
+      top:0;
+      transition: all 0.3s ease;
+    }
+
+    .hover-button button{
+      width:50px;
+      height:70px;
+      position:absolute;
+      padding-left:20px;
+      top:50%;
+      left:0%;
+      transform:translateY(-50%);
+      border-radius: 0 20px 20px  0 ;
+      border: 1px solid #9f9f9f;
+      box-shadow: 5px 5px 15px -2px #3282b8;
+      background-color:#fff;
+      transition: all 0.5s ease;
+    }
+    .hover-button:hover button {
+      left:25%;
+    }
+    .hover-button button:active {
+      opacity: 0.7;
+      box-shadow: inset 3px 3px 8px 2px #6f6f6f;
+      outline: none;
+    }
+    .side-notes{
+      height:95%;
+      width: 80%;
+      position:absolute;
+      left:-100%;
+      top:50%;
+      min-width:480px;
+      max-width: 1000px;
+      transform:translate(-50%, -50%);
+      transition: all 0.3s linear;
+      border-radius:10px;
+      padding: 20px;
+      border: 1.5px solid #5f5f5f;
+      background-color: #fff;
+    }
+    .side-textarea{
+      height:96%;
+      resize:none;
+    }
+
+    #questions{
+      text-align: center;
     }
   </style>
 </head>
@@ -281,14 +352,36 @@
           <button class="copy-button" type="button" value="clear" name="button" onClick="clearTemplate()"> Clear Template</button>
         </div>
       </div>
-      <div class="textarea">
-        <textarea class="further" name="name" rows="4" cols="80" placeholder="Further Notes..."></textarea>
-        <button class="textarea" value="further" onClick="clearText()">Clear Further Notes</button>
+      <div>
+        <div class="questions">
+          <h5 class="questions">How to Question the Qm Data?</h5>
+          <div class="para" id="questions">
+
+          </div>
+        </div>
+
+      </div>
+      <div class="side-notes">
+        <textarea name="name" id="further-notes"class="side-textarea"></textarea>
+        <div class="row">
+        <div class="col-6">
+          <button class="copy-notes" onClick="copy('further-notes')"> Copy Notes</button>
+        </div>
+        <div class="col-6">
+          <button class="clear-notes" onClick="clearText('further-notes')">Clear Notes</button>
+        </div>
+        </div>
+      </div>
+      <div class="hover-button">
+        <button class="btn-side"><span class="button-span">></span></button>
+      </div>
       </div>
       <h3 class="title">2020 &copy Nathaniel Detsicas</h3>
     </div>
+
   </div>
   <script>
+  //template object
     let template = {
       qm: ['QM:'],
       previous: [''],
@@ -297,19 +390,29 @@
       sent: ['Sent: '],
       required: ['Required: ']
     }
-    //On click get name/ value push name to template cat
+
+    let qmList = [''];
+    const questions = {
+      NCD: ['This is question one ', 'this is question two', 'this is question three', 'this is question four'],
+      Convictions: ['convictions questions']
+    }
+
+
+
+  //On click get name value push name to template cat
     document.querySelectorAll('button').forEach((elem) => {
 
       elem.addEventListener('click', (e) => {
         const label = e.target.name;
         let cat = e.target.value;
-        // if label is equal at cat array item filter item
+       // if label is equal at cat array item filter item
         if (e.target.classList.contains('toggle')) {
+          //filter out template data
           template[cat] = template[cat].filter(item => item !== label);
           document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
           e.target.classList.remove('toggle');
         }
-        //toggle buttons down
+//toggle buttons down
         else if (cat === 'called') {
           document.querySelectorAll('.call').forEach(elem => {
             elem.classList.remove('toggle');
@@ -324,9 +427,26 @@
           document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
         };
       });
-
     });
-    //policy information checker, monitors change in input value and displays inside .para
+    let tog2 = false;
+    document.querySelectorAll('.top-container button').forEach(elem => {
+
+      elem.addEventListener('click', e => {
+            template.qm.map(elem => {if(elem === e.target.name){
+              qmList.push(questions[elem].join(`<li><br /><br /></li>`))
+              document.querySelector('#questions').innerHTML = qmList.join(`<hr />`);
+              // document.querySelector('#questions').innerHTML = questions[elem].join(`<li><br /><br /></li>`);
+          }
+        });
+
+      })
+    })
+
+
+
+
+
+//policy information checker, monitors change in input value and displays inside .para
     document.querySelectorAll('.second').forEach((elem) => {
       elem.addEventListener('keyup', (e) => {
         let pcat = e.target.classList[1];
@@ -341,7 +461,9 @@
 
       });
     });
-    //select all inside .para and copy to clipboard
+
+
+//select all inside .para and copy to clipboard
     function copy(id) {
       let from = document.getElementById(id);
       let range = document.createRange();
@@ -350,11 +472,23 @@
       window.getSelection().addRange(range);
       document.execCommand('copy');
       window.getSelection().removeAllRanges();
-    }
+    };
+
+//slide in side notes
+    let tog = true;
+document.querySelector('.btn-side').addEventListener('click', () => {
+  tog = !tog;
+  if(tog === false){
+    document.querySelector('.side-notes').style.left = '50%';
+    document.querySelector('.button-span').innerText = '<';
+  } else if (tog === true){
+    document.querySelector('.side-notes').style.left = "-100%";
+    document.querySelector('.button-span').innerText = '>';
+  };
+});
 
 
-
-    //clear template and .para
+//clear template and .para
     function clearTemplate() {
       const a = document;
       template = {
@@ -376,11 +510,10 @@
       document.querySelectorAll('button').forEach((elem) => {
         elem.classList.remove('toggle');
       });
-
     };
-
-    function clearText() {
-      document.querySelector('textarea').value = '';
+// Clear element text by id
+    function clearText(id) {
+      document.getElementById(id).value = '';
     }
   </script>
 
