@@ -260,6 +260,19 @@
       height:auto;
       transition: all 0.3s linear;
     }
+
+    .ncd-template  {
+      position: absolute;
+      border-radius:10px;
+      border: 1px inset #9f9f9f;
+      background-color: #fff;
+      padding-top:300px;
+      top:50%;
+      right:-100%;
+      transform:translate(-50%, -50%);
+      height: 95%;
+      width: 60%;
+    }
   </style>
 </head>
 
@@ -267,6 +280,10 @@
   <div class="page-holder">
     <div class="template">
       <h3 class="header-title">Note maker</h3>
+
+
+<!-- top row of buttons START -->
+
       <div class="row top-container">
         <div class="col-3">
           <button class="primary-button" key="true" value="qm" name="NCD">NCD</button>
@@ -309,6 +326,8 @@
         </div>
       </div>
       <hr>
+
+<!-- policy section START -->
       <div class="row policy-container">
 
         <div class="col-6 input-p">
@@ -319,6 +338,9 @@
         </div>
       </div>
       <hr>
+
+
+<!-- called and sent sections START -->
       <div class="row called-container">
         <div class="row col-6">
           <div class="col-4"><button value="called" class="call" name="Left voice mail ">Left msg</button></div>
@@ -332,6 +354,9 @@
         </div>
       </div>
       <hr>
+
+
+<!-- bottom row of buttons start -->
       <div class="row bottom-container">
         <div class="col-3">
           <button class="primary-button" value="required" name="NCD">NCD</button>
@@ -365,6 +390,8 @@
         </div>
       </div>
 
+
+<!-- template display section START-->
       <div class="para" id="para">
         <p class="qm">QM:</p>
         <br>
@@ -385,6 +412,8 @@
         </div>
       </div>
 
+
+<!-- questions section START -->
         <div class="questions">
           <div class="para" id="questions">
             <h5>How to Question the Qm Data?</h5>
@@ -395,6 +424,7 @@
           <button class="btn-top" onClick="clickId('questions')"><span class="button-span">></span></button>
 
 
+<!-- side notes section start -->
       <div class="side-notes">
         <textarea name="name" id="further-notes" class="side-textarea"></textarea>
         <div class="row">
@@ -409,6 +439,40 @@
       <div class="hover-button">
         <button class="btn-side"><span class="button-span">></span></button>
       </div>
+
+<!-- NCD template slide START -->
+
+<div class="ncd-template">
+  <div class="row">
+    <div class="col-6"><input type="text" placeholder="Reg number"></div>
+    <div class="col-6"><input type="text" placeholder="expire date"></div>
+    <div class="col-6"><input type="text" placeholder="NCD years"></div>
+    <div class="col-6">claims</div>
+    <div class="col-6">Convictions</div>
+    <div class="col-12">
+      <div class="para">
+       <p class="prev">Previous Insurer:</p>
+        <br>
+        <p class="called">Policy Number: </p>
+        <br>
+        <p class="reg">Reg:</p>
+        <br>
+        <p class="sent">NCD years:</p>
+        <br>
+        <p class="required">Claims</p>
+        <br>
+        <p class="cons">Convictions</p>
+      </div>
+      <div class="col-6">
+        <button class="copy-notes" value="copy" onClick="copy('further-notes')"> Copy Notes</button>
+      </div>
+      <div class="col-6">
+        <button class="clear-notes" value="clear" onClick="clearText('further-notes')">Clear Notes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
       <h3 class="title">2020 &copy; Nathaniel Detsicas</h3>
     </div>
