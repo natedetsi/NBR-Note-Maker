@@ -174,7 +174,7 @@
     .copy-button {
       height: 50px;
     }
-    .hover-button{
+    .hover-button-left{
       width:20px;
       height:100%;
       background-color: none;
@@ -183,18 +183,41 @@
       top:0;
       transition: all 0.3s ease;
     }
-
-    .btn-side{
+    .hover-button-right{
+      width:20px;
+      height:100%;
+      background-color: none;
+      position: absolute;
+      right: -20px;
+      top:0;
+      transition: all 0.3s ease;
+    }
+    .btn-left{
       width:50px;
       height:70px;
       position:absolute;
       padding-left:20px;
       top:50%;
-      left:0%;
+      left:-10px;
       transform:translateY(-50%);
       border-radius: 0 20px 20px  0 ;
       border: 1px solid #9f9f9f;
       box-shadow: 5px 5px 15px -2px #3282b8;
+      background-color:#fff;
+      transition: all 0.5s ease;
+    }
+    .btn-right{
+      width:50px;
+      height:70px;
+      position:absolute;
+      padding-left:20px;
+      top:45%;
+      right:-10px;
+      transform:translateY(-50%);
+      transform:rotateZ(180deg);
+      border-radius: 0 20px 20px  0 ;
+      border: 1px solid #9f9f9f;
+      box-shadow: -5px -5px 15px -2px #3282b8;
       background-color:#fff;
       transition: all 0.5s ease;
     }
@@ -216,13 +239,16 @@
     .btn-top:hover{
       top:-20px;
       box-shadow: 7px -5px 18px 0px #3282b8;
-
     }
-    .btn-side:hover {
-      left:25%;
+    .btn-right:hover{
+      right:10px;
+      box-shadow: -7px -7px 18px 0px #3282b8;
+    }
+    .btn-left:hover {
+      left:10px;
       box-shadow: 7px 7px 18px 0px #3282b8;
     }
-    .btn-side:active, .btn-top:active {
+    .btn-left:active, .btn-top:active, .btn-right:active {
       opacity: 0.7;
       box-shadow: inset 3px 3px 8px 2px #6f6f6f;
       outline: none;
@@ -253,7 +279,7 @@
     }
     .questions {
       position: absolute;
-      top: -100%;
+      top: -500%;
       left:50%;
       transform:translateX(-50%);
       width:90%;
@@ -266,12 +292,37 @@
       border-radius:10px;
       border: 1px inset #9f9f9f;
       background-color: #fff;
-      padding-top:300px;
+      padding:100px 10px;
       top:50%;
       right:-100%;
-      transform:translate(-50%, -50%);
+      transform:translate(50%, -50%);
+      transition: all 0.3s linear;
       height: 95%;
       width: 60%;
+    }
+    .template-holder{
+      position:relative;
+      height:100%;
+      width:100%;
+    }
+    .ncd-template input{
+      margin: 2px 0;
+    }
+    .claim {
+      margin-top:5px;
+      width:80%;
+    }
+    .inputs{
+      position:absolute;
+      top:0;
+    }
+    .middle{
+      margin:100px 0 0;
+    }
+    .template-section{
+      position:absolute;
+      bottom:0;
+      width:100%;
     }
   </style>
 </head>
@@ -316,13 +367,16 @@
           <button class="primary-button" key="true" value="qm" name="Mileage">Mileage</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Claims History">Claims</button>
+          <button class="primary-button" key="true" value="qm" name="Claims">Claims</button>
         </div>
         <div class="col-3">
           <button class="primary-button" key="true" value="qm" name="Licence Type">L Type</button>
         </div>
         <div class="col-3">
           <button class="primary-button" key="true" value="qm" name="Licence Years">L Years</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="HPI">HPI</button>
         </div>
       </div>
       <hr>
@@ -425,6 +479,7 @@
 
 
 <!-- side notes section start -->
+
       <div class="side-notes">
 
         <textarea name="name" id="further"class="side-textarea"></textarea>
@@ -438,46 +493,67 @@
         </div>
         </div>
       </div>
-      <div class="hover-button">
-        <button class="btn-side"><span class="button-span">></span></button>
+      <div class="hover-button-left">
+        <button class="btn-left"><span class="button-span">></span></button>
       </div>
 
 <!-- NCD template slide START -->
 
 <div class="ncd-template">
+  <div class="template-holder">
+    <div class="inputs">
   <div class="row">
     <div class="col-6"><input type="text" placeholder="Reg number"></div>
     <div class="col-6"><input type="text" placeholder="expire date"></div>
     <div class="col-6"><input type="text" placeholder="NCD years"></div>
-    <div class="col-6">claims</div>
-    <div class="col-6">Convictions</div>
-    <div class="col-12">
+  </div>
+  <div class="row middle">
+    <div class="col-6">
+      <h6>Claims</h6>
+      <div class="col-12"><input type="text"  name="type" placeholder="Type"></div>
+      <div class="col-12" ><input type="text" name="date" placeholder="DD/MM/YY"></div>
+      <div class="col-12" ><input type="text" name="driver" placeholder="Driver name"></div>
+      <div class="col-12" ><input type="text" name="liability" placeholder="Liability"></div>
+      <button class="col-12 claim" name="claim">Add Claim</button>
+    </div>
+    <div class="col-6">
+      <h6>Convictions</h6>
+      <div class="col-12"><input type="text" placeholder="Code"></div>
+      <div class="col-12" ><input type="text" placeholder="DD/MM/YY"></div>
+      <div class="col-12" ><input type="text" placeholder="Driver name"></div>
+      <div class="col-12" ><input type="text" placeholder=""></div>
+      <button class="col-12 claim" name="conviction">Add Conviction</button>
+    </div>
+  </div>
+</div>
+<div class="template-section">
       <div class="para">
        <p class="prev">Previous Insurer:</p>
-        <br>
-        <p class="called">Policy Number: </p>
         <br>
         <p class="reg">Reg:</p>
         <br>
         <p class="sent">NCD years:</p>
         <br>
-        <p class="required">Claims</p>
+        <p class="required">Claims:<p>
         <br>
-        <p class="cons">Convictions</p>
+        <p class="cons">Convictions:</p>
       </div>
+        <div class="row">
       <div class="col-6">
-        <button class="copy-notes" value="copy" onClick="copy('further-notes')"> Copy Notes</button>
+        <button class="copy-notes" value="copy" onClick="copy('further-notes')">Copy Notes</button>
       </div>
       <div class="col-6">
         <button class="clear-notes" value="clear" onClick="clearText('further-notes')">Clear Notes</button>
       </div>
-
+      </div>
     </div>
   </div>
 </div>
+<div class="hover-button-right">
+  <button class="btn-right"><span class="button-span">></span></button>
+</div>
 <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
       </div>
-
     </div>
 
 
@@ -492,12 +568,27 @@
       required: ['Required: ']
     }
 
+
+  //questions list
     let qmList = [''];
     const questions = {
-      NCD: ['This is question one ', 'this is question two', 'this is question three', 'this is question four'],
-      Convictions: ['convictions questions']
+      NCD: ['How many years NCD do you have? ', 'Who was you previous insurer?', 'When did it expire', 'Who was the policy holder?'],
+      Claims: ['how many incidents have you had in th past 5 years', 'What happened? how was it resolved?', 'who was driving?', 'what year? what month?'],
+      Occupation: ['How many jobs do you have?', 'what is your occupation?', 'how many hours do you work?', 'how long have you worked there?', 'how are you supporting yourself?', ' are you actively seeking work?'],
+      Licence: ['how long have you held you licence?', 'what type of licence do you have?', 'what restictions do you have on your licence?'],
+      Address:['Where do you live?', 'what is your current address', 'how long have you lived there?', 'how many addresses do you have?', 'what other addresses are linked to this vehicle?'],
+      HPI: ['who is the registered keeper?', 'when was the vehicle purchased?', 'how long have you owned the vehicle?', 'how long have you been driving the vehicle?'],
+      Mileage:['what is you annual mileage? ', 'what would be the maximum amount of miles you would require for the year?', 'how did you come to that amount?', 'how many miles do you do per month/week/day?', 'what is the vehicle used for?', 'how many places of work do you travel too?'],
+      Residency: ['how long have you been a resident in the UK?', 'when did you move to the UK?', 'how long did you live in...?'],
+      Convictions: ['how many motoring convitctions do you have?', 'what was the conviction for?', 'what year? what month?']
     }
 
+  // ncd template claims and convictions object
+
+  let ncd = {
+    claims: [],
+    conviction: []
+  }
 
 
   //On click get name value push name to template cat
@@ -529,6 +620,8 @@
         };
       });
     });
+
+  //get questions for qm data
     let tog2 = false;
     document.querySelectorAll('.top-container button').forEach(elem => {
 
@@ -536,7 +629,6 @@
             template.qm.map(elem => {if(elem === e.target.name){
               qmList.push(questions[elem].join(`<li><br /></li>`))
               document.querySelector('.q-info').innerHTML = qmList.join(`<hr />`);
-              // document.querySelector('#questions').innerHTML = questions[elem].join(`<li><br /><br /></li>`);
           }
         });
 
@@ -558,11 +650,20 @@
           template.policy.pop();
           template.policy.push(e.target.value);
         };
-        document.querySelector('.prev').innerText = 'Previous Insurer: ' + template.previous.join('') + " - " + template.policy.join('')
+        document.querySelectorAll('.prev').forEach((elem) => {
+          elem.innerText = 'Previous Insurer: ' + template.previous.join('') + " - " + template.policy.join('');
+        });
 
       });
     });
+//NCD claims and convictions buttons
 
+document.querySelectorAll('.claim').forEach((elem) => {
+  elem.addEventListener('click', (e) => {
+    const cat = e.target.name;
+    console.log(cat);
+  });
+});
 
 //select all inside .para and copy to clipboard
     function copy(id) {
@@ -583,17 +684,32 @@
 
 //slide in side notes
     let tog = true;
-document.querySelector('.btn-side').addEventListener('click', () => {
+document.querySelector('.btn-left').addEventListener('click', () => {
   tog = !tog;
   if(tog === false){
     document.querySelector('.side-notes').style.left = '50%';
-    document.querySelector('.btn-side span').innerText = '<';
+    document.querySelector('.btn-left span').innerText = '<';
   } else if (tog === true){
     document.querySelector('.side-notes').style.left = "-100%";
-    document.querySelector('.btn-side span').innerText = '>';
+    document.querySelector('.btn-left span').innerText = '>';
   };
 });
-//side in questions tab
+
+//ncd template slide in
+let tog4 = true;
+document.querySelector('.btn-right').addEventListener('click', () => {
+tog = !tog;
+if(tog === false){
+document.querySelector('.ncd-template').style.right = '50%';
+document.querySelector('.btn-right span').innerText = '<';
+} else if (tog === true){
+document.querySelector('.ncd-template').style.right = "-100%";
+document.querySelector('.btn-right span').innerText = '>';
+};
+});
+
+
+//slide in questions tab
 let tog3 = true;
 function clickId(className){
   const q = document.querySelector('.' + className);
