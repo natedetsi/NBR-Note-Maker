@@ -99,18 +99,7 @@
       margin: 100px  auto 0;
     }
 
-    @media (max-width: 800px) {
-      .template {
-        width: 90%;
-      }
 
-      button {
-        font-size: 1.5vh;
-      }
-      .side-notes{
-        width:100%;
-      }
-    }
 
     .top-container {
       margin-top: 20px;
@@ -206,7 +195,7 @@
       border: 1px solid #9f9f9f;
       box-shadow: 5px 5px 15px -2px #3282b8;
       background-color:#fff;
-      transition: all 0.5s ease;
+      transition: all 0.2s ease;
     }
     .btn-right{
       width:50px;
@@ -221,7 +210,7 @@
       border: 1px solid #9f9f9f;
       box-shadow: -5px -5px 15px -2px #3282b8;
       background-color:#fff;
-      transition: all 0.5s ease;
+      transition: all 0.2s ease;
     }
     .btn-top{
       width:50px;
@@ -236,7 +225,7 @@
       border: 1px solid #9f9f9f;
       box-shadow: 5px -3px 15px -2px #3282b8;
       background-color:#fff;
-      transition: all 0.5s ease;
+      transition: all 0.2s ease;
     }
     .btn-top:hover{
       top:-20px;
@@ -316,18 +305,33 @@
     .ncd-template input{
       margin: 2px 0;
     }
-    .claim {
+    .claim-button, .conviction-button {
       margin-top:5px;
-      width:80%;
+      width:60%;
     }
     .middle{
       margin:100px 0 0;
     }
-    .template-section{
-      position:absolute;
-      bottom:0;
-      width:100%;
+    .ncd-sec {
+    
     }
+/* media query */
+    @media (max-width: 800px) {
+      .template {
+        width: 90%;
+      }
+
+      button {
+        font-size: 1.5vh;
+      }
+      .side-notes{
+        width:100%;
+      }
+      .ncd-template{
+        width:90%;
+      }
+    }
+
   </style>
 </head>
 
@@ -505,10 +509,10 @@
     <div class="inputs">
   <div class="row">
     <div class="col-6 input-p">
-      <input type="text" class="second previous" placeholder="Previous Insurer">
+      <input type="text" class="second previous ncd-sec" placeholder="Previous Insurer">
     </div>
     <div class="col-6 input-p">
-      <input type="text" class="second policy-number" placeholder="Policy Number">
+      <input type="text" class="second policy-number ncd-sec" placeholder="Policy Number">
     </div>
     <div class="col-6"><input type="text" name="reg" placeholder="Reg number"></div>
     <div class="col-6"><input type="text" name="expire" placeholder="expire date"></div>
@@ -526,16 +530,16 @@
     </div>
     <div class="col-6">
       <h6>Convictions</h6>
-      <div class="col-12"><input type="text" placeholder="Code"></div>
-      <div class="col-12" ><input type="text" placeholder="DD/MM/YY"></div>
-      <div class="col-12" ><input type="text" placeholder="Driver name"></div>
-      <div class="col-12" ><input type="text" placeholder=""></div>
+      <div class="col-12"><input type="text"  class="conviction" name="code"placeholder="Code"></div>
+      <div class="col-12" ><input type="text" class="conviction" name="date"placeholder="DD/MM/YY"></div>
+      <div class="col-12" ><input type="text" class="conviction" name="name"placeholder="Driver name"></div>
+      <div class="col-12" ></div>
       <button class="col-12 conviction-button" name="conviction">Add Conviction</button>
     </div>
   </div>
 
 <div class="template-section">
-      <div class="para">
+      <div class="para" id="ncd-template">
        <p class="prev">Previous Insurer:</p>
         <br>
         <p>Vehicle Reg: <span class="reg"></span></p>
@@ -546,14 +550,14 @@
         <br>
         <p>Claims: <ul class="claims"></ul></p>
         <br>
-        <p>Convictions: <span class="convictions"></span></p><p class="cons"></p>
+        <p>Convictions: <ul class="convictions"></ul></p>
       </div>
         <div class="row">
       <div class="col-6">
-        <button class="copy-notes" value="copy" onClick="copy('further-notes')">Copy Notes</button>
+        <button class="copy-notes" value="copy" onClick="copy('ncd-template')">Copy Notes</button>
       </div>
       <div class="col-6">
-        <button class="clear-notes" value="clear" onClick="clearText('further-notes')">Clear Notes</button>
+        <button class="clear-notes" value="clear" onClick="clearNcd()">Clear Notes</button>
       </div>
       </div>
     </div>
@@ -717,12 +721,10 @@ document.querySelector('.btn-right span').innerText = '>';
 
 // ncd template event haddlers
 
-const ncdTemplate ={
+let ncdTemplate ={
   reg:'Vehicle Reg: ',
   years: '',
   expire:'',
-  claims: [''],
-  convictions: ['']
 }
 
 let ncdClaims = {
@@ -731,9 +733,14 @@ let ncdClaims = {
   name: [],
   fault: []
 };
+let ncdCon ={
+  code: [],
+  date:[],
+  name: []
+}
 
 let newClaim = [];
-
+let newCon = [];
 //inputs section
 document.querySelectorAll('.inputs input').forEach(elem => {
   elem.addEventListener('keyup', (e) => {
@@ -746,13 +753,14 @@ document.querySelectorAll('.inputs input').forEach(elem => {
 });
 
 //claims and convictions sections
+
+////////////////// claims ///////////////////////////
 document.querySelectorAll('.claim').forEach(elem => {
   elem.addEventListener('keyup', (e) => {
     const cat = e.target.name;
     ncdClaims[cat].pop();
      ncdClaims[cat].push(e.target.value);
   });
-
 });
 
 document.querySelector('.claim-button').addEventListener('click', () => {
@@ -766,6 +774,25 @@ document.querySelector('.claim-button').addEventListener('click', () => {
   node.appendChild(nodeText);
   document.querySelector('.claims').appendChild(node);
   clearClaim()
+});
+///////////////////covictions///////////////////////////
+document.querySelectorAll('.conviction').forEach(elem => {
+  elem.addEventListener('keyup', (e) => {
+    const cat = e.target.name;
+    ncdCon[cat].pop();
+    ncdCon[cat].push(e.target.value);
+  });
+});
+document.querySelector('.conviction-button').addEventListener('click', () => {
+  newCon.push(ncdCon.code.join());
+  newCon.push(ncdCon.date.join());
+  newCon.push(ncdCon.name.join());
+
+  let node = document.createElement('p');
+  let nodeText = document.createTextNode(`${newCon.join(' - ')}`);
+  node.appendChild(nodeText);
+  document.querySelector('.convictions').appendChild(node);
+  clearCons();
 
 })
 
@@ -783,7 +810,19 @@ function clearClaim(){
     elem.value = '';
   })
 }
+// clear convictions input and arrays
 
+function clearCons() {
+  ncdCons ={
+    code:[],
+    date:[],
+    name:[]
+  };
+  newCon = [];
+  document.querySelectorAll('.conviction').forEach(elem => {
+    elem.value = '';
+  })
+}
 
 //slide in questions tab
 let tog3 = true;
@@ -826,6 +865,33 @@ function clickId(className){
         elem.classList.remove('toggle');
       });
     };
+// clear NCD template fields
+
+function clearNcd(){
+  const a = document;
+   ncdTemplate ={
+    reg:'Vehicle Reg: ',
+    years: '',
+    expire:'',
+  }
+
+ ncdClaims = {
+    type: [],
+    date: [],
+    name: [],
+    fault: []
+  };
+   ncdCon ={
+    code: [],
+    date:[],
+    name: []
+  }
+
+  newClaim = [];
+   newCon = [];
+}
+document.querySelector('.claims').innerHTML = '';
+document.querySelector('.convictions').innerHTML = '';
 // Clear element text by id
     function clearText(id) {
       document.getElementById(id).value = '';
