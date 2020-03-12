@@ -508,10 +508,10 @@
   <div class="template-holder">
     <div class="inputs">
   <div class="row">
-    <div clC:/ass="col-6 input-p">
+    <div class="col-6">
       <input type="text" class="second previous ncd-sec" placeholder="Previous Insurer">
     </div>
-    <div class="col-6 input-p">
+    <div class="col-6">
       <input type="text" class="second policy-number ncd-sec" placeholder="Policy Number">
     </div>
     <div class="col-6"><input type="text" name="reg" placeholder="Reg number"></div>
@@ -889,9 +889,10 @@ function clearNcd(){
 
   newClaim = [];
    newCon = [];
+   document.querySelector('.claims').innerHTML = '';
+   document.querySelector('.convictions').innerHTML = '';
 }
-document.querySelector('.claims').innerHTML = '';
-document.querySelector('.convictions').innerHTML = '';
+
 // Clear element text by id
     function clearText(id) {
       document.getElementById(id).value = '';
