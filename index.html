@@ -11,12 +11,13 @@
     body {
       padding: 0;
       margin: 0;
+      height:100vh;
       min-width: 400px;
       background-color: #bbe1fa;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      overflow-x:hidden;
     }
 
     hr {
@@ -205,7 +206,7 @@
       height:40px;
       position:absolute;
       top:50%;
-      right:-30px;
+      right:-35px;
       transform:translateY(-50%);
       transform:rotateZ(-90deg);
       border-radius: 10px 10px 0  0 ;
@@ -218,7 +219,7 @@
     .btn-top{
       width:120px;
       height:40px;
-      position:absolute;
+      position:fixed;
       top:-10px;
       left:50%;
       transform:translateX(-50%);
@@ -234,7 +235,7 @@
       box-shadow: 7px -5px 18px 0px #3282b8;
     }
     .btn-right:hover{
-      right:-25px;
+      right:-30px;
       box-shadow: -7px -7px 18px 0px #3282b8;
     }
     .btn-left:hover {
@@ -326,7 +327,7 @@
     }
     #ncd-template {
       overflow-y: scroll;
-      height:400px;
+      height:380px;
       max-height:500px;
     }
 /* media query */
@@ -911,6 +912,7 @@ function question(className){
 
 function clearNcd(){
   const a = document;
+        a.querySelector('.prev').innerText = 'Previous insurer: ';
    ncdTemplate ={
     reg:'Vehicle Reg: ',
     years: '',
