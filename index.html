@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nathaniel Detsicas">
   <title>NBR: Note Maker</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <style>
@@ -181,62 +183,65 @@
       position: absolute;
       right: -20px;
       top:0;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
     .btn-left{
       width:50px;
-      height:70px;
+      height:100px;
       position:absolute;
       padding-left:20px;
       top:50%;
-      left:-10px;
+      left:-5px;
       transform:translateY(-50%);
-      border-radius: 0 20px 20px  0 ;
+      border-radius: 0 10px 10px  0 ;
       border: 1px solid #9f9f9f;
       box-shadow: 5px 5px 15px -2px #3282b8;
       background-color:#fff;
-      transition: all 0.2s ease;
+      transition: all 0.1s ease;
+      z-index: 3;
     }
     .btn-right{
       width:50px;
-      height:70px;
+      height:100px;
       position:absolute;
       padding-left:20px;
       top:45%;
-      right:-10px;
+      right:-5px;
       transform:translateY(-50%);
       transform:rotateZ(180deg);
-      border-radius: 0 20px 20px  0 ;
+      border-radius: 0 10px 10px  0 ;
       border: 1px solid #9f9f9f;
       box-shadow: -5px -5px 15px -2px #3282b8;
       background-color:#fff;
-      transition: all 0.2s ease;
+      transition: all 0.1s ease;
+      z-index: 3;
     }
     .btn-top{
       width:50px;
-      height:70px;
+      height:100px;
       position:absolute;
       padding-left:20px;
-      top:-35px;
+      top:-45px;
       left:47%;
       transform:translateX(-100%);
       transform:rotateZ(90deg);
-      border-radius: 0 20px 20px  0 ;
+      border-radius: 0 10px 10px  0 ;
       border: 1px solid #9f9f9f;
       box-shadow: 5px -3px 15px -2px #3282b8;
       background-color:#fff;
-      transition: all 0.2s ease;
+      transition: all 0.1s ease;
+      z-index: 3;
     }
     .btn-top:hover{
-      top:-20px;
+      top:-40px;
       box-shadow: 7px -5px 18px 0px #3282b8;
     }
     .btn-right:hover{
-      right:10px;
+      right:5px;
       box-shadow: -7px -7px 18px 0px #3282b8;
     }
     .btn-left:hover {
-      left:10px;
+      left:5px;
       box-shadow: 7px 7px 18px 0px #3282b8;
     }
     .btn-left:active, .btn-top:active, .btn-right:active {
@@ -253,7 +258,7 @@
       min-width:480px;
       max-width: 1000px;
       transform:translate(-50%, -50%);
-      transition: all 0.3s linear;
+      transition: all 0.2s linear;
       border-radius:10px;
       padding: 20px;
       border: 1.5px solid #5f5f5f;
@@ -270,12 +275,12 @@
     }
     .questions {
       position: absolute;
-      top: -500%;
+      top: -100%;
       left:50%;
       transform:translateX(-50%);
       width:90%;
       height:auto;
-      transition: all 0.3s linear;
+      transition: all 0.2s linear;
     }
     .q-info {
       text-align: left;
@@ -289,7 +294,7 @@
       border-radius:10px;
       border: 1px inset #9f9f9f;
       background-color: #fff;
-      padding:100px 10px;
+      padding:40px 10px;
       top:50%;
       right:-100%;
       transform:translate(50%, -50%);
@@ -297,10 +302,14 @@
       height: 95%;
       width: 60%;
     }
+    .inputs{
+      margin-top:30px;
+    }
     .template-holder{
       position:relative;
       height:100%;
       width:100%;
+      min-width: 400px;
     }
     .ncd-template input{
       margin: 2px 0;
@@ -309,11 +318,19 @@
       margin-top:5px;
       width:60%;
     }
+    .conviction-button{
+      margin-top:36px;
+    }
     .middle{
-      margin:100px 0 0;
+      margin:50px 0 10px;
     }
     .ncd-sec {
-
+      width: 186px;
+    }
+    #ncd-template {
+      overflow-y: scroll;
+      height:400px;
+      max-height:500px;
     }
 /* media query */
     @media (max-width: 800px) {
@@ -397,7 +414,15 @@
         </div>
       </div>
       <hr>
-
+<div class="row letter-type">
+<div class="col-6"></div>
+<div class="row col-6">
+  <div class="col-3"><button value="sent" class="sent-msg" name="IN001">IN001</button></div>
+  <div class="col-3"><button value="sent" class="sent-msg" name="IN011">IN011</button></div>
+  <div class="col-3"><button value="sent" class="sent-msg" name="IN005">IN005</button></div>
+  <div class="col-3"><button value="sent" class="sent-msg" name="IN003">IN003</button></div>
+</div>
+</div>
 
 <!-- called and sent sections START -->
       <div class="row called-container">
@@ -473,19 +498,19 @@
 
 
 <!-- questions section START -->
-        <div class="questions">
+        <div class="questions" style="top:-100%">
           <div class="para" id="questions">
             <h5>How to Question the Qm Data?</h5>
             <div class="q-info"></div>
           </div>
         </div>
 
-          <button class="btn-top" onClick="clickId('questions')"><span class="button-span">></span></button>
+          <button class="btn-top" onClick="question('questions')"><span class="button-span">></span></button>
 
 
 <!-- side notes section start -->
 
-      <div class="side-notes">
+      <div class="side-notes" style="left: -100%">
 
         <textarea name="name" id="further"class="side-textarea"></textarea>
 
@@ -499,13 +524,14 @@
         </div>
       </div>
       <div class="hover-button-left">
-        <button class="btn-left"><span class="button-span">></span></button>
+        <button class="btn-left" ><span class="button-span">></span></button>
       </div>
 
 <!-- NCD template slide START -->
 
-<div class="ncd-template">
+<div class="ncd-template" style="right:-100%">
   <div class="template-holder">
+    <h3>NCD Template</h3>
     <div class="inputs">
   <div class="row">
     <div class="col-6">
@@ -526,7 +552,7 @@
       <div class="col-12" ><input type="text" class="claim" name="date" placeholder="DD/MM/YY"></div>
       <div class="col-12" ><input type="text" class="claim" name="name" placeholder="Driver name"></div>
       <div class="col-12" ><input type="text" class="claim" name="fault" placeholder="Liability"></div>
-      <button class="col-12 claim-button" name="claims">Add Claim</button>
+      <button class="col-10 claim-button" name="claims">Add Claim</button>
     </div>
     <div class="col-6">
       <h6>Convictions</h6>
@@ -564,7 +590,7 @@
   </div>
 </div>
 <div class="hover-button-right">
-<button class="btn-right"><span class="button-span">></span></button>
+<button class="btn-right" onClick="ncdClick('ncd-template')"><span class="button-span">></span></button>
 </div>
 <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
 </div>
@@ -572,7 +598,12 @@
 
 
   <script>
-  //template object
+
+  /////////////////////////////////////toggles////////////////////////////////////////
+    let tog = true;
+    let tog2 = true;
+    let tog4 = true;
+  /////////////////////////////////template object////////////////////////////////////////
     let template = {
       qm: ['QM:'],
       previous: [''],
@@ -581,145 +612,7 @@
       sent: ['Sent: '],
       required: ['Required: ']
     }
-
-
-  //questions list
-    let qmList = [''];
-    const questions = {
-      NCD: ['How many years NCD do you have? ', 'Who was you previous insurer?', 'When did it expire', 'Who was the policy holder?'],
-      Claims: ['how many incidents have you had in th past 5 years', 'What happened? how was it resolved?', 'who was driving?', 'what year? what month?'],
-      Occupation: ['How many jobs do you have?', 'what is your occupation?', 'how many hours do you work?', 'how long have you worked there?', 'how are you supporting yourself?', ' are you actively seeking work?'],
-      Licence: ['how long have you held you licence?', 'what type of licence do you have?', 'what restictions do you have on your licence?'],
-      Address:['Where do you live?', 'what is your current address', 'how long have you lived there?', 'how many addresses do you have?', 'what other addresses are linked to this vehicle?'],
-      HPI: ['who is the registered keeper?', 'when was the vehicle purchased?', 'how long have you owned the vehicle?', 'how long have you been driving the vehicle?'],
-      Mileage:['what is you annual mileage? ', 'what would be the maximum amount of miles you would require for the year?', 'how did you come to that amount?', 'how many miles do you do per month/week/day?', 'what is the vehicle used for?', 'how many places of work do you travel too?'],
-      Residency: ['how long have you been a resident in the UK?', 'when did you move to the UK?', 'how long did you live in...?'],
-      Convictions: ['how many motoring convitctions do you have?', 'what was the conviction for?', 'what year? what month?']
-    }
-
-
-
-//On click get name value push name to template cat
-    document.querySelectorAll('button').forEach((elem) => {
-
-      elem.addEventListener('click', (e) => {
-        const label = e.target.name;
-        let cat = e.target.value;
-       // if label is equal at cat array item filter item
-        if (e.target.classList.contains('toggle')) {
-          //filter out template data
-          template[cat] = template[cat].filter(item => item !== label);
-          document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
-          e.target.classList.remove('toggle');
-        }
-
-
-//toggle buttons down
-        else if (cat === 'called') {
-          document.querySelectorAll('.call').forEach(elem => {
-            elem.classList.remove('toggle');
-            template.called = label;
-            document.querySelector('.called').innerText = 'Called: ' + template.called;
-          });
-          e.target.classList.add('toggle');
-        } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && template[cat].length < 5 ) {
-          e.target.classList.add('toggle');
-          //get button name and value push name to array = to template.name
-          template[cat].push(label);
-          document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
-        };
-      });
-    });
-
-
-  //get questions for qm data
-    let tog2 = false;
-    document.querySelectorAll('.top-container button').forEach(elem => {
-
-      elem.addEventListener('click', e => {
-            template.qm.map(elem => {if(elem === e.target.name){
-              qmList.push(questions[elem].join(`<li><br /></li>`))
-              document.querySelector('.q-info').innerHTML = qmList.join(`<hr />`);
-          }
-        });
-
-      })
-    })
-
-
-
-
-
-//policy information checker, monitors change in input value and displays inside .para
-    document.querySelectorAll('.second').forEach((elem) => {
-      elem.addEventListener('keyup', (e) => {
-        let pcat = e.target.classList[1];
-        if (pcat === 'previous') {
-          template.previous.pop();
-          template.previous.push(e.target.value);
-        } else if (pcat === 'policy-number') {
-          template.policy.pop();
-          template.policy.push(e.target.value);
-        };
-        document.querySelectorAll('.prev').forEach((elem) => {
-          elem.innerText = 'Previous Insurer: ' + template.previous.join('') + " - " + template.policy.join('');
-        });
-
-      });
-    });
-//NCD claims and convictions buttons
-
-document.querySelectorAll('.claim').forEach((elem) => {
-  elem.addEventListener('click', (e) => {
-    const cat = e.target.name;
-    console.log(cat);
-  });
-});
-
-//select all inside .para and copy to clipboard
-    function copy(id) {
-      let from = document.getElementById(id);
-      let range = document.createRange();
-      window.getSelection().removeAllRanges();
-      range.selectNode(from);
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-    };
-
-    function copyNotes(id){
-      document.getElementById(id).select();
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-    }
-
-//slide in side notes
-    let tog = true;
-document.querySelector('.btn-left').addEventListener('click', () => {
-  tog = !tog;
-  if(tog === false){
-    document.querySelector('.side-notes').style.left = '50%';
-    document.querySelector('.btn-left span').innerText = '<';
-  } else if (tog === true){
-    document.querySelector('.side-notes').style.left = "-100%";
-    document.querySelector('.btn-left span').innerText = '>';
-  };
-});
-
-//ncd template slide in
-let tog4 = true;
-document.querySelector('.btn-right').addEventListener('click', () => {
-tog = !tog;
-if(tog === false){
-document.querySelector('.ncd-template').style.right = '50%';
-document.querySelector('.btn-right span').innerText = '<';
-} else if (tog === true){
-document.querySelector('.ncd-template').style.right = "-100%";
-document.querySelector('.btn-right span').innerText = '>';
-};
-});
-
-// ncd template event haddlers
+////////////////////////////////////////////ncd template objects and arrays///////////////////
 
 let ncdTemplate ={
   reg:'Vehicle Reg: ',
@@ -741,7 +634,152 @@ let ncdCon ={
 
 let newClaim = [];
 let newCon = [];
-//inputs section
+
+  //////////////////////////////questions list/////////////////////////////////////////
+    let qmList = [''];
+    const questions = {
+      NCD: ['How many years NCD do you have? ', 'Who was you previous insurer?', 'When did it expire', 'Who was the policy holder?'],
+      Claims: ['how many incidents have you had in th past 5 years', 'What happened? how was it resolved?', 'who was driving?', 'what year? what month?'],
+      Occupation: ['How many jobs do you have?', 'what is your occupation?', 'how many hours do you work?', 'how long have you worked there?', 'how are you supporting yourself?', ' are you actively seeking work?'],
+      Licence: ['how long have you held you licence?', 'what type of licence do you have?', 'what restictions do you have on your licence?'],
+      Address:['Where do you live?', 'what is your current address', 'how long have you lived there?', 'how many addresses do you have?', 'what other addresses are linked to this vehicle?'],
+      HPI: ['who is the registered keeper?', 'when was the vehicle purchased?', 'how long have you owned the vehicle?', 'how long have you been driving the vehicle?'],
+      Mileage:['what is you annual mileage? ', 'what would be the maximum amount of miles you would require for the year?', 'how did you come to that amount?', 'how many miles do you do per month/week/day?', 'what is the vehicle used for?', 'how many places of work do you travel too?'],
+      Residency: ['how long have you been a resident in the UK?', 'when did you move to the UK?', 'how long did you live in...?'],
+      Convictions: ['how many motoring convictions do you have?', 'what was the conviction for?', 'what year? what month?']
+    }
+
+
+
+////////////////////On click get name value push name to template cat////////////////////
+    document.querySelectorAll('button').forEach((elem) => {
+
+      elem.addEventListener('click', (e) => {
+        const label = e.target.name;
+        let cat = e.target.value;
+       // if label is equal at cat array item filter item
+        if (e.target.classList.contains('toggle')) {
+          //filter out template data
+          template[cat] = template[cat].filter(item => item !== label);
+          document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
+          e.target.classList.remove('toggle');
+        }
+
+
+//////////////////////////////////////////toggle buttons down//////////////////////////
+        else if (cat === 'called') {
+          document.querySelectorAll('.call').forEach(elem => {
+            elem.classList.remove('toggle');
+            template.called = label;
+            document.querySelector('.called').innerText = 'Called: ' + template.called;
+          });
+          e.target.classList.add('toggle');
+        } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && template[cat].length < 5 ) {
+          e.target.classList.add('toggle');
+          //get button name and value push name to array = to template.name
+          template[cat].push(label);
+          document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
+        };
+      });
+    });
+
+
+  ////////////////////////////get questions for qm data/////////////////////////////
+
+    document.querySelectorAll('.top-container button').forEach(elem => {
+
+      elem.addEventListener('click', e => {
+            template.qm.map(elem => {if(elem === e.target.name){
+              qmList.push(questions[elem].join(`<li><br /></li>`))
+              document.querySelector('.q-info').innerHTML = qmList.join(`<hr />`);
+          }
+        });
+
+      })
+    })
+
+
+
+
+
+///////////policy information checker, monitors change in input value and displays inside .para//////////
+    document.querySelectorAll('.second').forEach((elem) => {
+      elem.addEventListener('keyup', (e) => {
+        let pcat = e.target.classList[1];
+        if (pcat === 'previous') {
+          template.previous.pop();
+          template.previous.push(e.target.value);
+        } else if (pcat === 'policy-number') {
+          template.policy.pop();
+          template.policy.push(e.target.value);
+        };
+        document.querySelectorAll('.prev').forEach((elem) => {
+          elem.innerText = 'Previous Insurer: ' + template.previous.join('') + " - " + template.policy.join('');
+        });
+
+      });
+    });
+
+
+/////////////////////////select all inside .para and copy to clipboard/////////////////////
+    function copy(id) {
+      let from = document.getElementById(id);
+      let range = document.createRange();
+      window.getSelection().removeAllRanges();
+      range.selectNode(from);
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    };
+
+    function copyNotes(id){
+      document.getElementById(id).select();
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    }
+
+////////////////////////////////////slide in side notes////////////////////////////////
+
+
+document.querySelector('.btn-left').addEventListener('click', () => {
+  tog = !tog;
+  if(tog === false){
+    document.querySelector('.side-notes').style.left = '50%';
+    document.querySelector('.btn-left span').innerText = '<';
+    document.querySelector('.ncd-template').style.right = "-100%";
+    document.querySelector('.btn-right span').innerText = '>';
+  } else if (tog === true){
+    document.querySelector('.side-notes').style.left = "-100%";
+    document.querySelector('.btn-left span').innerText = '>';
+  };
+});
+
+
+//////////////////////////////ncd template slide in///////////////////////////////////
+
+
+
+function ncdClick(className){
+  const x = document.querySelector('.' + className);
+  const btn = document.querySelector('.btn-right span');
+  const y = document.querySelector('.side-notes');
+  const yBtn = document.querySelector('.btn-left span');
+  tog = !tog;
+  if(tog === false){
+    x.style.right = '50%';
+    btn.innerText = '<';
+    y.style.left = '-100%';
+    yBtn.innerText = '>'
+  } else if(tog ===true){
+    x.style.right = '-100%';
+    btn.innerText = '>';
+  }
+}
+
+
+/////////////////////////////////// ncd template event haddlers//////////////////////////
+
+/////////////////////////////////////////////inputs section/////////////////////////
 document.querySelectorAll('.inputs input').forEach(elem => {
   elem.addEventListener('keyup', (e) => {
     const cat = e.target.name;
@@ -752,9 +790,8 @@ document.querySelectorAll('.inputs input').forEach(elem => {
 
 });
 
-//claims and convictions sections
 
-////////////////// claims ///////////////////////////
+////////////////////////////////////////// claims ///////////////////////////
 document.querySelectorAll('.claim').forEach(elem => {
   elem.addEventListener('keyup', (e) => {
     const cat = e.target.name;
@@ -775,7 +812,7 @@ document.querySelector('.claim-button').addEventListener('click', () => {
   document.querySelector('.claims').appendChild(node);
   clearClaim()
 });
-///////////////////covictions///////////////////////////
+///////////////////////////////////covictions/////////////////////////////////////////
 document.querySelectorAll('.conviction').forEach(elem => {
   elem.addEventListener('keyup', (e) => {
     const cat = e.target.name;
@@ -794,9 +831,13 @@ document.querySelector('.conviction-button').addEventListener('click', () => {
   document.querySelector('.convictions').appendChild(node);
   clearCons();
 
-})
+});
 
-//clear claims Arrays and inputs
+/////////////////////////////toggle pages on and off /////////////////////////////////
+
+
+
+//////////////////////////clear claims Arrays and inputs///////////////////////////////
 
 function clearClaim(){
   ncdClaims = {
@@ -810,7 +851,7 @@ function clearClaim(){
     elem.value = '';
   })
 }
-// clear convictions input and arrays
+/////////////////////////clear convictions input and arrays//////////////////////////////
 
 function clearCons() {
   ncdCons ={
@@ -824,15 +865,19 @@ function clearCons() {
   })
 }
 
-//slide in questions tab
-let tog3 = true;
-function clickId(className){
+////////////////////////////////slide in questions tab//////////////////////////////////
+
+function question(className){
   const q = document.querySelector('.' + className);
   const btn = document.querySelector('.btn-top span');
   tog = !tog;
   if(tog === false){
     q.style.top = '20px';
     btn.innerText = '<';
+    document.querySelector('.ncd-template').style.right = '-100%';
+    document.querySelector('.btn-right span').innerText = '>';
+    document.querySelector('.side-notes').style.left = '-100%';
+    document.querySelector('.btn-left span').innerText = '>';
   } else {
     q.style.top = '-100%';
     btn.innerText = '>';
@@ -840,7 +885,7 @@ function clickId(className){
 }
 
 
-//clear template and .para
+//////////////////////////////////clear template and .para//////////////////////////////
     function clearTemplate() {
       const a = document;
       template = {
@@ -865,7 +910,7 @@ function clickId(className){
         elem.classList.remove('toggle');
       });
     };
-// clear NCD template fields
+/////////////////////////////////// clear NCD template fields////////////////////////////
 
 function clearNcd(){
   const a = document;
