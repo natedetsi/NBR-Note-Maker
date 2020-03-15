@@ -11,7 +11,7 @@
     body {
       padding: 0;
       margin: 0;
-      height:100vh;
+      height:100%;
       min-width: 400px;
       background-color: #bbe1fa;
       display: flex;
@@ -72,7 +72,7 @@
       text-align: center;
       max-width:1200px;
       width:100%;
-      height:100%;
+      height:80%;
     }
 
     .header-title {
@@ -99,7 +99,8 @@
 
     .template {
       width: 60%;
-      margin: 100px  auto 0;
+      height:80vh;
+      margin: 10%  auto 0;
     }
 
 
@@ -158,7 +159,7 @@
     }
 
     #futher-notes{
-      height:1500px;
+      height:90%;
     }
     .copier {
       margin: 10px 0;
@@ -292,13 +293,16 @@
       border-radius:10px;
       border: 1px inset #9f9f9f;
       background-color: #fff;
-      padding:40px 10px;
+      padding:40px 10px 20px;
       top:50%;
       right:-100%;
       transform:translate(50%, -50%);
       transition: all 0.3s linear;
-      height: 95%;
+      height: auto;
       width: 60%;
+      min-height:80%;
+      min-width: 500px;
+      max-width:800px;
     }
     .inputs{
       margin-top:30px;
@@ -320,15 +324,16 @@
       margin-top:36px;
     }
     .middle{
-      margin:50px 0 10px;
+      margin:50px 0 50px;
     }
     .ncd-sec {
-      width: 186px;
+      width:100%;
     }
     #ncd-template {
       overflow-y: scroll;
-      height:380px;
-      max-height:500px;
+      height:100%;
+      max-height:250px;
+      font-size: 1.6vh;
     }
 /* media query */
     @media (max-width: 800px) {
@@ -533,10 +538,10 @@
     <div class="inputs">
   <div class="row">
     <div class="col-6">
-      <input type="text" class="second previous ncd-sec" placeholder="Previous Insurer">
+      <input type="text" class="col-6 second previous ncd-sec" placeholder="Previous Insurer">
     </div>
     <div class="col-6">
-      <input type="text" class="second policy-number ncd-sec" placeholder="Policy Number">
+      <input type="text" class=" col-6 second policy-number ncd-sec" placeholder="Policy Number">
     </div>
     <div class="col-6"><input type="text" name="reg" placeholder="Reg number"></div>
     <div class="col-6"><input type="text" name="expire" placeholder="expire date"></div>
