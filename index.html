@@ -16,6 +16,7 @@
       max-width: 900px;
       background-color: #bbe1fa;
       overflow-x: hidden;
+      overflow-y: hidden;
     }
     h1,h2,h3,h4,h5,h6{
       padding:0;
@@ -701,17 +702,15 @@
     //////////////////////////////questions list/////////////////////////////////////////
     let qmList = [''];
     const questions = {
-      NCD: ['How many years NCD do you have? ', 'Who was you previous insurer?', 'When did it expire', 'Who was the policy holder?'],
-      Claims: ['how many incidents have you had in th past 5 years', 'What happened? how was it resolved?', 'who was driving?', 'what year? what month?'],
-      Occupation: ['How many jobs do you have?', 'what is your occupation?', 'how many hours do you work?', 'how long have you worked there?', 'how are you supporting yourself?', ' are you actively seeking work?'],
-      Licence: ['how long have you held you licence?', 'what type of licence do you have?', 'what restictions do you have on your licence?'],
-      Address: ['Where do you live?', 'what is your current address', 'how long have you lived there?', 'how many addresses do you have?', 'what other addresses are linked to this vehicle?'],
-      HPI: ['who is the registered keeper?', 'when was the vehicle purchased?', 'how long have you owned the vehicle?', 'how long have you been driving the vehicle?'],
-      Mileage: ['what is you annual mileage? ', 'what would be the maximum amount of miles you would require for the year?', 'how did you come to that amount?', 'how many miles do you do per month/week/day?', 'what is the vehicle used for?',
-        'how many places of work do you travel too?'
-      ],
-      Residency: ['how long have you been a resident in the UK?', 'when did you move to the UK?', 'how long did you live in...?'],
-      Convictions: ['how many motoring convictions do you have?', 'what was the conviction for?', 'what year? what month?']
+      NCD: '<ul><li>How many years NCD do you have?</li><li>Who was you previous insurer?</li><li>When did it expire?</li><li>Who was the policy holder?</li></ul>',
+      Claims: '<ul><li> how many incidents have you had in th past 5 years  </li><li>What happened? how was it resolved?  </liu><li>who was driving?  </li><li>what year? what month? </ul>',
+      Occupation: '<ul><li> How many jobs do you have?  </li><li>what is your occupation?  </li><li>how many hours do you work?  </li><li>how long have you worked there?  </li><li>how are you supporting yourself?  </li><li> are you actively seeking work?</ul>',
+      Licence: '<ul><li>  how long have you held you licence?  </li><li>what type of licence do you have?  </li><li>what restictions do you have on your licence?  </ul>',
+      Address: '<ul><li> Where do you live?  </li><li>what is your current address  </li><li>how long have you lived there?  </li><li>how many addresses do you have?  </li><li>what other addresses are linked to this vehicle?  </ul>',
+      HPI: '<ul><li>  who is the registered keeper?  </li><li>when was the vehicle purchased?  </li><li>how long have you owned the vehicle?  </li><li>how long have you been driving the vehicle?  </ul>',
+      Mileage: '<ul><li>  what is you annual mileage?  </li><li>what would be the maximum amount of miles you would require for the year?  </li><li>how did you come to that amount?</li><li>how many miles do you do per month/week/day?</li><li>what is the vehicle used for?</li><li>how many places of work do you travel too?</li>  <ul />',
+      Residency: '<ul><li>  how long have you been a resident in the UK?  </li><li>when did you move to the UK?  </li><li>how long did you live in...?  </ul>',
+      Convictions: '<ul><li>  how many motoring convictions do you have?</li><li>What was the conviction for? </li><li>what year? what month?  </ul>'
     }
 
 
@@ -753,22 +752,16 @@
     });
     ////////////////////////////get questions for qm data/////////////////////////////
 
-    document.querySelectorAll('.top-container button').forEach(elem => {
-
-      elem.addEventListener('click', e => {
+    let questionsArr = [];
+    document.querySelectorAll('.top-container button').forEach(button => {
+      button.addEventListener('click', () => {
+        questionsArr =[];
         template.qm.map(elem => {
-          if (elem === e.target.name) {
-            qmList.push(questions[elem].join(`<li><br /></li>`))
-            document.querySelector('.q-info').innerHTML = qmList.join(`<hr />`);
-          }
-        });
-
-      })
-    })
-
-
-
-
+          questionsArr.push(questions[elem]);
+          document.querySelector('.q-info').innerHTML = questionsArr;
+      });
+    });
+    });
 
     ///////////policy information checker, monitors change in input value and displays inside .para//////////
     document.querySelectorAll('.second').forEach((elem) => {
