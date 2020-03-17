@@ -15,8 +15,7 @@
       min-width: 400px;
       max-width: 900px;
       background-color: #bbe1fa;
-      overflow-x: hidden;
-      overflow-y: hidden;
+      overflow: hidden;
     }
     h1,h2,h3,h4,h5,h6{
       padding:0;
@@ -137,7 +136,7 @@
 
     .toggle {
       opacity: 0.7;
-      box-shadow: inset 3px 3px 5px 2px #6f6f6f;
+      box-shadow: inset 3px 3px 8px 2px #6f6f6f;
       outline: none;
     }
 
@@ -448,10 +447,7 @@
           <button class="primary-button" key="true" value="qm" name="Claims">Claims</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Licence Type">L Type</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Licence Years">L Years</button>
+          <button class="primary-button" key="true" value="qm" name="Licence">Licence</button>
         </div>
         <div class="col-3">
           <button class="primary-button" key="true" value="qm" name="HPI">HPI</button>
@@ -563,7 +559,19 @@
       <div class="questions" style="top:-100%">
         <div class="para" id="questions">
           <h5>How to Question the Qm Data?</h5>
-          <div class="q-info"></div>
+          <div class="q-info">
+            <div id="Convictions"></div>
+            <div id="Occuptation"></div>
+            <div id="Ownership"></div>
+            <div id="Address"></div>
+            <div id="Residency"></div>
+            <div id="DLN"></div>
+            <div id="Driver%Age"></div>
+            <div id="Mileage"></div>
+            <div id="Claims"></div>
+            <div id="HPI"></div>
+            <div id="NCD"></div>
+          </div>
         </div>
       </div>
 
@@ -705,10 +713,11 @@
       NCD: '<ul><li>How many years NCD do you have?</li><li>Who was you previous insurer?</li><li>When did it expire?</li><li>Who was the policy holder?</li></ul>',
       Claims: '<ul><li> how many incidents have you had in th past 5 years  </li><li>What happened? how was it resolved?  </liu><li>who was driving?  </li><li>what year? what month? </ul>',
       Occupation: '<ul><li> How many jobs do you have?  </li><li>what is your occupation?  </li><li>how many hours do you work?  </li><li>how long have you worked there?  </li><li>how are you supporting yourself?  </li><li> are you actively seeking work?</ul>',
-      Licence: '<ul><li>  how long have you held you licence?  </li><li>what type of licence do you have?  </li><li>what restictions do you have on your licence?  </ul>',
+      Ownership: '<ul><li>How long have you owned the vehicle?</li><li>Are you the registered keeper?</li></ul>',
+      Licence: '<ul><li>  how long have you held your licence?  </li><li>what type of licence do you have?  </li><li>what restictions do you have on your licence?  </ul>',
       Address: '<ul><li> Where do you live?  </li><li>what is your current address  </li><li>how long have you lived there?  </li><li>how many addresses do you have?  </li><li>what other addresses are linked to this vehicle?  </ul>',
       HPI: '<ul><li>  who is the registered keeper?  </li><li>when was the vehicle purchased?  </li><li>how long have you owned the vehicle?  </li><li>how long have you been driving the vehicle?  </ul>',
-      Mileage: '<ul><li>  what is you annual mileage?  </li><li>what would be the maximum amount of miles you would require for the year?  </li><li>how did you come to that amount?</li><li>how many miles do you do per month/week/day?</li><li>what is the vehicle used for?</li><li>how many places of work do you travel too?</li>  <ul />',
+      Mileage: '<ul><li>  what is your annual mileage?  </li><li>what would be the maximum amount of miles you would require for the year?  </li><li>how did you come to that amount?</li><li>how many miles do you do per month/week/day?</li><li>what is the vehicle used for?</li><li>how many places of work do you travel too?</li><ul />',
       Residency: '<ul><li>  how long have you been a resident in the UK?  </li><li>when did you move to the UK?  </li><li>how long did you live in...?  </ul>',
       Convictions: '<ul><li>  how many motoring convictions do you have?</li><li>What was the conviction for? </li><li>what year? what month?  </ul>'
     }
