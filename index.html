@@ -7,13 +7,12 @@
   <title>NBR: Note Maker</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <style>
+  /* **************************** main html tags*************************************** */
     *{
       padding:0;
       margin:0;
     }
-    body,html{
-      min-width: 400px;
-      max-width: 900px;
+    body{
       background-color: #bbe1fa;
       overflow: hidden;
     }
@@ -79,13 +78,16 @@
       list-style: none;
 
     }
+    /****************************** Main page tags *************************/
 
     .page-holder {
       text-align: center;
       position: absolute;
-      top:0;
-      width: 100vw;
-      height: 100vh;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
     }
 
     .header-title {
@@ -194,9 +196,9 @@
       height: 100%;
       background-color: none;
       position: absolute;
-      left: -20px;
+      left: 0;
       top: 0;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
 
     .hover-button-right {
@@ -204,7 +206,7 @@
       height: 100%;
       background-color: none;
       position: absolute;
-      right: -20px;
+      right:0;
       top: 0;
       transition: all 0.2s ease;
     }
@@ -214,7 +216,7 @@
       height: 35px;
       position: absolute;
       top: 50%;
-      left: -30px;
+      right: -50px;
       transform: translateY(-50%);
       transform: rotateZ(-90deg);
       border-radius: 0 0 10px 10px;
@@ -230,7 +232,7 @@
       height: 35px;
       position: absolute;
       top: 50%;
-      right: -30px;
+      left: -50px;
       transform: translateY(-50%);
       transform: rotateZ(-90deg);
       border-radius: 10px 10px 0 0;
@@ -262,12 +264,12 @@
     }
 
     .btn-right:hover {
-      right: -25px;
+      left: -55px;
       box-shadow: -7px 7px 18px 0px #3282b8;
     }
 
     .btn-left:hover {
-      left: -25px;
+      right: -55px;
       box-shadow: -7px 7px 18px 0px #3282b8;
     }
 
@@ -354,7 +356,6 @@
     .inputs {
       margin-top: 30px;
     }
-
     .template-holder {
       position: relative;
       height: 100%;
@@ -365,7 +366,9 @@
       margin: 2px 0;
       width:90%;
     }
-
+    .default-input {
+      margin-bottom: 20px;
+    }
     .claim-button,
     .conviction-button {
       margin-top: 5px;
@@ -618,6 +621,13 @@
         </div>
         <div class="row middle">
           <div class="col-6">
+            <div class="col-12 default-input">
+              <!-- <input type="text" class="default-conviction" name="default-conviction" value="" placeholder="Not confirmed"> -->
+              <select name="" id="" class="default-claim">
+                <option value="0">Not confirmed</option>
+                <option value="1">None</option>
+              </select>
+            </div>
             <h6>Claims</h6>
             <div class="col-12"><input type="text" class="claim" name="type" placeholder="Type"></div>
             <div class="col-12"><input type="text" class="claim" name="date" placeholder="DD/MM/YY"></div>
@@ -626,6 +636,13 @@
             <button class="col-10 claim-button" name="claims">Add Claim</button>
           </div>
           <div class="col-6">
+            <div class="col-12 default-input">
+              <!-- <input type="text" class="default-conviction" name="default-conviction" value="" placeholder="Not confirmed"> -->
+              <select name="" id="" class="default-conviction">
+                <option value="0">Not confirmed</option>
+                <option value="1">None</option>
+              </select>
+            </div>
             <h6>Convictions</h6>
             <div class="col-12"><input type="text" class="conviction" name="code" placeholder="Code"></div>
             <div class="col-12"><input type="text" class="conviction" name="date" placeholder="DD/MM/YY"></div>
@@ -645,10 +662,10 @@
             <br>
             <p>Expire Date: <span class="expire"></span></p>
             <br>
-            <p>Claims: <ul class="claims"></ul>
+            <p>Claims: <span class="claim-span">Not Confirmed</span><ul class="claims"></ul>
             </p>
             <br>
-            <p>Convictions: <ul class="convictions"></ul>
+            <p>Convictions: <span class="conviction-span">Not Confirmed</span> <ul class="convictions"></ul>
             </p>
           </div>
           <div class="row">
@@ -661,12 +678,13 @@
           </div>
         </div>
       </div>
+      <div class="hover-button-right">
+        <button class="btn-right" onClick="ncdClick('ncd-template')"><span class="button-span">NCD</span></button>
+      </div>
+      <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
     </div>
-    <div class="hover-button-right">
-      <button class="btn-right" onClick="ncdClick('ncd-template')"><span class="button-span">NCD</span></button>
     </div>
-    <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
-  </div>
+
   </div>
 
 
@@ -871,6 +889,7 @@
     });
 
     document.querySelector('.claim-button').addEventListener('click', () => {
+      document.querySelector('.claim-span').innerText = '';
       newClaim.push(ncdClaims.type.join());
       newClaim.push(ncdClaims.date.join());
       newClaim.push(ncdClaims.name.join());
@@ -882,6 +901,16 @@
       document.querySelector('.claims').appendChild(node);
       clearClaim()
     });
+
+
+    document.querySelector('.default-claim').addEventListener('click', (e)=> {
+      let option = document.querySelector('.default-claim');
+      option = option.options[option.selectedIndex].text;
+      console.log(option)
+      document.querySelector('.claim-span').innerText = option;
+    });
+
+
     ///////////////////////////////////covictions/////////////////////////////////////////
     document.querySelectorAll('.conviction').forEach(elem => {
       elem.addEventListener('keyup', (e) => {
@@ -891,6 +920,7 @@
       });
     });
     document.querySelector('.conviction-button').addEventListener('click', () => {
+      document.querySelector('.conviction-span').innerText = '';
       newCon.push(ncdCon.code.join());
       newCon.push(ncdCon.date.join());
       newCon.push(ncdCon.name.join());
@@ -902,7 +932,11 @@
       clearCons();
 
     });
-
+    document.querySelector('.default-conviction').addEventListener('click', (e)=> {
+      let option = document.querySelector('.default-conviction');
+      option = option.options[option.selectedIndex].text;
+      document.querySelector('.conviction-span').innerText = option;
+    })
     /////////////////////////////toggle pages on and off /////////////////////////////////
 
 
@@ -985,6 +1019,8 @@
     function clearNcd() {
       const a = document;
       a.querySelector('.prev').innerText = 'Previous insurer: ';
+      a.querySelector('.conviction-span').innerText = 'Not Confirmed';
+      a.querySelector('.claim-span').innerText = 'Not Confirmed';
       ncdTemplate = {
         reg: 'Vehicle Reg: ',
         years: '',
