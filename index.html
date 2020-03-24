@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -15,6 +16,11 @@
     body{
       background-color: #bbe1fa;
       overflow: hidden;
+      position:fixed;
+      bottom:0;
+      top:0;
+      left:0;
+      right:0;
     }
     h1,h2,h3,h4,h5,h6{
       padding:0;
@@ -210,7 +216,15 @@
       top: 0;
       transition: all 0.2s ease;
     }
-
+    /* .hover-button-bottom {
+      width: 100%;
+      height: 20px;
+      background-color: #000;
+      position: absolute;
+      right:0;
+      bottom:0;
+      transition: all 0.2s ease;
+    } */
     .btn-left {
       width: 120px;
       height: 35px;
@@ -257,6 +271,20 @@
       transition: all 0.1s ease;
       z-index: 3;
     }
+    .btn-bottom {
+      width: 120px;
+      height: 35px;
+      position: fixed;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 10px 10px 0 0 ;
+      border: 1px solid #9f9f9f;
+      box-shadow: 3px 3px 15px -2px #3282b8;
+      background-color: #fff;
+      transition: all 0.1s ease;
+      z-index: 3;
+    }
 
     .btn-top:hover {
       top: -5px;
@@ -267,6 +295,10 @@
       left: -55px;
       box-shadow: -7px 7px 18px 0px #3282b8;
     }
+    .btn-bottom:hover {
+      bottom:-5px;
+      box-shadow: 5px 7px 18px 0px #3282b8;
+    }
 
     .btn-left:hover {
       right: -55px;
@@ -275,7 +307,8 @@
 
     .btn-left:active,
     .btn-top:active,
-    .btn-right:active {
+    .btn-right:active,
+    .btn-bottom:active {
       opacity: 0.7;
       box-shadow: inset 3px 3px 8px 2px #6f6f6f;
       outline: none;
@@ -287,7 +320,8 @@
       border-radius: 0 0 10px 10px;
     }
 
-    .btn-right:focus {
+    .btn-right:focus,
+    .btn-bottom:focus {
       outline: none;
       border-radius: 10px 10px 0 0;
     }
@@ -391,6 +425,32 @@
       font-size: 1.6vh;
     }
 
+    /* statments section */
+    .statement{
+      width:90%;
+      background-color: #f7f7f7;
+      border-radius: 10px 10px 0 0;
+      border: 1px solid #6f6f6f;
+      height:auto;
+      position: absolute;
+      bottom:-100%;
+      left:50%;
+      transform:translate(-50%);
+      padding:50px;
+    }
+    .statement-text{
+      border-radius: 10px;
+      background-color: #fff;
+      border: 1px solid #5f5f5f;
+      box-shadow: 2px 10px 10px -5px #4f4f4f;
+      padding: 10px;
+      margin:auto;
+    }
+    .statement-dropdown{
+      width: 300px;
+      box-shadow: 2px 5px 10px -5px #4f4f4f;
+      margin: 0 auto 20px;
+    }
     /* media query */
     @media (max-width: 800px) {
       .template {
@@ -417,13 +477,12 @@
     <div class="template">
       <h3 class="header-title">Note maker</h3>
 
-
       <!-- top row of buttons START -->
 
       <div class="row top-container">
 
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Convictions">Convictions</button>
+          <button class="primary-button focus" key="true" value="qm" name="Convictions">Convictions</button>
         </div>
         <div class="col-3">
           <button class="primary-button" key="true" value="qm" name="Occupation">Occupation</button>
@@ -681,6 +740,22 @@
       <div class="hover-button-right">
         <button class="btn-right" onClick="ncdClick('ncd-template')"><span class="button-span">NCD</span></button>
       </div>
+      <div class="statement" style="bottom: -100%" tabindex="-1">
+        <select class="statement-dropdown"name="" id="">
+          <option value="Honesty">Honesty</option>
+          <option value="Break">Break In Cover</option>
+          <option value="Price">Price Presentation</option>
+          <option value="Real">Real Time Pricing</option>
+          <option value="Verbal">Verbal Disclaimer</option>
+          <option value="DPA">DPA statement</option>
+        </select>
+        <div class="statement-text">
+          <p class="statement-paragraph"> By law insurance companies are required to ask relevant questions. Once the questions have been asked, the responsibilty is on the policyholder to disclose information, anwser the questions correctly and be careful not to make a misrepresentation. Is that okay?</p>
+        </div>
+      </div>
+      <div class="hover-button-bottom">
+        <button class="btn-bottom"><span class="button-span">Statements</span></button>
+      </div>
       <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
     </div>
     </div>
@@ -739,7 +814,17 @@
       Residency: '<ul><li>  how long have you been a resident in the UK?  </li><li>when did you move to the UK?  </li><li>how long did you live in...?  </ul>',
       Convictions: '<ul><li>  how many motoring convictions do you have?</li><li>What was the conviction for? </li><li>what year? what month?  </ul>'
     }
+/////////////////////////////////////statements list ////////////////////////////////////////////
 
+let statements = {
+  Honesty: 'By law insurance companies are required to ask relevant questions. Once the questions have been asked, the responsibilty is on the policyholder to disclose information, anwser the questions correctly and be careful not to make a misrepresentation. Is that okay?',
+  Break:'',
+  Price:'',
+  Real:'',
+  Verbal:'',
+  DPA:''
+
+}
 
 
     ////////////////////On click get name value push name to template cat////////////////////
@@ -863,7 +948,19 @@
         btn.innerText = 'NCD';
       }
     }
-
+/////////////////////////////////////////slide in statement section ///////////////////////////
+document.querySelector('.btn-bottom').addEventListener('click', () => {
+  const x = document.querySelector('.statement');
+  const btn = document.querySelector('.btn-bottom span');
+  tog = !tog;
+  if(tog === false){
+    x.style.bottom = '0';
+    btn.innerText = 'X';
+  } else if(tog === true){
+    x.style.bottom = '-100%';
+    btn.innerText = 'Statements';
+  }
+})
 
     /////////////////////////////////// ncd template event haddlers//////////////////////////
 
@@ -937,7 +1034,17 @@
       option = option.options[option.selectedIndex].text;
       document.querySelector('.conviction-span').innerText = option;
     })
-    /////////////////////////////toggle pages on and off /////////////////////////////////
+    /////////////////////////////statement section /////////////////////////////////
+
+    ///////////////////////////statement selector//////////////////////////////////
+    document.querySelector('.statement-dropdown').addEventListener('click', (e) => {
+      let statement = document.querySelector('.statement-dropdown');
+      statement = statement.options[statement.selectedIndex].value;
+
+      document.querySelector('.statement-paragraph').innerText = statements[`${statement}`];
+
+
+    })
 
 
 
@@ -1013,6 +1120,7 @@
       document.querySelectorAll('button').forEach((elem) => {
         elem.classList.remove('toggle');
       });
+      document.querySelector('.focus').focus();
     };
     /////////////////////////////////// clear NCD template fields////////////////////////////
 
