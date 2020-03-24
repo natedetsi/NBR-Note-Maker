@@ -564,7 +564,7 @@
       <div class="row bottom-container">
 
         <div class="col-3">
-          <button class="primary-button" value="required" name="Driving licence">DLN</button>
+          <button class="primary-button" value="required" name="Driving licence">DL</button>
         </div>
         <div class="col-3">
           <button class="primary-button" value="required" name="Occupation">Occupation</button>
@@ -714,7 +714,7 @@
 
         <div class="template-section">
           <div class="para" id="ncd-template">
-            <p class="prev">Previous Insurer:</p>
+            <p class="prev" id="prev">Previous Insurer: </p>
             <br>
             <p>Vehicle Reg: <span class="reg"></span></p>
             <br>
@@ -1126,7 +1126,6 @@ document.querySelector('.btn-bottom').addEventListener('click', () => {
 
     function clearNcd() {
       const a = document;
-      a.querySelector('.prev').innerText = 'Previous insurer: ';
       a.querySelector('.conviction-span').innerText = 'Not Confirmed';
       a.querySelector('.claim-span').innerText = 'Not Confirmed';
       ncdTemplate = {
@@ -1149,8 +1148,15 @@ document.querySelector('.btn-bottom').addEventListener('click', () => {
 
       newClaim = [];
       newCon = [];
-      document.querySelector('.claims').innerHTML = '';
-      document.querySelector('.convictions').innerHTML = '';
+      a.querySelectorAll('.ncd-template input').forEach(elem => {
+        elem.value = '';
+      });
+      a.querySelector('.claims').innerHTML = '';
+      a.querySelector('.convictions').innerHTML = '';
+      a.querySelector('#prev').innerText = 'Previous Insurer: ';
+      a.querySelector('.reg').innerText = '';
+      a.querySelector('.expire').innerText = '';
+      a.querySelector('.years').innerText = '';
     }
 
     // Clear element text by id
