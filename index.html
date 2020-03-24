@@ -744,7 +744,6 @@
         <select class="statement-dropdown"name="" id="">
           <option value="Honesty">Honesty</option>
           <option value="Break">Break In Cover</option>
-          <option value="Price">Price Presentation</option>
           <option value="Real">Real Time Pricing</option>
           <option value="Verbal">Verbal Disclaimer</option>
           <option value="DPA">DPA statement</option>
@@ -818,11 +817,11 @@
 
 let statements = {
   Honesty: 'By law insurance companies are required to ask relevant questions. Once the questions have been asked, the responsibilty is on the policyholder to disclose information, anwser the questions correctly and be careful not to make a misrepresentation. Is that okay?',
-  Break:'',
+  Break:' Say: Can you confirm there have been no accidents, incidents or police enquiries during the time there was no insurance? <br /><br />IF THEY SAY NO: Read verbal disclaimer and request Share My Licence <br /><br />IF THEY SAY YES: Ask for more information.',
+  Real:'Say: Please be aware that any prices quoted for any changes made to your policy today will be inclusive of a £30 administation fee and may be subject to change if the amendment is not completed on this phone call',
   Price:'',
-  Real:'',
-  Verbal:'',
-  DPA:''
+  Verbal:'The information shown on your statement of insurance and the answers provided forms the basis of the contact of insurance. If any of the information shown is incorrect or has changed then you should contact us, if you fail to do so then your insurance cover may not protect you in the event of a claim.',
+  DPA:'I have to make you aware that the authorised party will have the ability to make changes, claims and cancel the policy. Is that okay? '
 
 }
 
@@ -1041,7 +1040,7 @@ document.querySelector('.btn-bottom').addEventListener('click', () => {
       let statement = document.querySelector('.statement-dropdown');
       statement = statement.options[statement.selectedIndex].value;
 
-      document.querySelector('.statement-paragraph').innerText = statements[`${statement}`];
+      document.querySelector('.statement-paragraph').innerHTML = statements[`${statement}`];
 
 
     })
