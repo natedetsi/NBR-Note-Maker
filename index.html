@@ -508,7 +508,7 @@
       width:100%;
       height:100%;
       background-color: rgba(0,0,0,0.0);
-      transition-delay: 0.2s;
+      transition-delay: 0.25s;
       transition: all ease 0.5s;
       z-index:5;
 
@@ -520,20 +520,20 @@
       transform:translate(0,-50%);
       height:95%;
       width:400px;
-      background-color: #fff;
-      border:1px solid #9f9f9f;
+      background-color: #f3f3f3;
+      border:1.8px solid #375F7A;
       border-radius: 10px;
       padding: 50px 0 50px;
     }
+
     /* date calculator  */
     .date-calc{
       width: 80%;
-      max-width: 500px;
       height:auto;
       background-color: #ffffff;
-      border: 1px inset #6f6f6f;
+      border: 1.3px inset #6f6f6f;
       box-shadow: 0px 10px 10px -10px #375F7A;
-      border-radius: 5px;
+      border-radius: 7px;
       padding:5px;
       margin: 0 auto;
     }
@@ -541,6 +541,20 @@
       margin-bottom: 5px;
     }
     .date-calc button {
+      background-color: #52eeff;
+    }
+    /* interest calculator */
+    .interest-calc{
+      width:80%;
+      height:auto;
+      background-color: #ffffff;
+      border: 1.3px inset #6f6f6f;
+      box-shadow: 0px 10px 10px -10px #375F7A;
+      border-radius: 7px;
+      padding:5px;
+      margin: 0 auto;
+    }
+    .interest-calc button {
       background-color: #52eeff
     }
 
@@ -926,16 +940,45 @@
     <div class="overlay">
     <div class="tool-box">
       <div class="date-calc">
-        <div class="row">
-        <h6 class="col-12 years-held">Licence Held For: <span></span></h6>
-        </div>
+        <h6>Years Calculator</h6>
+        <hr>
         <div class="row">
         <input class="col-6 prev-date"type="date" require pattern="\d{2}-\d{2}-\d{4}">
-        <button class="col-6 date-calc" onclick="dateCalc()">Calculate</button>
+        <input type="date" class="col-6 new-date" require pattern="\d{2}-\d{2}-\d{4}">
         </div>
+        <div class="row">
+          <button class="col-12 date-calc" onclick="dateCalc()">Calculate</button>
         </div>
-
-
+        <div class="row">
+        <h6 class="col-12 years-held"><span></span></h6>
+        </div>
+      </div>
+      <br>
+          <div class="interest-calc">
+            <h6>Interest Spreader</h6>
+            <hr>
+            <div class="row">
+              <span class="col-6">First MTA</span>
+              <span class="col-6">Reverted MTA</span>
+            </div>
+            <div class="row">
+            <input class="n1 col-6" type="number" placeholder="Rate">
+            <input class="n2 col-6" type="number" placeholder="Rate">
+            </div>
+            <div class="row">
+              <input class="i1 col-6" type="number" placeholder="Installments">
+              <button class="interest col-6" onClick="interDiff()">Calculate</button>
+            </div>
+            <div class="row">
+              <h6 class="total"></h6>
+            </div>
+            <div class="row">
+              <h6 class="amount"></h6>
+            </div>
+            <div class="row">
+              <h6 class="spread-diff"></h6>
+            </div>
+          </div>
       </div>
     </div>
   </div>
@@ -1285,9 +1328,11 @@ document.querySelector('.btn-tools').addEventListener('click', () => {
   tog =!tog
   if(tog === false){
   document.querySelector('.tool-box-holder').style.left = '0';
+  document.querySelector('.tool-box-holder').style.transitionDelay = '0s';
   document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.5)';
 } else if(tog === true){
     document.querySelector('.tool-box-holder').style.left = '-100%';
+    document.querySelector('.tool-box-holder').style.transitionDelay = '0.25s';
     document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.0)';
 }
 })
@@ -1365,7 +1410,7 @@ document.querySelector('.btn-tools').addEventListener('click', () => {
         function dateCalc(){
 
         let d1 = new Date(document.querySelector('.prev-date').valueAsNumber);
-        let d2 = new Date();
+        let d2 = new Date(document.querySelector('.new-date').valueAsNumber);
         console.log(d1, d2)
 
         let diff = (d2-d1) /1000/60/60/24;
@@ -1377,7 +1422,24 @@ document.querySelector('.btn-tools').addEventListener('click', () => {
         document.querySelector('.years-held span').innerText = `${years} years`;
     }
     }
+/////////interest calculator ///////////////////
+n1-n2/i1
+        function interDiff(){
+          const n1 = document.querySelector('.n1').value;
+          const n2 = document.querySelector('.n2').value;
+          const i1 = document.querySelector('.i1').value;
 
+          let diff = n1 - n2;
+          let amount = Math.round(diff / i1 * 100) / 100;
+
+          let check = amount * i1;
+
+          let modu = Math.round((diff - check) * 100) / 100;
+
+          document.querySelector('.total').innerText = `Total diff: £${diff}`
+          document.querySelector('.amount').innerText = `Installments:  £${amount}`;
+          document.querySelector('.spread-diff').innerText = `Remainder:  £${modu}`;
+      }
 
   </script>
 </body>
