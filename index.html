@@ -290,7 +290,8 @@
       transition: all 0.1s ease;
       z-index: 3;
     }
-    .btn-tools{
+
+    .btn-tools {
       width: 120px;
       height: 35px;
       position: fixed;
@@ -315,7 +316,8 @@
       box-shadow: -7px 7px 18px 0px #3282b8;
     }
 
-    .btn-bottom:hover, .btn-tools:hover {
+    .btn-bottom:hover,
+    .btn-tools:hover {
       bottom: -5px;
       box-shadow: 5px 7px 18px 0px #3282b8;
     }
@@ -493,77 +495,105 @@
 
 
     /* tool box slide  */
-    .tool-box-holder{
-      position:absolute;
-      top:0;
-      left:-100%;
-      height:100%;
-      width:100%;
+    .tool-box-holder {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 100%;
       transition: all 0.1s linear;
     }
-    .overlay{
+
+    .overlay {
       position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background-color: rgba(0,0,0,0.0);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.0);
       transition-delay: 0.25s;
       transition: all ease 0.5s;
-      z-index:5;
+      z-index: 5;
 
     }
-    .tool-box{
+
+    .tool-box {
       position: absolute;
-      left:0;
-      top:50%;
-      transform:translate(0,-50%);
-      height:95%;
-      width:400px;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      height: 95%;
+      width: 400px;
       background-color: #f3f3f3;
-      border:1.8px solid #375F7A;
-      border-radius: 10px;
+      border: 1.8px solid #375F7A;
+      border-radius: 0 10px 10px 0;
       padding: 50px 0 50px;
     }
 
     /* date calculator  */
-    .date-calc{
+    .date-calc {
       width: 80%;
-      height:auto;
+      height: auto;
       background-color: #ffffff;
       border: 1.3px inset #6f6f6f;
       box-shadow: 0px 10px 10px -10px #375F7A;
       border-radius: 7px;
-      padding:5px;
+      padding: 5px;
       margin: 0 auto;
     }
-    .date-calc > .row{
+
+    .date-calc>.row {
       margin-bottom: 5px;
     }
+
     .date-calc button {
       background-color: #52eeff;
     }
+
     /* interest calculator */
-    .interest-calc{
-      width:80%;
-      height:auto;
+    .interest-calc {
+      width: 80%;
+      height: auto;
       background-color: #ffffff;
       border: 1.3px inset #6f6f6f;
       box-shadow: 0px 10px 10px -10px #375F7A;
       border-radius: 7px;
-      padding:5px;
+      padding: 5px;
       margin: 0 auto;
     }
+
     .interest-calc button {
       background-color: #52eeff
     }
+  /* shortcuts  */
+  .shortcuts{
+    cursor: pointer;
+    color:#000;
 
+  }
+  .shortcuts:hover{
+    color: #9f9f9f;
+  }
+  .shortcuts-container {
+    visibility: hidden;
+    width:80%;
+    margin:0 auto;
+    color: #9f9f9f;
+
+  }
 
     /* key frames  */
-    @keyframes fade{
-      from: {opacity:0},
-      to:{opacity:1}
+    @keyframes fade {
+      from: {
+        opacity: 0
+      }
+
+      ,
+      to: {
+        opacity: 1
+      }
     }
+
     /* media query */
     @media (max-width: 800px) {
       .template {
@@ -601,9 +631,10 @@
         transform: rotateZ(0deg);
         box-shadow: none;
       }
-      .btn-tools{
-        left:50%;
-        transform:translateX(-50%);
+
+      .btn-tools {
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .btn-bottom:hover {
@@ -826,7 +857,7 @@
         </div>
       </div>
       <div class="hover-button-left">
-        <button class="btn-left"><span class="button-span">Notes</span></button>
+        <button class="btn-left" onClick="sideNotes()"><span class="button-span">Notes</span></button>
       </div>
 
       <!-- NCD template slide START -->
@@ -837,7 +868,7 @@
           <div class="inputs">
             <div class="row">
               <div class="col-6">
-                <input type="text" class=" second previous " placeholder="Previous Insurer">
+                <input type="text" id="focus" class=" second previous " placeholder="Previous Insurer">
               </div>
               <div class="col-6">
                 <input type="text" class=" second policy-number " placeholder="Policy Number">
@@ -912,6 +943,9 @@
       <div class="hover-button-right">
         <button class="btn-right" onClick="ncdClick('ncd-template')"><span class="button-span">NCD</span></button>
       </div>
+
+
+      <!-- statement section start -->
       <div class="statement" style="bottom: -100%" tabindex="-1">
         <select class="statement-dropdown" name="" id="">
           <option value="Honesty">Honesty</option>
@@ -926,34 +960,46 @@
         </div>
       </div>
       <div class="hover-button-bottom">
-        <button class="btn-bottom"><span class="button-span">Statements</span></button>
+        <button class="btn-bottom" onClick="statementSlide()"><span class="button-span">Statements</span></button>
       </div>
       <div class="hover-button-tools">
-        <button class="btn-tools"><span class="button-span">Tools</span></button>
+        <button class="btn-tools" onClick="slideTools()"><span class="button-span">Tools</span></button>
       </div>
       <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
+      <h6 class="shortcuts">App shortcuts</h6>
+      <div class="shortcuts-container">
+      <div class="row">
+        <li class="col-4">Tools - Ctrl + /</li>
+        <li class="col-4">Notes - Ctrl + leftarrow</li>
+        <li class="col-4">NCD - Ctrl + rightarrow</li>
+      </div>
+      <div class="row">
+        <li class="col-6">Statements - Ctrl + uparrow</li>
+        <li class="col-6">Questions - Ctrl + downarrow</li>
+      </div>
+      </div>
     </div>
 
 
     <!-- tool box section -->
     <div class="tool-box-holder">
-    <div class="overlay">
-    <div class="tool-box">
-      <div class="date-calc">
-        <h6>Years Calculator</h6>
-        <hr>
-        <div class="row">
-        <input class="col-6 prev-date"type="date" require pattern="\d{2}-\d{2}-\d{4}">
-        <input type="date" class="col-6 new-date" require pattern="\d{2}-\d{2}-\d{4}">
-        </div>
-        <div class="row">
-          <button class="col-12 date-calc" onclick="dateCalc()">Calculate</button>
-        </div>
-        <div class="row">
-        <h6 class="col-12 years-held"><span></span></h6>
-        </div>
-      </div>
-      <br>
+      <div class="overlay">
+        <div class="tool-box">
+          <div class="date-calc">
+            <h6>Years Calculator</h6>
+            <hr>
+            <div class="row">
+              <input id="tool-focus"class="col-6 prev-date" type="date" require pattern="\d{2}-\d{2}-\d{4}">
+              <input type="date" class="col-6 new-date" require pattern="\d{2}-\d{2}-\d{4}">
+            </div>
+            <div class="row">
+              <button class="col-12 date-calc" onclick="dateCalc()">Calculate</button>
+            </div>
+            <div class="row">
+              <h6 class="col-12 years-held"><span></span></h6>
+            </div>
+          </div>
+          <br>
           <div class="interest-calc">
             <h6>Interest Spreader</h6>
             <hr>
@@ -961,9 +1007,9 @@
               <span class="col-6">First MTA</span>
               <span class="col-6">Reverted MTA</span>
             </div>
-            <div class="row">
-            <input class="n1 col-6" type="number" placeholder="Rate">
-            <input class="n2 col-6" type="number" placeholder="Rate">
+            <div class="row interest-amounts">
+              <input class="n1 col-6" name="n1" type="number" placeholder="Rate">
+              <input class="n2 col-6" name="n2" type="number" placeholder="Rate">
             </div>
             <div class="row">
               <input class="i1 col-6" type="number" placeholder="Installments">
@@ -979,9 +1025,9 @@
               <h6 class="spread-diff"></h6>
             </div>
           </div>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   </div>
@@ -1048,7 +1094,25 @@
       Verbal: '<span class="bold-span">Say:</span> The information shown on your statement of insurance and the answers provided forms the basis of the contact of insurance. If any of the information shown is incorrect or has changed then you should contact us, if you fail to do so then your insurance cover may not protect you in the event of a claim.',
       DPA: '<span class="bold-span">Say:</span> I have to make you aware that the authorised party will have the ability to make changes, claims and cancel the policy. Is that okay? '
 
-    }
+    };
+
+    ///////////////////// Keyboard shortcuts ////////////////////////////////////
+
+    document.addEventListener('keydown', (e) => {
+         if(e.ctrlKey === true && e.keyCode === 37){
+              ncdClick('ncd-template');
+         } else if(e.ctrlKey === true &&  e.keyCode == 40){
+           question();
+         }else if(e.ctrlKey === true &&  e.keyCode == 39){
+           sideNotes();
+         }else if(e.ctrlKey === true &&  e.keyCode == 38){
+         statementSlide();
+       }else if(e.ctrlKey === true && e.keyCode == 191){
+          slideTools();
+       }
+       });
+
+
 
 
     ////////////////////On click get name value push name to template cat////////////////////
@@ -1130,6 +1194,7 @@
     };
 
     function copyNotes(id) {
+      document.querySelector('.copy-notes').focus()
       document.getElementById(id).select();
       document.execCommand('copy');
       window.getSelection().removeAllRanges();
@@ -1138,9 +1203,10 @@
     ////////////////////////////////////slide in side notes////////////////////////////////
 
 
-    document.querySelector('.btn-left').addEventListener('click', () => {
+    function sideNotes(){
       tog = !tog;
       if (tog === false) {
+        document.querySelector('#further').focus();
         document.querySelector('.side-notes').style.left = '50%';
         document.querySelector('.btn-left span').innerText = 'X';
         document.querySelector('.ncd-template').style.right = "-100%";
@@ -1149,7 +1215,7 @@
         document.querySelector('.side-notes').style.left = "-100%";
         document.querySelector('.btn-left span').innerText = 'Notes';
       };
-    });
+    };
 
 
     //////////////////////////////ncd template slide in///////////////////////////////////
@@ -1163,17 +1229,19 @@
       const yBtn = document.querySelector('.btn-left span');
       tog = !tog;
       if (tog === false) {
+        document.querySelector('#focus').focus();
         x.style.right = '50%';
         btn.innerText = 'X';
         y.style.left = '-100%';
         yBtn.innerText = 'Notes'
       } else if (tog === true) {
+        document.querySelector('.focus').focus();
         x.style.right = '-100%';
         btn.innerText = 'NCD';
       }
     }
     /////////////////////////////////////////slide in statement section ///////////////////////////
-    document.querySelector('.btn-bottom').addEventListener('click', () => {
+    function statementSlide() {
       const x = document.querySelector('.statement');
       const btn = document.querySelector('.btn-bottom span');
       tog = !tog;
@@ -1188,7 +1256,7 @@
         x.style.bottom = '-100%';
         btn.innerText = 'Statements';
       }
-    })
+    };
 
     /////////////////////////////////// ncd template event haddlers//////////////////////////
 
@@ -1306,8 +1374,8 @@
 
     ////////////////////////////////slide in questions tab//////////////////////////////////
 
-    function question(className) {
-      const q = document.querySelector('.' + className);
+    function question() {
+      const q = document.querySelector('.questions');
       const btn = document.querySelector('.btn-top span');
       tog = !tog;
       if (tog === false) {
@@ -1322,20 +1390,21 @@
         btn.innerText = 'Questions';
       }
     }
-/////////////////////////////////////////slide tools/////////////////////////////
+    /////////////////////////////////////////slide tools/////////////////////////////
 
-document.querySelector('.btn-tools').addEventListener('click', () => {
-  tog =!tog
-  if(tog === false){
-  document.querySelector('.tool-box-holder').style.left = '0';
-  document.querySelector('.tool-box-holder').style.transitionDelay = '0s';
-  document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.5)';
-} else if(tog === true){
-    document.querySelector('.tool-box-holder').style.left = '-100%';
-    document.querySelector('.tool-box-holder').style.transitionDelay = '0.25s';
-    document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.0)';
-}
-})
+    function slideTools() {
+      tog = !tog
+      if (tog === false) {
+        document.querySelector('#tool-focus').focus();
+        document.querySelector('.tool-box-holder').style.left = '0';
+        document.querySelector('.tool-box-holder').style.transitionDelay = '0s';
+        document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.4)';
+      } else if (tog === true) {
+        document.querySelector('.tool-box-holder').style.left = '-100%';
+        document.querySelector('.tool-box-holder').style.transitionDelay = '0.25s';
+        document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.0)';
+      }
+    };
 
     //////////////////////////////////clear template and .para//////////////////////////////
     function clearTemplate() {
@@ -1373,6 +1442,7 @@ document.querySelector('.btn-tools').addEventListener('click', () => {
         reg: 'Vehicle Reg: ',
         years: '',
         expire: '',
+
       }
 
       ncdClaims = {
@@ -1398,49 +1468,62 @@ document.querySelector('.btn-tools').addEventListener('click', () => {
       a.querySelector('.reg').innerText = '';
       a.querySelector('.expire').innerText = '';
       a.querySelector('.years').innerText = '';
+      a.querySelector('#focus').focus();
     }
 
     // Clear element text by id
     function clearText(id) {
       document.getElementById(id).value = '';
+      document.getElementById(id).focus();
     }
 
 
     //// years between dates calculater//////////
-        function dateCalc(){
+    function dateCalc() {
 
-        let d1 = new Date(document.querySelector('.prev-date').valueAsNumber);
-        let d2 = new Date(document.querySelector('.new-date').valueAsNumber);
-        console.log(d1, d2)
+      let d1 = new Date(document.querySelector('.prev-date').valueAsNumber);
+      let d2 = new Date(document.querySelector('.new-date').valueAsNumber);
+      console.log(d1, d2)
 
-        let diff = (d2-d1) /1000/60/60/24;
-        console.log(diff)
-        if(diff < 365.25){
-          document.querySelector('.years-held span').innerText = `0 years`;
-        } else {
-        let years = Math.abs(Math.floor(diff/365.25));
+      let diff = (d2 - d1) / 1000 / 60 / 60 / 24;
+      console.log(diff)
+      if (diff < 365.25) {
+        document.querySelector('.years-held span').innerText = `0 years`;
+      } else {
+        let years = Math.abs(Math.floor(diff / 365.25));
         document.querySelector('.years-held span').innerText = `${years} years`;
-    }
-    }
-/////////interest calculator ///////////////////
-n1-n2/i1
-        function interDiff(){
-          const n1 = document.querySelector('.n1').value;
-          const n2 = document.querySelector('.n2').value;
-          const i1 = document.querySelector('.i1').value;
-
-          let diff = n1 - n2;
-          let amount = Math.round(diff / i1 * 100) / 100;
-
-          let check = amount * i1;
-
-          let modu = Math.round((diff - check) * 100) / 100;
-
-          document.querySelector('.total').innerText = `Total diff: £${diff}`
-          document.querySelector('.amount').innerText = `Installments:  £${amount}`;
-          document.querySelector('.spread-diff').innerText = `Remainder:  £${modu}`;
       }
+    }
+    /////////interest calculator ///////////////////
+    document.querySelector('.n2').addEventListener('change', (e) => {
+      const n1 = document.querySelector('.n1').value;
+      const n2 = document.querySelector('.n2').value;
+      document.querySelector('.total').innerText = `Total diff: £${n1 - n2}`;
+    })
 
+    function interDiff() {
+      const n1 = document.querySelector('.n1').value;
+      const n2 = document.querySelector('.n2').value;
+      const i1 = document.querySelector('.i1').value;
+
+      let diff = n1 - n2;
+      let amount = Math.round(diff / i1 * 100) / 100;
+
+      let check = amount * i1;
+
+      let modu = Math.round((diff - check) * 100) / 100;
+
+      document.querySelector('.total').innerText = `Total diff: £${diff}`
+      document.querySelector('.amount').innerText = `Installments:  £${amount}`;
+      document.querySelector('.spread-diff').innerText = `Remainder:  £${modu}`;
+    };
+
+
+    ///////////////////////////////////////short cuts handler //////////////////////////////
+
+    document.querySelector('.shortcuts').addEventListener('click', (e) => {
+      document.querySelector('.shortcuts-container').style.visibility = 'visible';
+    })
   </script>
 </body>
 
