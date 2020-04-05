@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="author" content="Nathaniel Detsicas">
   <title>NBR: Note Maker</title>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <style>
     /* **************************** main html tags*************************************** */
@@ -15,6 +16,7 @@
 
     body {
       background-color: #bbe1fa;
+      font-family: sans-serif;
       overflow: hidden;
       position: fixed;
       bottom: 0;
@@ -70,7 +72,7 @@
     }
 
     input,
-    textarea {
+    textarea, select {
       border: 1px inset #9f9f9f;
       box-shadow: 0 0 10px -2px #fff;
       padding-left: 10px;
@@ -78,7 +80,7 @@
       outline: none;
     }
 
-    input:focus {
+    input:focus, select:focus {
       border-radius: 4px;
       border: 1.5px solid #375F7A;
       outline: none;
@@ -94,6 +96,37 @@
       text-decoration: none;
       list-style: none;
 
+    }
+    /*********************** CSS Icons ***************************/
+
+    .remove.icon {
+      color: rgba(0,0,0,0.7);
+      position:relative;
+      margin-left: 90%;
+      padding-bottom:5px;
+      cursor: pointer;
+      transition: all 0.3s easeout;
+
+    }
+    .remove.icon:hover{
+      transform: scale(1.2);
+    }
+    .remove.icon:before{
+      content: '';
+      position:absolute;
+      width: 10px;
+      height:1px;
+      background-color: currentColor;
+      transform:rotate(45deg);
+    }
+    .remove.icon:after{
+      content: '';
+      color: #000;
+      position:absolute;
+      width: 10px;
+      height: 1px;
+      background-color: currentColor;
+      transform: rotate(-45deg);
     }
 
     /****************************** Main page tags *************************/
@@ -468,6 +501,7 @@
       transform: translate(-50%);
       transition: all 0.2s ease;
       padding: 50px;
+      z-index: 1;
     }
 
     .statement-text {
@@ -581,7 +615,81 @@
     color: #9f9f9f;
 
   }
+/* calculator CSS Section */
+.calculator-wrapper{
+border: 1.3px inset #6f6f6f;
+border-radius: 7px;
+box-shadow: 0px 10px 5px -10px #375F7A;
+width: 80%;
+margin: 0 auto;
+padding: 10px 0 0;
+}
+.calculator-wrapper:focus {
+  border-radius: 7px;
+  border: 1.5px solid #375F7A;
+  box-shadow: 0px 20px 10px -10px #375F7A;
+  outline: none;
+}
 
+.calculator-grid {
+  overflow: hidden;
+  display:grid;
+  justify-content: center;
+  align-content: center;
+  min-height:100%;
+  width:100%;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 60px);
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 1.75rem;
+  border: 1px solid #fff;
+  outline: none;
+  background-color: rgba(255,255,255,.6);
+  box-shadow:  0 0 20px -4px #3282b8;
+  border-radius: 0px;
+}
+
+.calculator-grid > button:hover{
+    background-color: rgba(255,255,255,.90);
+}
+.calculator-grid > button:active{
+    background-color: rgba(255,255,255,.90);
+      box-shadow: inset 0 0 20px -0px #3282b8;
+}
+.span-two {
+  grid-column: span 2;
+}
+
+.output{
+  grid-column: 1 / -1;
+  background-color: rgba(0,0,0,0.75);
+  box-shadow: inset 0 0 10px 5px rgba(159, 159, 159, 0.2);
+  display:flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap:  break-word;
+  word-break: break-all;
+}
+.output .previous-operand {
+  color: rgba(0, 255, 102, 0.5);
+  font-size: 1.5rem;
+}
+.output .current-operand {
+  color: rgba(0, 255, 102, 0.7);
+  font-size: 2.5rem;
+}
+
+#equals{
+  background-color: rgba(82, 238, 255, 0.7);
+}
+#equals:hover{
+  background-color: rgba(82, 238, 255, 1);
+}
     /* key frames  */
     @keyframes fade {
       from: {
@@ -667,6 +775,10 @@
         bottom: -2px;
         box-shadow: none;
 
+      }
+      .shortcuts-container{
+        width:75%;
+        font-size: 0.75rem;
       }
 
     }
@@ -969,13 +1081,13 @@
       <h6 class="shortcuts">App shortcuts</h6>
       <div class="shortcuts-container">
       <div class="row">
-        <li class="col-4">Tools - Ctrl + /</li>
-        <li class="col-4">Notes - Ctrl + leftarrow</li>
-        <li class="col-4">NCD - Ctrl + rightarrow</li>
+        <li class="col-4">{Tools - Ctrl + /}</li>
+        <li class="col-4">{Notes - Ctrl + leftarrow}</li>
+        <li class="col-4">{NCD - Ctrl + rightarrow}</li>
       </div>
       <div class="row">
-        <li class="col-6">Statements - Ctrl + uparrow</li>
-        <li class="col-6">Questions - Ctrl + downarrow</li>
+        <li class="col-6">{Statements - Ctrl + uparrow}</li>
+        <li class="col-6">{Questions - Ctrl + downarrow}</li>
       </div>
       </div>
     </div>
@@ -1002,6 +1114,7 @@
           <br>
           <div class="interest-calc">
             <h6>Interest Spreader</h6>
+            <div class="remove icon" name="interest"></div>
             <hr>
             <div class="row">
               <span class="col-6">First MTA</span>
@@ -1025,6 +1138,36 @@
               <h6 class="spread-diff"></h6>
             </div>
           </div>
+          <br>
+          <div class="calculator-wrapper" tabindex="0">
+            <h6>Calculator</h6>
+            <hr>
+          <div class="calculator-grid">
+            <div class="output">
+              <div class="previous-operand" data-previous-operand></div>
+              <div class="current-operand" data-current-operand></div>
+            </div>
+            <button tabindex="-1" class="span-two" data-all-clear>AC</button>
+            <button tabindex="-1" data-delete >DEL</button>
+            <button tabindex="-1" data-operation >÷</button>
+            <button tabindex="-1" data-number >1</button>
+            <button tabindex="-1" data-number >2</button>
+            <button tabindex="-1" data-number >3</button>
+            <button tabindex="-1" data-operation >×</button>
+            <button tabindex="-1" data-number >4</button>
+            <button tabindex="-1" data-number >5</button>
+            <button tabindex="-1" data-number >6</button>
+            <button tabindex="-1" data-operation >+</button>
+            <button tabindex="-1" data-number >7</button>
+            <button tabindex="-1" data-number >8</button>
+            <button tabindex="-1" data-number >9</button>
+            <button tabindex="-1" data-operation >-</button>
+            <button tabindex="-1" data-number >0</button>
+            <button tabindex="-1" data-number >.</button>
+            <button tabindex="-1" class="span-two" id="equals" data-equals>=</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -1420,6 +1563,7 @@
       qmList = ['']
       a.querySelector('.qm').innerText = 'QM: ';
       a.querySelector('.prev').innerText = 'Previous insurer: ';
+      a.querySelector('#prev').innerText = 'Previous Insurer: ';
       a.querySelector('.called').innerText = 'Called:   ';
       a.querySelector('.sent').innerText = 'Sent:   ';
       a.querySelector('.required').innerText = 'Required:   ';
@@ -1517,12 +1661,209 @@
       document.querySelector('.amount').innerText = `Installments:  £${amount}`;
       document.querySelector('.spread-diff').innerText = `Remainder:  £${modu}`;
     };
+    /// interest calc clear function
+    document.querySelector('.remove.icon').addEventListener('click', (e) => {
+      document.querySelectorAll('.interest-calc input').forEach(elem => {
+        elem.value = '';
+      });
+      document.querySelector('.total').innerText = '';
+      document.querySelector('.amount').innerText = '';
+      document.querySelector('.spread-diff').innerText = '';
+    })
+
+    /////////////////////////////////////// general calculator function///////////////////////
+
+    const calculatorWrapper = document.querySelector('.calculator-wrapper');
+
+    calculatorWrapper.addEventListener('focus', () => {
+
+      class Calculator{
+        constructor(previousOperandTextElement, currentOperandTextElement){
+          this.previousOperandTextElement = previousOperandTextElement
+          this.currentOperandTextElement = currentOperandTextElement
+          this.clear()
+      }
+
+      clear(){
+      this.previousOperand = '';
+      this.currentOperand = '';
+      this.operation = undefined;
+      }
+      delete(){
+      this.currentOperand = this.currentOperand.toString().slice(0, -1);
+      }
+
+      appendNumber(number){
+        if(number === '.' && this.currentOperand.includes('.')) return
+      this.currentOperand = this.currentOperand.toString() + number.toString();
+      }
+
+      chooseOperation(operation){
+        if(this.currentOperand === '') return
+        if(this.previousOperand !== ''){
+          this.compute()
+        }
+      this.operation = operation
+      this.previousOperand = this.currentOperand
+      this.currentOperand = ''
+
+      }
+
+      compute(){
+      let computation;
+      const prev = parseFloat(this.previousOperand);
+      const current = parseFloat(this.currentOperand);
+      if(isNaN(prev) || isNaN(current)) return
+
+      switch (this.operation){
+        case '+':
+          computation = prev + current;
+          break;
+        case '-':
+          computation = prev - current;
+          break;
+        case '÷':
+          computation = prev / current;
+          break;
+        case '×':
+          computation = prev * current;
+          break;
+        default:
+        return;
+      }
+      this.currentOperand = computation;
+      this.operation = undefined;
+      this.previousOperand = '';
+      }
+
+      getDisplayNumber(number){
+        const stringNumber = number.toString()
+        const intergerDigits = parseFloat(stringNumber.split('.')[0])
+        const decimalDigits = stringNumber.split('.')[1]
+        let intergerDisplay
+        if(isNaN(intergerDigits)){
+          intergerDisplay = ''
+        } else {
+          intergerDisplay = intergerDigits.toLocaleString('en', {
+            maximumFractionDigits: 0
+          })
+        }
+        if(decimalDigits != null){
+          return `${intergerDisplay}.${decimalDigits}`
+        } else {
+          return intergerDisplay
+        }
+      }
+      updateDisplay(){
+      this.currentOperandTextElement.innerText =
+      this.getDisplayNumber(this.currentOperand);
+      if(this.operation != null){
+        this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+      } else {
+        this.previousOperandTextElement.innerText = '';
+      }
+
+      }
+      }
+
+
+
+      const numberButtons = document.querySelectorAll('[data-number]');
+      const operationButtons = document.querySelectorAll('[data-operation]');
+      const equalsButton = document.querySelector('[data-equals]');
+      const delButton = document.querySelector('[data-delete]');
+      const acButton = document.querySelector('[data-all-clear]');
+      const previousOperandTextElement = document.querySelector('[data-previous-operand]');
+      const currentOperandTextElement = document.querySelector('[data-current-operand]');
+
+
+      const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+      //key press activation
+      calculatorWrapper.addEventListener('keydown', (e) =>{
+        //convert event key to a number
+        let number = parseFloat(e.key);
+        //filter out letters and un used keys
+        if(e.key.length > 1 && e.key !== 'Enter' && e.key !== 'Backspace' && e.key !== 'Delete'){return};
+        if(e.key == e.key.match(/[a-z]/i) || e.key === 'Space'){return}
+
+        if(Number.isInteger(number)){
+          calculator.appendNumber(number);
+          calculator.updateDisplay()
+        } else if(e.key === '.'){
+          calculator.appendNumber(e.key);
+          calculator.updateDisplay()
+        } else {
+          if(e.key === 'Enter'){
+            calculator.compute();
+            calculator.updateDisplay();
+          } else if(e.key === 'Backspace'){
+            calculator.delete();
+            calculator.updateDisplay();
+          } else if(e.key === 'Delete'){
+            calculator.clear();
+            calculator.updateDisplay();
+          }  else {
+            if(e.key === 'Enter'){return}
+          else  if(e.key === '*'){
+              calculator.chooseOperation('×')
+              calculator.updateDisplay();
+            } else if(e.key === '/'){
+              calculator.chooseOperation('÷')
+              calculator.updateDisplay();
+            } else {
+          calculator.chooseOperation(e.key)
+          calculator.updateDisplay();
+        }
+        }
+      }
+      })
+      //click handlers
+
+      numberButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          calculator.appendNumber(button.innerText);
+          calculator.updateDisplay();
+        })
+      })
+
+      operationButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          calculator.chooseOperation(button.innerText);
+          calculator.updateDisplay();
+        })
+      })
+
+      equalsButton.addEventListener('click', button => {
+        calculator.compute();
+        calculator.updateDisplay();
+      })
+
+      acButton.addEventListener('click', button => {
+        calculator.clear();
+        calculator.updateDisplay();
+      })
+      delButton.addEventListener('click', button => {
+        calculator.delete();
+        calculator.updateDisplay();
+      })
+
+    });
+
+
+
 
 
     ///////////////////////////////////////short cuts handler //////////////////////////////
 
     document.querySelector('.shortcuts').addEventListener('click', (e) => {
-      document.querySelector('.shortcuts-container').style.visibility = 'visible';
+      tog = !tog;
+      if(tog === false){
+            document.querySelector('.shortcuts-container').style.visibility = 'visible';
+      } else {
+            document.querySelector('.shortcuts-container').style.visibility = 'hidden';
+      }
+
     })
   </script>
 </body>
