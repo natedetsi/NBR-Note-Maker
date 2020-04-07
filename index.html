@@ -99,7 +99,7 @@
     }
     /*********************** CSS Icons ***************************/
 
-    .remove.icon {
+    .remove {
       color: rgba(0,0,0,0.7);
       position:relative;
       margin-left: 90%;
@@ -108,10 +108,10 @@
       transition: all 0.3s easeout;
 
     }
-    .remove.icon:hover{
+    .remove:hover{
       transform: scale(1.2);
     }
-    .remove.icon:before{
+    .remove:before{
       content: '';
       position:absolute;
       width: 10px;
@@ -119,7 +119,7 @@
       background-color: currentColor;
       transform:rotate(45deg);
     }
-    .remove.icon:after{
+    .remove:after{
       content: '';
       color: #000;
       position:absolute;
@@ -636,10 +636,10 @@ padding: 10px 0 0;
   display:grid;
   justify-content: center;
   align-content: center;
-  min-height:100%;
+  min-height:80%;
   width:100%;
   grid-template-columns: repeat(4, 80px);
-  grid-template-rows: minmax(120px, auto) repeat(5, 60px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 50px);
 }
 
 .calculator-grid > button {
@@ -683,6 +683,76 @@ padding: 10px 0 0;
   color: rgba(0, 255, 102, 0.7);
   font-size: 2.5rem;
 }
+
+/* information section */
+.information{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:80%;
+  height: auto;
+  background-color: #fff;
+  border:2px solid #375F7A;
+  border-radius:10px;
+  padding: 30px;
+
+}
+.info-main{
+font-size:0.8rem;
+}
+.info-calculator{
+font-size:0.8rem;
+}
+.info-sec{
+  border:1px solid #9f9f9f;
+  border-radius: 5px;
+  margin: 2px 0;
+  font-size:0.8rem;
+  padding:5px 20px;
+  text-align: left;
+}
+.info-sec h6 {
+  text-align: center;
+  margin-bottom: 5px;
+  text-decoration:underline;
+
+}
+
+/* close icon */
+
+.close-icon{
+  border: 1px solid #000;
+  border-radius: 50%;
+  width:15px;
+  height:15px;
+  color: rgba(0,0,0,0.7);
+  position: absolute;
+
+}
+.close-icon:before{
+  content: '';
+  position: absolute;
+  right:18%;
+  top:35%;
+  transform:translate(-50%, -50%);
+  width:10px;
+  height:1px;
+  background-color: currentColor;
+  transform: rotateZ(45deg);
+}
+.close-icon:after{
+  content: '';
+  position: absolute;
+  right:18%;
+  top:35%;
+  transform:translate(-50%, -50%);
+  width:10px;
+  height: 1px;
+  background-color: currentColor;
+  transform: rotateZ(-45deg);
+}
+
 
 #equals{
   background-color: rgba(82, 238, 255, 0.7);
@@ -1114,7 +1184,6 @@ padding: 10px 0 0;
           <br>
           <div class="interest-calc">
             <h6>Interest Spreader</h6>
-            <div class="remove icon" name="interest"></div>
             <hr>
             <div class="row">
               <span class="col-6">First MTA</span>
@@ -1171,8 +1240,53 @@ padding: 10px 0 0;
         </div>
       </div>
     </div>
-  </div>
 
+    <!-- information page, opens on page load  -->
+      <div class="information">
+        <div class="close-icon"></div>
+        <h5>Welcome to Notepad Maker</h5>
+        <p>Below is useful information about page navigation and how to use best use tools</p>
+        <div class="row info-sec">
+          <p>The app is fully functional with mouse click, but can also be navigated with a combo nation of keyboard shortcuts and keys. It is recommend to use these to speed up the processes</p>
+        </div>
+        <div class="info-main">
+          <div class="row info-sec">
+          <h6 class="col-12">Full Page Shortcuts</h6>
+          <br>
+          <div class="col-6">Tools:</div>
+          <div class="col-6"> CTRL + /</div>
+          <div class="col-6">Notes: </div>
+          <div class="col-6">CTRL + LeftArrowKey</div>
+          <div class="col-6">NCD: </div>
+          <div class="col-6">CTRL + RightArrowKey</div>
+          <div class="col-6">Statements: </div>
+          <div class="col-6">CTRL + DownArrowKey</div>
+          <div class="col-6">Questions: </div>
+          <div class="col-6">CTRL + UpArrowKey</div>
+        </div>
+      </div>
+        <div class="row info-calculator">
+          <div class="info-sec">
+            <h6>Date Calculator</h6>
+            <br>
+            <p>Instructions: oldest date into the first date field, and then either todays date or other date you are useing. Notes use the Tab key to index between sections, you can also use the Enter key to activate all buttons.</p>
+          </div>
+          <div class="info-sec">
+            <h6>Interest calculator</h6>
+            <br>
+            <p>Instructions: This calculator is intend to be use to calculate the amount of interest you need to spread over 𝑥 amount of inallments.</p>
+            <br>
+            <p>first input the value of the first interest rate into field one, then the second rate into the second field and tab to the installment feild. You should now see a difference calculation.</p>
+            <p>Now enter the number of installments you need to spead over, and click calculate. Below you will see the amount per installment that you need to input.</p>
+            <p>Below this is a remainder amount, this is the amount you will need to add or subtract from one or more installments to reach the rounded amount of the difference.</p>
+          </div>
+          <div class="info-sec">
+            <h6>Calculator</h6>
+            <br>
+            <p>Instructions: the calculator can but operated entirely with the numpad, the Backspace key operates the DEL function and the Delete key operates the AC (All Clear) key. </p>
+          </div>
+        </div>
+      </div>
   </div>
 
 
@@ -1627,10 +1741,10 @@ padding: 10px 0 0;
 
       let d1 = new Date(document.querySelector('.prev-date').valueAsNumber);
       let d2 = new Date(document.querySelector('.new-date').valueAsNumber);
-      console.log(d1, d2)
+
 
       let diff = (d2 - d1) / 1000 / 60 / 60 / 24;
-      console.log(diff)
+
       if (diff < 365.25) {
         document.querySelector('.years-held span').innerText = `0 years`;
       } else {
@@ -1661,15 +1775,7 @@ padding: 10px 0 0;
       document.querySelector('.amount').innerText = `Installments:  £${amount}`;
       document.querySelector('.spread-diff').innerText = `Remainder:  £${modu}`;
     };
-    /// interest calc clear function
-    document.querySelector('.remove.icon').addEventListener('click', (e) => {
-      document.querySelectorAll('.interest-calc input').forEach(elem => {
-        elem.value = '';
-      });
-      document.querySelector('.total').innerText = '';
-      document.querySelector('.amount').innerText = '';
-      document.querySelector('.spread-diff').innerText = '';
-    })
+
 
     /////////////////////////////////////// general calculator function///////////////////////
 
