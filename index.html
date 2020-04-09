@@ -74,7 +74,7 @@
     input,
     textarea, select {
       border: 1px inset #9f9f9f;
-      box-shadow: 0 0 10px -2px #fff;
+      box-shadow: 0 0 10px -5px #fff;
       padding-left: 10px;
       border-radius: 4px;
       outline: none;
@@ -986,11 +986,10 @@ font-size:0.8rem;
         <p class="prev">Previous Insurer:</p>
         <br>
         <p class="called">Called:</p>
-        <br>
         <div class="extra">
           <p class="extra-para"></p>
-          <br>
         </div>
+        <br>
         <p class="sent">Sent:</p>
         <br>
         <p class="required">Required:</p>
@@ -1700,7 +1699,9 @@ font-size:0.8rem;
       a.querySelectorAll('input').forEach((elem) => {
         elem.value = '';
       });
-      a.querySelector('extra-notes').value = '';
+      a.querySelector('.extra-notes').value = '';
+      a.querySelector('.extra-para').innerText = '';
+      a.querySelector('.extra').style.height = '0';
       document.querySelectorAll('button').forEach((elem) => {
         elem.classList.remove('toggle');
       });
