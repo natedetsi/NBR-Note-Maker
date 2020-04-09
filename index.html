@@ -188,6 +188,10 @@
       border-radius: 5px;
       line-height: 1;
     }
+    .extra{
+      visibility: hidden;
+      height:0;
+    }
 
     .textarea {
       margin: 5px 0;
@@ -592,6 +596,7 @@ border: 1.3px inset #6f6f6f;
 border-radius: 7px;
 box-shadow: 0px 10px 5px -10px #375F7A;
 width: 80%;
+
 margin: 0 auto;
 padding: 10px 0 0;
 }
@@ -610,7 +615,7 @@ padding: 10px 0 0;
   min-height:80%;
   width:100%;
   grid-template-columns: repeat(4, 80px);
-  grid-template-rows: minmax(120px, auto) repeat(5, 50px);
+  grid-template-rows: minmax(120px, auto) repeat(5,40px);
 }
 
 .calculator-grid > button {
@@ -915,7 +920,6 @@ font-size:0.8rem;
           <div class="col-3"><button value="sent" class="sent-msg" name="IN003">IN003</button></div>
         </div>
       </div>
-
       <hr>
       <div class="row called-container">
         <div class="row col-6">
@@ -928,6 +932,10 @@ font-size:0.8rem;
           <div class="col-4"><button class="sent-msg" value="sent" name="Letter">Letter</button></div>
           <div class="col-4"><button class="sent-msg" value="sent" name="SMS">SMS</button></div>
         </div>
+      </div>
+      <hr>
+      <div class="row">
+        <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
       </div>
       <hr>
 
@@ -963,6 +971,9 @@ font-size:0.8rem;
           <button class="primary-button" value="required" name="Share My Licence">SML</button>
         </div>
         <div class="col-3">
+          <button class="primary-button" value="required" name="USE">USE</button>
+        </div>
+        <div class="col-3">
           <button class="primary-button" value="required" name="NCD">NCD</button>
         </div>
       </div>
@@ -976,6 +987,10 @@ font-size:0.8rem;
         <br>
         <p class="called">Called:</p>
         <br>
+        <div class="extra">
+          <p class="extra-para"></p>
+          <br>
+        </div>
         <p class="sent">Sent:</p>
         <br>
         <p class="required">Required:</p>
@@ -1017,7 +1032,7 @@ font-size:0.8rem;
 
       <div class="side-notes" style="left: -100%">
 
-        <textarea name="name" id="further" class="side-textarea"></textarea>
+        <textarea name="name" id="further" class="side-textarea" spellcheck="true"></textarea>
 
         <div class="row">
           <div class="col-6">
@@ -1422,6 +1437,19 @@ font-size:0.8rem;
 
       });
     });
+    /////////////////////////////////// extra notes section handlers//////////////////////////
+
+
+    document.querySelector('.extra-notes').addEventListener('keyup', (e) => {
+      if(e.target.value === ''){
+        document.querySelector('.extra').style.visibility = 'hidden';
+        document.querySelector('.extra').style.height = '0';
+      } else {
+      document.querySelector('.extra').style.visibility = 'visible';
+      document.querySelector('.extra').style.height = 'auto';
+      document.querySelector('.extra-para').innerText = e.target.value;
+    }
+    })
 
 
     /////////////////////////select all inside .para and copy to clipboard/////////////////////
@@ -1672,6 +1700,7 @@ font-size:0.8rem;
       a.querySelectorAll('input').forEach((elem) => {
         elem.value = '';
       });
+      a.querySelector('extra-notes').value = '';
       document.querySelectorAll('button').forEach((elem) => {
         elem.classList.remove('toggle');
       });
