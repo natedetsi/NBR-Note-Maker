@@ -1259,6 +1259,8 @@ font-size:0.8rem;
           <div class="col-6">CTRL + DownArrowKey</div>
           <div class="col-6">Questions: </div>
           <div class="col-6">CTRL + UpArrowKey</div>
+          <div class="col-6">Information:</div>
+          <div class="col-6">CTRL + i</div>
         </div>
       </div>
         <div class="row info-calculator">
@@ -1355,6 +1357,7 @@ font-size:0.8rem;
     ///////////////////// Keyboard shortcuts ////////////////////////////////////
 
     document.addEventListener('keydown', (e) => {
+
          if(e.ctrlKey === true && e.keyCode === 37){
               ncdClick('ncd-template');
          } else if(e.ctrlKey === true &&  e.keyCode == 40){
@@ -1365,6 +1368,8 @@ font-size:0.8rem;
          statementSlide();
        }else if(e.ctrlKey === true && e.keyCode == 191){
           slideTools();
+       } else if(e.ctrlKey === true && e.keyCode == 73){
+         information();
        }
        });
 
@@ -1984,6 +1989,14 @@ font-size:0.8rem;
       document.querySelector('.information').style.visibility = 'visible';
     })
 
+   function information(){
+      tog = !tog;
+     if(tog === false ){
+            document.querySelector('.information').style.visibility = 'hidden';
+     } else {
+       document.querySelector('.information').style.visibility = 'visible';
+     }
+   }
 
 
   </script>
