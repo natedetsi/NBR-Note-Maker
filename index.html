@@ -695,7 +695,7 @@ font-size:0.8rem;
 /* close icon */
 
 .close-icon{
-  border: 1px solid #000;
+  border: 1.5px solid #000;
   border-radius: 50%;
   width:15px;
   height:15px;
@@ -703,37 +703,39 @@ font-size:0.8rem;
   position: relative;
   margin-left: 97%;
   cursor: pointer;
-  transition: all 0.1s ease;
+  line-height: 0.8;
+  font-weight: 700;
+  font-size:1rem;
 
 }
 .close-icon:hover{
-  transform: scale(1.3);
-  opacity: 1;
-  color: red;
-  border: 1px solid blue;
-}
-.close-icon:before{
-  content: '';
-  position: absolute;
-  right: 7%;
-  top:45%;
-  width:10px;
-  height:1px;
-  background-color: currentColor;
-  transform: rotateZ(45deg);
-}
-.close-icon:after{
-  content: '';
-  position: absolute;
-  right:7%;
-  top:45%;
-  width:10px;
-  height: 1px;
-  background-color: currentColor;
-  transform: rotateZ(-45deg);
+  transform: scale(1.2);
+  font-size:1rem;
+  line-height: 0.8;
+  color: #9f9f9f;
+  border: 1.5px solid #9f9f9f;
 }
 
+/* information button  */
 
+.info-button{
+  position: absolute;
+  width: 17px;
+  height:17px;
+  left:2%;
+  top:2%;
+  border: 2px solid #000;
+  border-radius:50%;
+  font-size: 0.8rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+.info-button:hover{
+  transform: scale(1.15);
+  color: #9f9f9f;
+  border-color: #9f9f9f;
+}
 #equals{
   background-color: rgba(82, 238, 255, 0.7);
 }
@@ -826,18 +828,17 @@ font-size:0.8rem;
         box-shadow: none;
 
       }
-      .shortcuts-container{
-        width:75%;
-        font-size: 0.75rem;
-      }
       .information{
-        width: 90%;
+        width: 98%;
         font-size: 0.7rem;
         padding: 5px;
         overflow: scroll;
       }
       .info-sec h6{
         margin-bottom: 2px;
+      }
+      .info-button{
+        top:5%;
       }
     }
   </style>
@@ -847,6 +848,7 @@ font-size:0.8rem;
   <div class="page-holder">
     <div class="template">
       <h3 class="header-title">Note maker</h3>
+      <div class="info-button">i</div>
 
       <!-- top row of buttons START -->
 
@@ -1123,6 +1125,8 @@ font-size:0.8rem;
           <option value="Real">Real Time Pricing</option>
           <option value="Verbal">Verbal Disclaimer</option>
           <option value="DPA">DPA statement</option>
+          <option value="Cardmid">Card Payment MTA</option>
+          <option value="Cardcan">Card Payment Cancellation</option>
         </select>
         <div class="statement-text">
           <p class="statement-paragraph">By law insurance companies are required to ask relevant questions. Once the questions have been asked, the responsibilty is on the policyholder to disclose information, anwser the questions correctly and be
@@ -1220,13 +1224,12 @@ font-size:0.8rem;
 
     <!-- information page, opens on page load  -->
       <div class="information">
-        <div class="close-icon"></div>
+        <div class="close-icon">×</div>
         <h5>Welcome to Notepad Maker</h5>
-        <h6>Please Note this app will not work in internet explorer please use Microsoft Edge</h6>
         <br>
-        <p>Below is useful information about page navigation and how to use best use tools</p>
+        <p>Please Note this app will not work in internet explorer please use Microsoft Edge</p>
         <div class="row info-sec">
-          <p>The app is fully functional with mouse clicks, but can also be navigated with a combonation of keyboard shortcuts and keys. It is recommend to use these to speed up the processes</p>
+          <p>The app is fully functional with mouse clicks, but can also be navigated with a combonation of keyboard shortcuts and keys. It is recommend to use these to speed up the processes.</p>
         </div>
         <div class="info-main">
           <div class="row info-sec">
@@ -1248,20 +1251,20 @@ font-size:0.8rem;
           <div class="info-sec">
             <h6>Date Calculator</h6>
             <br>
-            <p>Instructions: Enter the oldest date into the first data field, and then either todays date or another date you are useing. Note use the Tab key to index between sections, you can also use the Enter key to activate all buttons.</p>
+            <p>Instructions: Enter the oldest date into the first data field, and then either todays date or another date you are using. Note use the Tab key to index between sections, you can also use the Enter key to activate all buttons.</p>
           </div>
           <div class="info-sec">
             <h6>Interest calculator</h6>
             <br>
-            <p>Instructions: This calculator is intend to be use to calculate the amount of interest you need to spread over 𝑥 amount of installments.</p>
-            <p>first input the value of the first interest rate into field one, then the second rate into the second field this will give you the difference, then tab to the installment field. You should now see a difference calculation.</p>
-            <p>Now enter the number of installments you need to spead over, and click calculate. Below you will see the amount per installment that you need to input.</p>
-            <p>Below this is a remainder amount, this is the amount you will need to add or subtract from one or more installments to reach the rounded amount of the difference. It is recommended to spread this over multiple installements.</p>
+            <p> <span class="bold-span">Instructions: </span>This calculator is intend to be used to calculate the amount of interest you need to spread over 𝑥 amount of installments.</p>
+            <p><span class="bold-span">First: </span>input the value of the first interest rate into field one, then the second rate into the second field this will give you the difference, then tab to the installment field. You should now see a difference calculation.</p>
+            <p><span class="bold-span">Second: </span>enter the number of installments you need to spead over, and click calculate. Below you will see the amount per installment that you need to input.</p>
+            <p><span class="bold-span">Third: </span>Below this is a remainder amount, this is the amount you will need to add or subtract from one or more installments to reach the rounded amount of the difference. It is recommended to spread this over multiple installements.</p>
           </div>
           <div class="info-sec">
             <h6>Calculator</h6>
             <br>
-            <p>Instructions: The calculator can be operated entirely with the numpad. The Backspace key operates the DEL function and the Delete key operates the AC (All Clear) key. </p>
+            <p><span class="bold-span">Instructions:</span> The calculator can be operated entirely with the numpad. The Backspace key operates the DEL function and the Delete key operates the AC (All Clear) key. </p>
           </div>
         </div>
       </div>
@@ -1327,7 +1330,11 @@ font-size:0.8rem;
       Real: '<span class="bold-span">Say:</span> Please be aware that any prices quoted for any changes made to your policy today will be inclusive of a £30 administation fee and may be subject to change if the amendment is not completed on this phone call',
       Price: '',
       Verbal: '<span class="bold-span">Say:</span> The information shown on your statement of insurance and the answers provided forms the basis of the contact of insurance. If any of the information shown is incorrect or has changed then you should contact us, if you fail to do so then your insurance cover may not protect you in the event of a claim.',
-      DPA: '<span class="bold-span">Say:</span> I have to make you aware that the authorised party will have the ability to make changes, claims and cancel the policy. Is that okay? '
+      DPA: '<span class="bold-span">Say:</span> The authorised party with have the same authority as you on this policy including registering and dealing with claims, any mid-term adjustments and policy cancellations. Is that okay?',
+      Cardmid: `<span class="bold-span">For a mid term adjustment</span> <br />If its a new card confirm: <ul><li>You are speaking to the card holder</li><li>The payment amount</li></ul> <br /><span class="bold-span">Say:</span>Your card could be used for future payments, including your renewal premium, fees or any missed payments. You can cancel the continous payment authority at any time. Is that okay? <br /><br /> If they say no turn off CPA. <br /><br /> If they say yes and it is a third partys card <br /> <br /><span class="bold-span">Say:</span>It is the policy holders responsibilty to tell you about any premium changes and we will notify them before taking payment `,
+      Cardcan:`<span class="bold-span">For a cancellation</span> <br />If it is a new card, confirm <ul><li>You are speaking to the card holder</li><li>The payment amount</li></ul> <br /><span class="bold-span">Say:</span> The card could be used for any outstanding balances after cancellation. You can cancel this continuous payment authority at any time. Is that okay? <br />
+    <br />  If they say no, turn off CPA <br /> <br /> If they say yes <br /><br /> <span class="bold-span">Say:</span> It is the policy holders responsibilty to tell you of any changes in premium and we will notify them before taking any payment.`
+
 
     };
 
@@ -1780,6 +1787,7 @@ font-size:0.8rem;
       }
 
       appendNumber(number){
+        // first check for a pre existing decimal place
         if(number === '.' && this.currentOperand.includes('.')) return
       this.currentOperand = this.currentOperand.toString() + number.toString();
       }
@@ -1941,20 +1949,13 @@ font-size:0.8rem;
       document.querySelector('.information').style.visibility = 'hidden';
     })
 
+    document.querySelector('.info-button').addEventListener('click', (e) => {
 
-
-
-    ///////////////////////////////////////short cuts handler //////////////////////////////
-
-    document.querySelector('.shortcuts').addEventListener('click', (e) => {
-      tog = !tog;
-      if(tog === false){
-            document.querySelector('.shortcuts-container').style.visibility = 'visible';
-      } else {
-            document.querySelector('.shortcuts-container').style.visibility = 'hidden';
-      }
-
+      document.querySelector('.information').style.visibility = 'visible';
     })
+
+
+
   </script>
 </body>
 
