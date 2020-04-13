@@ -13,16 +13,9 @@
       padding: 0;
       margin: 0;
     }
-    ::selection{
-    color: var(--bg);
-    background-color: var(--text)
-    }
-    ::placeholder{
-      color var(--text);
-    }
+
     body {
-      background-color: var(--bg);
-      color:var(--text);
+      background-color: #000;
       font-family: sans-serif;
       overflow: hidden;
       position: fixed;
@@ -30,9 +23,17 @@
       top: 0;
       left: 0;
       right: 0;
-      transition: background 0.5s ease-in-out, color 0.8s ease-in-out;
-    }
+      color: #00a843;
+      outline-color: none;
 
+    }
+    ::selection{
+      color:#000;
+      background-color: #00a843;
+    }
+    ::placeholder{
+      color: rgba(0, 255, 102, 0.5);
+    }
     h1,
     h2,
     h3,
@@ -41,8 +42,8 @@
     h6 {
       padding: 0;
       margin: 0;
-      color:var(--text);
-      }
+      color: #00a843;
+    }
 
     hr {
       margin: 10px auto;
@@ -51,7 +52,6 @@
 
     li{
       margin: 1px 0;
-      color:var(--text);
     }
 
     .button-span {
@@ -66,41 +66,49 @@
 
     button {
       width: 100%;
-      background-color: var(--bg2);
-      color:var(--text);
-      border: 1.2px solid var(--border2);
+      background-color: #000;
+      border: 1px solid #00a843;
       border-radius: 5px;
-      box-shadow: 0 2px 10px -3px var(--box-shadow);
+      box-shadow: 0 2px 10px -3px rgba(0, 255, 102, 0.7);
+      transition: all 0.1s ease;
       min-height: 30px;
+      color: #00a843;
+    }
+    button:hover{
+      background-color:rgba(0, 255, 102, 0.3);
+      box-shadow: inset 3px 3px 8px 2px rgba(0, 255, 102, 0.5);
     }
 
     button:focus {
       border-radius: 5px;
-      border: 1.5px solid var(--border);
+      border: 1.7px solid #00ff66;
       outline: none;
     }
 
     button:active {
       opacity: 0.7;
-      box-shadow: inset 3px 3px 8px 2px #6f6f6f;
+      background-color: rgba(0, 255, 102, 0.5);
+      box-shadow: inset 3px 3px 8px 2px #00a843;
       outline: none;
     }
 
     input,
     textarea,
     select {
-      border: 1.2px inset var(--border2);
-      box-shadow: 0 0 10px -5px var(--box-shadow);
-      background-color: var(--bg2);
+      border: 1px inset rgba(0, 255, 102, 0.7);
+      box-shadow: 0 0 10px -5px #00a843;
       padding-left: 10px;
       border-radius: 4px;
       outline: none;
+      background-color: #000;
+      color: #00a843;
+      caret-color: #00a843;
     }
 
     input:focus,
     select:focus {
       border-radius: 4px;
-      border: 1.7px solid var(--focus);
+      border: 1.5px solid rgba(0, 255, 102, 0.7);
       outline: none;
     }
 
@@ -108,65 +116,22 @@
       width: 100%;
       border-radius: 5px;
       padding-left: 5px;
-      color:var(--text);
+      outline:none;
     }
-
+     option{
+      background-color: color:#00a843;
+    }
     li {
       text-decoration: none;
       list-style: none;
+      color:#00a843;
 
     }
-
-    /*********************** CSS themes ***************************/
-    :root{
-      --light-blue: #bbe1fa;
-      --light-blue2: #3282b8;
-      --bright-blue:#52eeff;
-      --dark-blue:#375F7A;
-      --rgblue:rgba(82, 238, 255, 1);
-      --rgblue2:rgba(82, 238, 255, 0.7);
-      --green: #00ff66;
-      --green2: #00a843;
-      --rgbgreen3:rgba(0, 255, 102, 0.3);
-      --rgbgreen5:rgba(0, 255, 102, 0.5);
-      --rgbgreen7:rgba(0, 255, 102, 0.7);
-      --black:#000;
-      --white: #ffffff;
-      --grey9: #9f9f9f;
-      --grey6:#6f6f6f;
-      --grey5:#5f5f5f;
-      --rggrey:rgba(255, 255, 255, .6);
-      --rggrey2:rgba(159, 159, 159, 0.3)
-
-
+    p{
+      color: #00a843;
     }
-    .dark-mode{
-      --bg:var(--black);
-      --bg2:var(--black);
-      --text:var(--rgbgreen5);
-      --focus:var(--green);
-      --box-shadow:var(--green2);
-      --border:var(--green2);
-      --border2:var(--green2);
-      --tbtn:var(--rgbgreen3);
-      --calc-buttons:var(--rgrey2);
-      --switch-bg:var(--black);
-      --switch-bg2:var(--rgbgreen3);
-    }
-    .light-mode{
-      --bg:var(--light-blue);
-      --bg2:var(--white);
-      --focus:var(--dark-blue);
-      --border:var(--dark-blue);
-      --border2:var(--grey6);
-      --box-shadow:var(--light-blue2);
-      --tbtn:var(--rgblue2);
-      --tbtn-hover:var(--rgblue);
-      --text:var(--black);
-        --calc-buttons:var(--rggrey);
-        --switch-bg:var(--light-blue);
-        --switch-bg2:var(--white);
-    }
+
+    /*********************** CSS Icons ***************************/
 
 
     /****************************** Main page tags *************************/
@@ -184,10 +149,10 @@
     .header-title {
       margin: 2% 0 0;
       display: flex;
-      text-shadow: 0 0 10px var(--bg2);
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
       justify-content: center;
       align-items: center;
-      color: var(--text);
+      color: rgba(0, 255, 102, 0.5);
     }
 
     .title {
@@ -195,7 +160,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--text);
+      color: rgba(0, 255, 102, 0.5);
     }
 
     .row {
@@ -229,7 +194,8 @@
 
     .toggle {
       opacity: 0.7;
-      box-shadow: inset 3px 3px 8px 2px #6f6f6f;
+      box-shadow: inset 3px 3px 8px 2px rgba(0, 255, 102, 0.5);
+      background-color: rgba(0, 255, 102, 0.3);
       outline: none;
     }
 
@@ -251,8 +217,9 @@
     .para {
       text-align: left;
       margin: 10px 0;
-      background-color: var(--bg2);
-      border: 1.4px inset var(--border2);
+      background-color: #000;
+      border: 1px inset #00a843;
+      color:rgba(0, 255, 102, 0.7);
       padding: 10px;
       border-radius: 5px;
       line-height: 1;
@@ -316,9 +283,9 @@
       transform: translateY(-50%);
       transform: rotateZ(-90deg);
       border-radius: 0 0 10px 10px;
-      border: 1px solid var(--border2);
-      box-shadow: -5px 5px 15px -2px var(--box-shadow);
-      background-color: var(--bg2);
+      border: 1px solid #00a843;
+      box-shadow: -5px 5px 15px -2px rgba(0, 255, 102, 0.3);
+      background-color: #000;
       transition: all 0.1s ease;
       z-index: 3;
     }
@@ -332,9 +299,9 @@
       transform: translateY(-50%);
       transform: rotateZ(-90deg);
       border-radius: 10px 10px 0 0;
-      border: 1px solid var(--border2);
-      box-shadow: -5px 5px 15px -2px var(--box-shadow);
-      background-color: var(--bg2);
+      border: 1px solid #00a843;
+      box-shadow: -5px 5px 15px -2px rgba(0, 255, 102, 0.3);
+      background-color: #000;
       transition: all 0.1s ease;
       z-index: 3;
     }
@@ -347,9 +314,9 @@
       left: 50%;
       transform: translateX(-50%);
       border-radius: 0 0 10px 10px;
-      border: 1px solid var(--border2);
-      box-shadow: 5px 3px 15px -2px var(--box-shadow);
-      background-color: var(--bg2);
+      border: 1px solid #00a843;
+      box-shadow: 5px 3px 15px -2px #rgba(0, 255, 102, 0.3);
+      background-color: #000;
       transition: all 0.1s ease;
       z-index: 3;
     }
@@ -362,9 +329,9 @@
       left: 50%;
       transform: translateX(-50%);
       border-radius: 10px 10px 0 0;
-      border: 1px solid var(--border2);
-      box-shadow: 3px 3px 15px -2px var(--box-shadow);
-      background-color: var(--bg2);
+      border: 1px solid #00a843;
+      box-shadow: 3px 3px 15px -2px #rgba(0, 255, 102, 0.3);
+      background-color: #000;
       transition: all 0.1s ease;
       z-index: 3;
     }
@@ -377,32 +344,36 @@
       left: 100%;
       transform: translateX(-100%);
       border-radius: 10px 10px 0 0;
-      border: 1px solid var(--border2);
-      box-shadow: 3px 3px 15px -2px var(--box-shadow);
-      background-color: var(--bg2);
+      border: 1px solid #00a843;
+      box-shadow: 3px 3px 15px -2px rgba(0, 255, 102, 0.3);
+      background-color: #000;
       transition: all 0.1s ease;
       z-index: 7;
     }
 
     .btn-top:hover {
       top: -5px;
-      box-shadow: 7px 5px 18px 0px var(--box-shadow);
+      box-shadow: 7px 5px 18px 0px #rgba(0, 255, 102, 0.3);
+      background-color: rgba(0, 255, 102, 0.3);
     }
 
     .btn-right:hover {
       left: -55px;
-      box-shadow: -7px 7px 18px 0px var(--box-shadow);
+      box-shadow: -7px 7px 18px 0px #rgba(0, 255, 102, 0.3);
+      background-color: rgba(0, 255, 102, 0.3);
     }
 
     .btn-bottom:hover,
     .btn-tools:hover {
       bottom: -5px;
-      box-shadow: 5px 7px 18px 0px var(--box-shadow);
+      box-shadow: 5px 7px 18px 0px #rgba(0, 255, 102, 0.3);
+      background-color: rgba(0, 255, 102, 0.3);
     }
 
     .btn-left:hover {
       right: -55px;
-      box-shadow: -7px 7px 18px 0px var(--box-shadow);
+      box-shadow: -7px 7px 18px 0px #rgba(0, 255, 102, 0.3);
+      background-color: rgba(0, 255, 102, 0.3);
     }
 
     .btn-left:active,
@@ -411,7 +382,7 @@
     .btn-bottom:active,
     .btn-tools:active {
       opacity: 0.7;
-      box-shadow: inset 3px 3px 8px 2px #6f6f6f;
+      box-shadow: inset 3px 3px 8px 2px rgba(0, 255, 102, 0.3);
       outline: none;
     }
 
@@ -440,8 +411,8 @@
       transition: all 0.2s linear;
       border-radius: 10px;
       padding: 20px;
-      border: 1.5px solid var(--border2);
-      background-color: var(--bg2);
+      border: 1.5px solid rgba(0, 255, 102, 0.7);;
+      background-color: #000;
     }
 
     .side-textarea {
@@ -476,8 +447,8 @@
     .ncd-template {
       position: absolute;
       border-radius: 10px;
-      border: 1.7px outset var(--border2);
-      background-color: var(--bg2);
+      border: 1px inset rgba(0, 255, 102, 0.7);
+      background-color: #000;
       padding: 40px 10px 20px;
       top: 48%;
       right: -100%;
@@ -536,9 +507,9 @@
     .statement {
       width: 90%;
       max-width: 900px;
-      background-color: var(--bg2);
+      background-color: #000;
       border-radius: 10px 10px 0 0;
-      border: 1px solid var(--border2);
+      border: 1px solid rgba(0, 255, 102, 0.7);
       height: auto;
       position: absolute;
       bottom: -100%;
@@ -551,9 +522,9 @@
 
     .statement-text {
       border-radius: 10px;
-      background-color: var(--bg2);
-      border: 1px solid var(--border);
-      box-shadow: 2px 10px 10px -5px var(--border);
+      background-color: #000;
+      border: 1px solid rgba(0, 255, 102, 0.7);
+      box-shadow: 2px 10px 10px -5px rgba(0, 255, 102, 0.3);;
       padding: 10px;
       text-align: left;
       margin: auto;
@@ -561,14 +532,14 @@
 
     .statement-dropdown {
       width: 300px;
-      box-shadow: 2px 5px 10px -5px var(--border);
+      box-shadow: 2px 5px 10px -5px rgba(0, 255, 102, 0.3);;
       margin: 0 auto 20px;
       outline: none;
     }
 
     .statement-dropdown:focus {
       border-radius: 4px;
-      border: 1.5px solid var(--border);
+      border: 1.5px solid rgba(0, 255, 102, 0.3);;
       outline: none;
     }
 
@@ -603,8 +574,8 @@
       transform: translate(0, -50%);
       height: 95%;
       width: 400px;
-      background-color: var(--bg2);
-      border: 1.8px solid var(--border);
+      background-color: #000;
+      border: 1.8px solid #00a843;
       border-radius: 0 10px 10px 0;
       padding: 50px 0 50px;
     }
@@ -613,12 +584,13 @@
     .date-calc {
       width: 80%;
       height: auto;
-      background-color: var(--bg2);
-      border: 1.5px solid var(--border2);
-      box-shadow: 0px 10px 10px -10px var(--box-shadow);
+      background-color: #000;
+      border: 1.3px inset #00a843;
+      box-shadow: 0px 10px 10px -10px rgba(0, 255, 102, 0.3);;
       border-radius: 7px;
       padding: 5px;
       margin: 0 auto;
+      color:#00a843;
     }
 
     .date-calc>.row {
@@ -626,39 +598,43 @@
     }
 
     .date-calc button {
-      background-color: var(--tbtn);
+      background-color: #00a843;
+      color:#000;
     }
 
     /* interest calculator */
     .interest-calc {
       width: 80%;
       height: auto;
-      background-color: var(--bg2);
-      border: 1.5px solid var(--border2);
-      box-shadow: 0px 10px 10px -10px var(--box-shadow);
+      background-color: #000;
+      border: 1.3px inset #00a843;
+      box-shadow: 0px 10px 10px -10px rgba(0, 255, 102, 0.3);
       border-radius: 7px;
       padding: 5px;
       margin: 0 auto;
+            color:#00a843;
     }
 
     .interest-calc button {
-      background-color: var(--tbtn);
+      background-color: #00a843;
+      color:#000;
     }
 
     /* calculator CSS Section */
     .calculator-wrapper {
-      border: 1.5px solid var(--border2);
+      border: 1.3px inset #00a843;
       border-radius: 7px;
-      box-shadow: 0px 10px 5px -10px var(--box-shadow);
+      box-shadow: 0px 10px 5px -10px rgba(0, 255, 102, 0.3);
       width: 80%;
+            color:#00a843;
       margin: 0 auto;
       padding: 10px 0 0;
     }
 
     .calculator-wrapper:focus {
       border-radius: 7px;
-      border: 1.5px solid var(--border);
-      box-shadow: 0px 20px 10px -10px var(--box-shadow);
+      border: 1.5px solid #00a843;
+      box-shadow: 0px 20px 10px -10px rgba(0, 255, 102, 0.3);;
       outline: none;
     }
 
@@ -676,21 +652,19 @@
     .calculator-grid>button {
       cursor: pointer;
       font-size: 1.75rem;
-      border: 1px solid var(--bg2);
+      border: 1px solid rgba(0, 255, 102, 0.3);
       outline: none;
-      background-color: var(--calc-buttons);
-      box-shadow: 0 0 20px -4px var(--box-shadow);
+      background-color: rgba(0,0,0, .6);
       border-radius: 0px;
     }
 
     .calculator-grid>button:hover {
-      background-color: var(--calc-buttons);
-      opacity:0.9;
+      background-color:rgba(0, 255, 102, 0.3);
     }
 
     .calculator-grid>button:active {
-
-      box-shadow: inset 0 0 20px -0px var(--box-shadow);
+      background-color: rgba(0, 255, 102, 0.3);
+      box-shadow: inset 0 0 20px -0px #rgba(0, 255, 102, 0.3);;
     }
 
     .span-two {
@@ -730,8 +704,8 @@
       max-width: 800px;
       max-height: 95%;
       height: auto;
-      background-color: var(--bg2);
-      border: 2px solid var(--border);
+      background-color: #000;
+      border: 2px solid #00a843;
       visibility: hidden;
       border-radius: 10px;
       padding: 30px;
@@ -747,7 +721,7 @@
     }
 
     .info-sec {
-      border: 1px solid var(--border2);
+      border: 1px solid #00a843;
       border-radius: 5px;
       margin: 2px 0;
       font-size: 0.8rem;
@@ -769,7 +743,7 @@
       border-radius: 50%;
       width: 15px;
       height: 15px;
-      color: var(--text);
+      color: rgba(0, 255, 102, 0.5);
       position: relative;
       margin-left: 97%;
       cursor: pointer;
@@ -783,8 +757,8 @@
       transform: scale(1.2);
       font-size: 1rem;
       line-height: 0.8;
-      color: var(--text);
-      border: 1.5px solid var(--border2);
+      color: #00a843;
+      border: 1.5px solid #00a843;
     }
 
     /* information button  */
@@ -795,7 +769,7 @@
       height: 17px;
       left: 2%;
       top: 2%;
-      border: 2px solid var(--bg );
+      border: 2px solid #000;
       border-radius: 50%;
       font-size: 0.8rem;
       font-weight: 900;
@@ -805,38 +779,16 @@
 
     .info-button:hover {
       transform: scale(1.15);
-      color: var(--text);
-      border-color: var(--text);
-    }
-    /* light mode button toggle */
-    .mode{
-      position:relative;
-      width: 60px;
-      height: 30px;
-      border: 1.2px solid var(--border2);
-      border-radius: 30px;
-      background-color: var(--switch-bg);
-      cursor:pointer;
-    }
-    .mode-switch{
-      position: absolute;
-      left:0;
-      top:50%;
-      transform:translate(0, -50%);
-      background-color:var(--switch-bg2);
-      border: 1.2px solid var(--border2);
-      border-radius: 50%;
-      height:30px;
-      width:30px;
-      transition:all 0.3s ease;
+      color: #00a843;
+      border-color: #00a843;
     }
 
     #equals {
-      background-color: var(--tbtn);
+      background-color: rgba(0, 255, 102, 0.5);;
     }
 
     #equals:hover {
-      background-color: var(--tbtn-hover);
+      background-color: rgba(0, 255, 102, 0.7);;
     }
 
     /* key frames  */
@@ -949,9 +901,6 @@
     <div class="template">
       <h3 class="header-title">Note maker</h3>
       <div class="info-button">i</div>
-      <div class="mode">
-        <div class="mode-switch" style="left:0%"></div>
-      </div>
 
       <!-- top row of buttons START -->
 
@@ -1087,7 +1036,7 @@
         <div class="extra">
           <p class="extra-para"></p>
         </div>
-        <br>
+
         <p class="sent">Sent:</p>
         <br>
         <p class="required">Required:</p>
@@ -1148,7 +1097,7 @@
 
       <div class="ncd-template" style="right:-100%">
         <div class="template-holder">
-          <h3>NCD Template</h3>
+          <h3 class="header-title">NCD Template</h3>
           <div class="inputs">
             <div class="row">
               <div class="col-6">
@@ -1172,7 +1121,7 @@
                 <option value="1">None</option>
               </select>
             </div>
-            <h6>Claims</h6>
+            <h6 class="title">Claims</h6>
             <div class="col-12"><input type="text" class="claim" name="type" placeholder="Type"></div>
             <div class="col-12"><input type="text" class="claim" name="date" placeholder="DD/MM/YY"></div>
             <div class="col-12"><input type="text" class="claim" name="name" placeholder="Driver name"></div>
@@ -1187,7 +1136,7 @@
                 <option value="1">None</option>
               </select>
             </div>
-            <h6>Convictions</h6>
+            <h6 class="title">Convictions</h6>
             <div class="col-12"><input type="text" class="conviction" name="code" placeholder="Code"></div>
             <div class="col-12"><input type="text" class="conviction" name="date" placeholder="DD/MM/YY"></div>
             <div class="col-12"><input type="text" class="conviction" name="name" placeholder="Driver name"></div>
@@ -2107,35 +2056,6 @@
         document.querySelector('.information').style.visibility = 'visible';
       }
     }
-  /////////////////////////////////// save light choice /////////////////////////////////////
-
-  const theme = localStorage.getItem('theme');
-  const togglePosition = localStorage.getItem('togglePosition');
-
-  if(theme) {
-    document.querySelector('body').classList.remove('light-mode');
-    document.querySelector('body').classList.add('dark-mode');
-    document.querySelector('body').classList.add(theme);
-  }
-  if(togglePosition) {
-    document.querySelector('.mode-switch').style.left = `${togglePosition}`;
-  }
-  //////////////////////////////////// change light mode ////////////////////////////////////
-
-  document.querySelector('.mode').addEventListener('click', () => {
-    tog =!tog;
-    if(tog === false){
-      document.querySelector('body').classList.replace('light-mode', 'dark-mode');
-      document.querySelector('.mode-switch').style.left = '50%';
-      localStorage.setItem('theme', 'dark-mode');
-      localStorage.setItem('togglePosition', '50%');
-    } else {
-      document.querySelector('body').classList.replace('dark-mode', 'light-mode');
-      document.querySelector('.mode-switch').style.left = '0';
-      localStorage.setItem('theme', 'light-mode');
-      localStorage.setItem('togglePosition', '0');
-    }
-  })
   </script>
 </body>
 
