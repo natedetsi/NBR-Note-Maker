@@ -2109,18 +2109,18 @@
       }
     }
   /////////////////////////////////// save light choice /////////////////////////////////////
+  // var theme = localStorage.getItem('theme');
+  // var togglePosition = localStorage.getItem('togglePosition');
+  //
+  // if(theme) {
+  //   document.querySelector('body').classList.remove('light-mode');
+  //   document.querySelector('body').classList.add('dark-mode');
+  //   document.querySelector('body').classList.add(theme);
+  // }
+  // if(togglePosition) {
+  //   document.querySelector('.mode-switch').style.left = `${togglePosition}`;
+  // }
 
-  const theme = localStorage.getItem('theme');
-  const togglePosition = localStorage.getItem('togglePosition');
-
-  if(theme) {
-    document.querySelector('body').classList.remove('light-mode');
-    document.querySelector('body').classList.add('dark-mode');
-    document.querySelector('body').classList.add(theme);
-  }
-  if(togglePosition) {
-    document.querySelector('.mode-switch').style.left = `${togglePosition}`;
-  }
   //////////////////////////////////// change light mode ////////////////////////////////////
 
   document.querySelector('.mode').addEventListener('click', () => {
