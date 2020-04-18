@@ -7,7 +7,8 @@
   <title>NBR: Note Maker</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -23,53 +24,39 @@
 
       <div class="row top-container">
         <div class="col-3">
-          <button class="primary-button focus" key="true" value="qm" name="Convictions">Convictions</button>
+          <button class="primary-button focus" key="true" value="qm" name="I2 ren acceptable"> I2 ren acc</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Occupation">Occupation</button>
+          <button class="primary-button" key="true" value="qm" name="I2 Ren Unacceptable">I2 Ren Unacc</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Ownership">Ownership</button>
+          <button class="primary-button" key="true" value="qm" name="Cifas">Cifas</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Address">Address</button>
+          <button class="primary-button" key="true" value="qm" name="Cifas Id check">Cifas id</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Residency">Residency</button>
+          <button class="primary-button" key="true" value="qm" name="I2 Netreveal">I2 Netreveal</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Driving Licence Number">DLN</button>
+          <button class="primary-button" key="true" value="qm" name="Iovation deny">Iovation Deny</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Driver Age">Driver Age</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Mileage">Mileage</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Claims">Claims</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Licence">Licence</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="HPI">HPI</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="NCD">NCD</button>
-        </div>
-      </div>
-      <!-- policy section START -->
-      <div class="row policy-container">
-
-        <div class="col-6 input-p">
-          <input type="text" class="second previous" placeholder="Previous Insurer">
-        </div>
-        <div class="col-6 input-p">
-          <input type="text" class="second policy-number" placeholder="Policy Number">
+          <button class="primary-button" key="true" value="qm" name="I2 B7">I2 B7</button>
         </div>
       </div>
       <hr>
+      <!-- policy section START -->
+      <div class="row policy-container">
+        <div class="col-6">
+          <button type="button" name="mail">Received Corrispondence</button>
+        </div>
+        <div class="col-6">
+        <button type="button" name="mail">Nothing Recieved</button>
+        </div>
+      </div>
+      <hr>
+
       <!-- called and sent sections START -->
 
       <div class="row letter-type">
@@ -95,13 +82,21 @@
         </div>
       </div>
       <hr>
+
+      <!-- confirmed information section -->
+      <div class="row confirmation">
+        <input type="text" class="col-6 handle" name="confirmed" placeholder="What have you confirmed?">
+        <input type="text" class="col-6 handle" name="mta" placeholder="MTA's made?">
+      </div>
+      <hr>
       <div class="row">
-        <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
+        <input type="text" class="col-6 handle" name="cost" placeholder="How was payment made?">
+        <input type="text" class="col-6 extra-notes" placeholder="Extra notes">
       </div>
       <hr>
 
-
       <!-- bottom row of buttons start -->
+      <h6>Still Required?</h6>
       <div class="row bottom-container">
 
 
@@ -140,10 +135,18 @@
 
       <!-- template display section START-->
       <div class="para" id="para">
-        <p class="qm">QM:</p>
+        <p class="I2"></p>
         <br>
-        <p class="prev">Previous Insurer:</p>
+        <p class="recieved"></p>
         <br>
+        <div class="confirmed">
+          <p class="confirmed"></p>
+        </div>
+        <br>
+        <div class="mta-section">
+          <p class="mta"></p>
+          <p class="cost"></p>
+        </div>
         <p class="called">Called:</p>
         <div class="extra">
           <p class="extra-para"></p>
@@ -447,9 +450,7 @@
     </div>
   </div>
 
-  <script src="./app.js" charset="utf-8"></script>
-
-
+  <script src="app.js" charset="utf-8"></script>
 </body>
 
 </html>

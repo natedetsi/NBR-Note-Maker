@@ -9,7 +9,8 @@ let template = {
   policy: [' ', ''],
   called: '',
   sent: ['Sent: '],
-  required: ['Required: ']
+  required: ['Required: '],
+
 }
 ////////////////////////////////////////////ncd template objects and arrays///////////////////
 
@@ -70,7 +71,7 @@ document.addEventListener('keydown', (e) => {
 
   if (e.ctrlKey === true && e.keyCode === 37) {
     ncdClick('ncd-template');
-<<<<<<< HEAD
+
   } else if (e.ctrlKey === true && e.keyCode == 40 ) {
     question();
   } else if (e.ctrlKey === true && e.keyCode == 39 ) {
@@ -81,7 +82,7 @@ document.addEventListener('keydown', (e) => {
     slideTools();
   } else if (e.ctrlKey === true && e.keyCode == 73 ) {
     e.preventDefault();
-=======
+
   } else if (e.ctrlKey === true && e.keyCode == 40) {
     question();
   } else if (e.ctrlKey === true && e.keyCode == 39) {
@@ -91,7 +92,7 @@ document.addEventListener('keydown', (e) => {
   } else if (e.ctrlKey === true && e.keyCode == 191) {
     slideTools();
   } else if (e.ctrlKey === true && e.keyCode == 73) {
->>>>>>> 41806855c76207ae5e6af6729b88d2708cde8e0b
+
     information();
   }
 });
@@ -120,12 +121,8 @@ document.querySelectorAll('button').forEach((elem) => {
         document.querySelector('.called').innerText = 'Called: ' + template.called;
       });
       e.target.classList.add('toggle');
-<<<<<<< HEAD
     } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further') {
-      if(cat === 'qm' && template[cat].length > 4){return};
-=======
-    } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && template[cat].length < 5) {
->>>>>>> 41806855c76207ae5e6af6729b88d2708cde8e0b
+        if(cat === 'qm' && template[cat].length > 4){return};
       e.target.classList.add('toggle');
       //get button name and value push name to array = to template.name
       template[cat].push(label);
@@ -134,6 +131,13 @@ document.querySelectorAll('button').forEach((elem) => {
   });
 });
 
+////////////////////////////////// universal input handler //////////////////////////////
+document.querySelectorAll('.handle').forEach( elem => {
+  elem.addEventListener('keyup', (e) => {
+    let cat = e.target.name;
+    document.querySelector(`.${cat}`).innerText = `${cat}: ${e.target.value}`;
+  })
+})
 /////////////////////////////////call input event handler ////////////////////////////////
 
 document.querySelector('.call-input').addEventListener('keyup', (e) => {
@@ -763,8 +767,5 @@ if(tog === false){
   localStorage.setItem('theme', 'light-mode');
   localStorage.setItem('togglePosition', '0');
 }
-<<<<<<< HEAD
-})
-=======
+
 });
->>>>>>> 41806855c76207ae5e6af6729b88d2708cde8e0b
