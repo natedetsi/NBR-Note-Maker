@@ -206,18 +206,10 @@
   .top-container {
     margin-top: 4%;
   }
-
-  .col-3 {
+  .col-2, .col-3, .col-4, .col-6{
     padding: 2px;
   }
 
-  .col-4 {
-    padding: 2px;
-  }
-
-  .col-6 {
-    padding: 2px;
-  }
 
   .toggle {
     opacity: 0.7;
@@ -240,7 +232,7 @@
     margin-top: 3px;
   }
 
-  .para {
+  .para, .para-dairy {
     text-align: left;
     margin: 10px 0;
     background-color: var(--bg2);
@@ -249,6 +241,9 @@
     border-radius: 5px;
     line-height: 1;
     overflow-y: scroll;
+  }
+  .para-dairy{
+    max-height: 250px;
   }
 
   .extra {

@@ -24,38 +24,52 @@
 
       <div class="row top-container">
         <div class="col-3">
-          <button class="primary-button focus" key="true" value="qm" name="I2 ren acceptable"> I2 ren acc</button>
+          <button class="primary-button focus" key="true" value="i2" name="I2 ren acceptable"> I2 ren acc</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="I2 Ren Unacceptable">I2 Ren Unacc</button>
+          <button class="primary-button" key="true" value="i2" name="I2 Ren Unacceptable">I2 Ren Unacc</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Cifas">Cifas</button>
+          <button class="primary-button" key="true" value="i2" name="Cifas">Cifas</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Cifas Id check">Cifas id</button>
+          <button class="primary-button" key="true" value="i2" name="Cifas Id check">Cifas id</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="I2 Netreveal">I2 Netreveal</button>
+          <button class="primary-button" key="true" value="i2" name="I2 Netreveal">I2 Netreveal</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Iovation deny">Iovation Deny</button>
+          <button class="primary-button" key="true" value="i2" name="Iovation deny">Iovation Deny</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="I2 B7">I2 B7</button>
+          <button class="primary-button" key="true" value="i2" name="I2 B7">I2 B7</button>
         </div>
       </div>
       <hr>
       <!-- policy section START -->
       <div class="row policy-container">
         <div class="col-6">
-          <button type="button" name="mail">Received Corrispondence</button>
+          <button type="button" class="mail" name="Corrispondence received" value="received">Received Corrispondence</button>
         </div>
         <div class="col-6">
-        <button type="button" name="mail">Nothing Recieved</button>
+        <button type="button" class="mail" name="Nothing receieved" value="received">Nothing Recieved</button>
         </div>
       </div>
       <hr>
+      <!-- confirmed information section -->
+      <div class="row confirmation">
+        <input type="text" class="col-6 handle" name="Confirmed" placeholder="What have you confirmed?">
+        <input type="text" class="col-6 handle" name="MTA" placeholder="MTA's made?">
+      </div>
+      <hr>
+      <div class="row costs">
+        <div class="col-2"><button class="cost-btn" value="cost" name="Spread over direct debits">Spread</button></div>
+        <div class="col-2"><button class="cost-btn" value="cost" name="Left Payment Outstanding">Left OS</button></div>
+        <div class="col-2"><button class="cost-btn" value="cost" name="Paid in full">Paid</button></div>
+        <input type="text" class="col-6 extra-notes" placeholder="Extra notes">
+      </div>
+      <hr>
+
 
       <!-- called and sent sections START -->
 
@@ -83,17 +97,6 @@
       </div>
       <hr>
 
-      <!-- confirmed information section -->
-      <div class="row confirmation">
-        <input type="text" class="col-6 handle" name="confirmed" placeholder="What have you confirmed?">
-        <input type="text" class="col-6 handle" name="mta" placeholder="MTA's made?">
-      </div>
-      <hr>
-      <div class="row">
-        <input type="text" class="col-6 handle" name="cost" placeholder="How was payment made?">
-        <input type="text" class="col-6 extra-notes" placeholder="Extra notes">
-      </div>
-      <hr>
 
       <!-- bottom row of buttons start -->
       <h6>Still Required?</h6>
@@ -134,18 +137,18 @@
 
 
       <!-- template display section START-->
-      <div class="para" id="para">
-        <p class="I2"></p>
+      <div class="para-dairy" id="para">
+        <p class="i2" ></p>
         <br>
-        <p class="recieved"></p>
+        <p class="received" ></p>
         <br>
         <div class="confirmed">
-          <p class="confirmed"></p>
+          <p class="Confirmed" ></p>
         </div>
         <br>
         <div class="mta-section">
-          <p class="mta"></p>
-          <p class="cost"></p>
+          <p class="MTA" ></p>
+          <p class="cost" ></p>
         </div>
         <p class="called">Called:</p>
         <div class="extra">

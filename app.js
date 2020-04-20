@@ -7,9 +7,11 @@ let template = {
   qm: ['QM:'],
   previous: [''],
   policy: [' ', ''],
-  called: '',
+  called:'',
+  cost:'',
   sent: ['Sent: '],
   required: ['Required: '],
+  i2:['']
 
 }
 ////////////////////////////////////////////ncd template objects and arrays///////////////////
@@ -116,12 +118,27 @@ document.querySelectorAll('button').forEach((elem) => {
     //////////////////////////////////////////toggle buttons down//////////////////////////
     else if (cat === 'called') {
       document.querySelectorAll('.call').forEach(elem => {
-        elem.classList.remove('toggle');
-        template.called = label;
-        document.querySelector('.called').innerText = 'Called: ' + template.called;
+          elem.classList.remove('toggle');
+        document.querySelector('.called').innerText = 'Called: ' +  label;
       });
       e.target.classList.add('toggle');
-    } else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further') {
+    }
+      else if (cat === 'cost') {
+        document.querySelectorAll('.cost-btn').forEach(elem => {
+            elem.classList.remove('toggle');
+            document.querySelector('.cost').innerText = 'Cost: ' + label;
+        });
+        e.target.classList.add('toggle');
+
+
+    } else if( cat === 'received'){
+      document.querySelectorAll('.mail').forEach(elem => {
+          elem.classList.remove('toggle');
+          document.querySelector('.received').innerText = label;
+      });
+      e.target.classList.add('toggle');
+    }
+     else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further') {
         if(cat === 'qm' && template[cat].length > 4){return};
       e.target.classList.add('toggle');
       //get button name and value push name to array = to template.name
@@ -431,13 +448,16 @@ function clearTemplate() {
     required: ['Required: ']
   };
   qmList = ['']
-  a.querySelector('.qm').innerText = 'QM: ';
-  a.querySelector('.prev').innerText = 'Previous insurer: ';
-  a.querySelector('#prev').innerText = 'Previous Insurer: ';
-  a.querySelector('.called').innerText = 'Called:   ';
-  a.querySelector('.sent').innerText = 'Sent:   ';
-  a.querySelector('.required').innerText = 'Required:   ';
-  a.querySelector('.q-info').innerText = '';
+  // a.querySelector('.qm').innerText = 'QM: ';
+  // a.querySelector('.prev').innerText = 'Previous insurer: ';
+  // a.querySelector('#prev').innerText = 'Previous Insurer: ';
+  // a.querySelector('.called').innerText = 'Called:   ';
+  // a.querySelector('.sent').innerText = 'Sent:   ';
+  // a.querySelector('.required').innerText = 'Required:   ';
+  // a.querySelector('.q-info').innerText = '';
+  a.querySelectorAll('.para p').forEach(elem => {
+    elem.innerText = '';
+  });
   a.querySelectorAll('input').forEach((elem) => {
     elem.value = '';
   });
