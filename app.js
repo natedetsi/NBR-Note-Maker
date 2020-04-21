@@ -448,16 +448,13 @@ function clearTemplate() {
     required: ['Required: ']
   };
   qmList = ['']
-  // a.querySelector('.qm').innerText = 'QM: ';
-  // a.querySelector('.prev').innerText = 'Previous insurer: ';
-  // a.querySelector('#prev').innerText = 'Previous Insurer: ';
-  // a.querySelector('.called').innerText = 'Called:   ';
-  // a.querySelector('.sent').innerText = 'Sent:   ';
-  // a.querySelector('.required').innerText = 'Required:   ';
-  // a.querySelector('.q-info').innerText = '';
-  a.querySelectorAll('.para p').forEach(elem => {
-    elem.innerText = '';
-  });
+  a.querySelector('.qm').innerText = 'QM: ';
+  a.querySelector('.prev').innerText = 'Previous insurer: ';
+  a.querySelector('#prev').innerText = 'Previous Insurer: ';
+  a.querySelector('.called').innerText = 'Called:   ';
+  a.querySelector('.sent').innerText = 'Sent:   ';
+  a.querySelector('.required').innerText = 'Required:   ';
+  a.querySelector('.q-info').innerText = '';
   a.querySelectorAll('input').forEach((elem) => {
     elem.value = '';
   });
