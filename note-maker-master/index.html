@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Nathaniel Detsicas">
+  <title>NBR: Note Maker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="light-mode">
+  <div class="page-holder">
+    <div class="template">
+      <h3 class="header-title">Note maker</h3>
+      <div class="info-button">i</div>
+      <div class="mode">
+        <div class="mode-switch" style="left:0%"></div>
+      </div>
+      <!-- top row of buttons START -->
+
+      <div class="row top-container">
+        <div class="col-3">
+          <button class="primary-button focus" key="true" value="qm" name="Convictions">Convictions</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Occupation">Occupation</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Ownership">Ownership</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Address">Address</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Residency">Residency</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Driving Licence Number">DLN</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Driver Age">Driver Age</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Mileage">Mileage</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Claims">Claims</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="Licence">Licence</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="HPI">HPI</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="qm" name="NCD">NCD</button>
+        </div>
+      </div>
+      <!-- policy section START -->
+      <div class="row policy-container">
+
+        <div class="col-6 input-p">
+          <input type="text" class="second previous" placeholder="Previous Insurer">
+        </div>
+        <div class="col-6 input-p">
+          <input type="text" class="second policy-number" placeholder="Policy Number">
+        </div>
+      </div>
+      <hr>
+      <!-- called and sent sections START -->
+
+      <div class="row letter-type">
+        <div class="col-6"><input type="text" class="call-input" placeholder="Call information"></div>
+        <div class="row col-6">
+          <div class="col-3"><button value="sent" class="sent-msg" name="IN001">IN001</button></div>
+          <div class="col-3"><button value="sent" class="sent-msg" name="IN005">IN005</button></div>
+          <div class="col-3"><button value="sent" class="sent-msg" name="IN011">IN011</button></div>
+          <div class="col-3"><button value="sent" class="sent-msg" name="IN003">IN003</button></div>
+        </div>
+      </div>
+      <hr>
+      <div class="row called-container">
+        <div class="row col-6">
+          <div class="col-4"><button value="called" class="call" name="Left voice mail ">Left msg</button></div>
+          <div class="col-4"><button value="called" class="call" name="Policy Holder was unavailable">No Time</button></div>
+          <div class="col-4"><button value="called" class="call" name="Number not provided on policy">No Num</button></div>
+        </div>
+        <div class="row col-6">
+          <div class="col-4"><button class="sent-msg" value="sent" name="Email">Email</button></div>
+          <div class="col-4"><button class="sent-msg" value="sent" name="Letter">Letter</button></div>
+          <div class="col-4"><button class="sent-msg" value="sent" name="SMS">SMS</button></div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
+      </div>
+      <hr>
+
+
+      <!-- bottom row of buttons start -->
+      <div class="row bottom-container">
+
+
+        <div class="col-3">
+          <button class="primary-button" value="required" name="Occupation">Occupation</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="V5">Ownership</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="Utility Bill">Utility</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="Residency">Residency</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="Mileage">Mileage</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="Claims History">Claims</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="Share My Licence">SML</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="required" name="USE">USE</button>
+        </div>
+        <div class="col-6">
+          <button class="primary-button" value="required" name="Driving licence">Driving Licence</button>
+        </div>
+        <div class="col-6">
+          <button class="primary-button" value="required" name="NCD">NCD</button>
+        </div>
+      </div>
+
+
+      <!-- template display section START-->
+      <div class="para" id="para">
+        <p class="qm">QM:</p>
+        <br>
+        <p class="prev">Previous Insurer:</p>
+        <br>
+        <p class="called">Called:</p>
+        <div class="extra">
+          <p class="extra-para"></p>
+        </div>
+        <br>
+        <p class="sent">Sent:</p>
+        <br>
+        <p class="required">Required:</p>
+      </div>
+      <div class="row copier">
+        <div class="col-6">
+          <button class="copy" type="button" value="copy" name="button" onClick="copy('para')">Copy Template</button>
+        </div>
+        <div class="col-6">
+          <button class="clear" type="button" value="clear" name="button" onClick="clearTemplate()"> Clear Template</button>
+        </div>
+      </div>
+
+
+      <!-- questions section START -->
+      <div class="questions" style="top:-100%">
+        <div class="para" id="questions">
+          <h5>How to Question the Qm Data?</h5>
+          <div class="q-info">
+            <div id="Convictions"></div>
+            <div id="Occuptation"></div>
+            <div id="Ownership"></div>
+            <div id="Address"></div>
+            <div id="Residency"></div>
+            <div id="DLN"></div>
+            <div id="Driver%Age"></div>
+            <div id="Mileage"></div>
+            <div id="Claims"></div>
+            <div id="HPI"></div>
+            <div id="NCD"></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-top" onClick="question('questions')"><span class="button-span">Questions</span></button>
+
+
+      <!-- side notes section start -->
+
+      <div class="side-notes" style="left: -100%">
+
+        <textarea name="name" id="further" class="side-textarea" spellcheck="true" wrap="soft"></textarea>
+
+        <div class="row">
+          <div class="col-6">
+            <button class="copy-notes" value="copy" onClick="copyNotes('further')"> Copy Notes</button>
+          </div>
+          <div class="col-6">
+            <button class="clear-notes" value="clear" onClick="clearText('further')">Clear Notes</button>
+          </div>
+        </div>
+      </div>
+      <div class="hover-button-left">
+        <button class="btn-left" onClick="sideNotes()"><span class="button-span">Notes</span></button>
+      </div>
+
+      <!-- NCD template slide START -->
+
+      <div class="ncd-template" style="right:-100%">
+        <div class="template-holder">
+          <h3>NCD Template</h3>
+          <div class="inputs">
+            <div class="row">
+              <div class="col-6">
+                <input type="text" class=" second previous " id="focus-1"placeholder="Previous Insurer">
+              </div>
+              <div class="col-6">
+                <input type="text" class=" second policy-number " placeholder="Policy Number">
+              </div>
+              <div class="col-6"><input type="text" id="focus-2" name="reg" placeholder="Reg number"></div>
+              <div class="col-6"><input type="text" name="expire" placeholder="expire date"></div>
+              <div class="col-6"><input type="text" name="years" placeholder="NCD years"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row middle">
+          <div class="col-6">
+            <div class="col-12 default-input">
+              <!-- <input type="text" class="default-conviction" name="default-conviction" value="" placeholder="Not confirmed"> -->
+              <select name="" id="" class="default-claim">
+                <option value="0">Not confirmed</option>
+                <option value="1">None</option>
+              </select>
+            </div>
+            <h6>Claims</h6>
+            <div class="col-12"><input type="text" class="claim" name="type" placeholder="Type"></div>
+            <div class="col-12"><input type="text" class="claim" name="date" placeholder="DD/MM/YY"></div>
+            <div class="col-12"><input type="text" class="claim" name="name" placeholder="Driver name"></div>
+            <div class="col-12"><input type="text" class="claim" name="fault" placeholder="Liability"></div>
+            <button class="col-10 claim-button" name="claims">Add Claim</button>
+          </div>
+          <div class="col-6">
+            <div class="col-12 default-input">
+              <!-- <input type="text" class="default-conviction" name="default-conviction" value="" placeholder="Not confirmed"> -->
+              <select name="" id="" class="default-conviction">
+                <option value="0">Not confirmed</option>
+                <option value="1">None</option>
+              </select>
+            </div>
+            <h6>Convictions</h6>
+            <div class="col-12"><input type="text" class="conviction" name="code" placeholder="Code"></div>
+            <div class="col-12"><input type="text" class="conviction" name="date" placeholder="DD/MM/YY"></div>
+            <div class="col-12"><input type="text" class="conviction" name="name" placeholder="Driver name"></div>
+            <div class="col-12"></div>
+            <button class="col-12 conviction-button" name="conviction">Add Conviction</button>
+          </div>
+        </div>
+
+        <div class="template-section">
+          <div class="para" id="ncd-template">
+            <p class="prev" id="prev">Previous Insurer: </p>
+            <br>
+            <p>Vehicle Reg: <span class="reg"></span></p>
+            <br>
+            <p>NCD Years: <span class="years"></span></p>
+            <br>
+            <p>Expire Date: <span class="expire"></span></p>
+            <br>
+            <p>Claims: <span class="claim-span">Not Confirmed</span>
+              <ul class="claims"></ul>
+            </p>
+            <br>
+            <p>Convictions: <span class="conviction-span">Not Confirmed</span>
+              <ul class="convictions"></ul>
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="copy-notes" value="copy" onClick="copy('ncd-template')">Copy Notes</button>
+            </div>
+            <div class="col-6">
+              <button class="clear-notes" value="clear" onClick="clearNcd()">Clear Notes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hover-button-right">
+        <button class="btn-right" onClick="ncdClick('ncd-template')"><span class="button-span">NCD</span></button>
+      </div>
+
+
+      <!-- statement section start -->
+      <div class="statement" style="bottom: -100%" tabindex="-1">
+        <select class="statement-dropdown" name="" id="statement-focus">
+          <option value="Honesty">Honesty</option>
+          <option value="Break">Break In Cover</option>
+          <option value="Real">Real Time Pricing</option>
+          <option value="Verbal">Verbal Disclaimer</option>
+          <option value="DPA">DPA statement</option>
+          <option value="Cardmid">Card Payment MTA</option>
+          <option value="Cardcan">Card Payment Cancellation</option>
+        </select>
+        <div class="statement-text">
+          <p class="statement-paragraph">By law insurance companies are required to ask relevant questions. Once the questions have been asked, the responsibilty is on the policyholder to disclose information, anwser the questions correctly and be
+            careful not to make a misrepresentation. Is that okay?</p>
+        </div>
+      </div>
+      <div class="hover-button-bottom">
+        <button class="btn-bottom" onClick="statementSlide()"><span class="button-span">Statements</span></button>
+      </div>
+      <div class="hover-button-tools">
+        <button class="btn-tools" onClick="slideTools()"><span class="button-span">Tools</span></button>
+      </div>
+      <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
+
+    </div>
+
+
+    <!-- tool box section -->
+    <div class="tool-box-holder">
+      <div class="overlay">
+        <div class="tool-box">
+          <div class="date-calc">
+            <h6>Years Calculator</h6>
+            <hr>
+            <div class="row">
+              <input id="tool-focus" class="col-6 prev-date" type="date" require pattern="\d{2}-\d{2}-\d{4}">
+              <input type="date" class="col-6 new-date" require pattern="\d{2}-\d{2}-\d{4}">
+            </div>
+            <div class="row">
+              <button class="col-12 date-calc" onclick="dateCalc()">Calculate</button>
+            </div>
+            <div class="row">
+              <h6 class="col-12 years-held"><span></span></h6>
+            </div>
+          </div>
+          <br>
+          <div class="interest-calc">
+            <h6>Interest Spreader</h6>
+            <hr>
+            <div class="row">
+              <span class="col-6">First MTA</span>
+              <span class="col-6">Reverted MTA</span>
+            </div>
+            <div class="row interest-amounts">
+              <input class="n1 col-6" name="n1" type="number" placeholder="Rate">
+              <input class="n2 col-6" name="n2" type="number" placeholder="Rate">
+            </div>
+            <div class="row">
+              <input class="i1 col-6" type="number" placeholder="Installments">
+              <button class="interest col-6" onClick="interDiff()">Calculate</button>
+            </div>
+            <div class="row">
+              <h6 class="total"></h6>
+            </div>
+            <div class="row">
+              <h6 class="amount"></h6>
+            </div>
+            <div class="row">
+              <h6 class="spread-diff"></h6>
+            </div>
+          </div>
+          <br>
+          <div class="calculator-wrapper" tabindex="0">
+            <h6>Calculator</h6>
+            <hr>
+            <div class="calculator-grid">
+              <div class="output">
+                <div class="previous-operand" data-previous-operand></div>
+                <div class="current-operand" data-current-operand></div>
+              </div>
+              <button tabindex="-1" class="span-two" data-all-clear>AC</button>
+              <button tabindex="-1" data-delete>DEL</button>
+              <button tabindex="-1" data-operation>÷</button>
+              <button tabindex="-1" data-number>1</button>
+              <button tabindex="-1" data-number>2</button>
+              <button tabindex="-1" data-number>3</button>
+              <button tabindex="-1" data-operation>×</button>
+              <button tabindex="-1" data-number>4</button>
+              <button tabindex="-1" data-number>5</button>
+              <button tabindex="-1" data-number>6</button>
+              <button tabindex="-1" data-operation>+</button>
+              <button tabindex="-1" data-number>7</button>
+              <button tabindex="-1" data-number>8</button>
+              <button tabindex="-1" data-number>9</button>
+              <button tabindex="-1" data-operation>-</button>
+              <button tabindex="-1" data-number>0</button>
+              <button tabindex="-1" data-number>.</button>
+              <button tabindex="-1" class="span-two" id="equals" data-equals>=</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- information page, opens on page load  -->
+    <div class="information">
+      <div class="close-icon">×</div>
+      <h5>Welcome to Notepad Maker</h5>
+      <br>
+      <p>Please Note this app will not work in internet explorer please use Microsoft Edge</p>
+      <div class="row info-sec">
+        <p>The app is fully functional with mouse clicks, but can also be navigated with a combonation of keyboard shortcuts and keys. It is recommend to use these to speed up the processes.</p>
+      </div>
+      <div class="info-main">
+        <div class="row info-sec">
+          <h6 class="col-12">Full Page Shortcuts</h6>
+          <br>
+          <div class="col-6">Tools:</div>
+          <div class="col-6"> CTRL + /</div>
+          <div class="col-6">Notes: </div>
+          <div class="col-6">CTRL + LeftArrowKey</div>
+          <div class="col-6">NCD: </div>
+          <div class="col-6">CTRL + RightArrowKey</div>
+          <div class="col-6">Statements: </div>
+          <div class="col-6">CTRL + DownArrowKey</div>
+          <div class="col-6">Questions: </div>
+          <div class="col-6">CTRL + UpArrowKey</div>
+          <div class="col-6">Information:</div>
+          <div class="col-6">CTRL + i</div>
+        </div>
+      </div>
+      <div class="row info-calculator">
+        <div class="info-sec">
+          <h6>Date Calculator</h6>
+          <br>
+          <p>Instructions: Enter the oldest date into the first data field, and then either todays date or another date you are using. Note use the Tab key to index between sections, you can also use the Enter key to activate all buttons.</p>
+        </div>
+        <div class="info-sec">
+          <h6>Interest calculator</h6>
+          <br>
+          <p> <span class="bold-span">Instructions: </span>This calculator is intend to be used to calculate the amount of interest you need to spread over 𝑥 amount of installments.</p>
+          <p><span class="bold-span">First: </span>input the value of the first interest rate into field one, then the second rate into the second field this will give you the difference, then tab to the installment field. You should now see a
+            difference calculation.</p>
+          <p><span class="bold-span">Second: </span>enter the number of installments you need to spead over, and click calculate. Below you will see the amount per installment that you need to input.</p>
+          <p><span class="bold-span">Third: </span>Below this is a remainder amount, this is the amount you will need to add or subtract from one or more installments to reach the rounded amount of the difference. It is recommended to spread this
+            over multiple installements.</p>
+        </div>
+        <div class="info-sec">
+          <h6>Calculator</h6>
+          <br>
+          <p><span class="bold-span">Instructions:</span> The calculator can be operated entirely with the numpad. The Backspace key operates the DEL function and the Delete key operates the AC (All Clear) key. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js" charset="utf-8"></script>
+
+
+</body>
+
+</html>
