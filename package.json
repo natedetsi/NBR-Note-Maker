@@ -1,0 +1,23 @@
+{
+  "name": "note-maker-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natedetsi/note-maker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natedetsi/note-maker/issues",
+    "dependencies": {
+      "electron": "^8.2.3"
+    }
+  },
+  "homepage": "https://github.com/natedetsi/note-maker#readme"
+}
