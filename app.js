@@ -99,7 +99,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-
+///////// screeen checker
 
 
 ////////////////////On click get name value push name to template cat////////////////////
@@ -138,7 +138,7 @@ document.querySelectorAll('button').forEach((elem) => {
       });
       e.target.classList.add('toggle');
     }
-     else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further') {
+     else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && cat !== 'conviction' && cat !== 'claims') {
         if(cat === 'qm' && template[cat].length > 4){return};
       e.target.classList.add('toggle');
       //get button name and value push name to array = to template.name

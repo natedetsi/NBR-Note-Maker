@@ -44,6 +44,9 @@ const mainMenuTemplate = [
       role: 'reload'
     }
   ]
+},
+{
+  label: 'Help'
 }
 ];
 
