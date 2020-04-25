@@ -14,53 +14,91 @@
 <body class="light-mode">
   <div class="page-holder">
     <div class="template">
+      <div class="row button-control">
+
+        <button class="clear btn-notes col-2" onClick="sideNotes()">Notes</button>
+        <button class="clear btn-s col-3" onClick="statementSlide()">Statements</button>
+        <button class="clear btn-t col-2" onClick="slideTools()">Tools</button>
+        <button class="clear btn-questions col-3" onClick="question('questions')">Questions</button>
+        <button class="clear btn-ncd col-2" onClick="ncdClick('ncd-template')">NCD</button>
+      </div>
       <h3 class="header-title">Note maker</h3>
+
       <div class="info-button">i</div>
-      <div class="mode">
+      <div class="row">
+      <div class=" mode">
         <div class="mode-switch" style="left:0%"></div>
+      </div>
+      <div class=" btn-mode">
+        <div class="btn-switch" style="right:0%"></div>
+      </div>
       </div>
       <!-- top row of buttons START -->
 
-      <div class="row top-container">
+      <div class="row open top-container">
         <div class="col-3">
-          <button class="primary-button focus" key="true" value="qm" name="Convictions" autofocus>Convictions</button>
+          <button class="primary-button focus" key="true" value="Qm" name="Convictions" autofocus>Convictions</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Occupation">Occupation</button>
+          <button class="primary-button" key="true" value="Qm" name="Occupation">Occupation</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Ownership">Ownership</button>
+          <button class="primary-button" key="true" value="Qm" name="Ownership">Ownership</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Address">Address</button>
+          <button class="primary-button" key="true" value="Qm" name="Address">Address</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Residency">Residency</button>
+          <button class="primary-button" key="true" value="Qm" name="Residency">Residency</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Driving Licence Number">DLN</button>
+          <button class="primary-button" key="true" value="Qm" name="Driving Licence Number">DLN</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Driver Age">Driver Age</button>
+          <button class="primary-button" key="true" value="Qm" name="Driver Age">Driver Age</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Mileage">Mileage</button>
+          <button class="primary-button" key="true" value="Qm" name="Mileage">Mileage</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Claims">Claims</button>
+          <button class="primary-button" key="true" value="Qm" name="Claims">Claims</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="Licence">Licence</button>
+          <button class="primary-button" key="true" value="Qm" name="Licence">Licence</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="HPI">HPI</button>
+          <button class="primary-button" key="true" value="Qm" name="HPI">HPI</button>
         </div>
         <div class="col-3">
-          <button class="primary-button" key="true" value="qm" name="NCD">NCD</button>
+          <button class="primary-button" key="true" value="Qm" name="NCD">NCD</button>
         </div>
       </div>
-      <!-- policy section START -->
-      <div class="row policy-container">
+      <!-- dairy stage buttons  -->
+      <div class="row dairy">
+        <div class="col-3">
+          <button class="primary-button focus-dairy" key="true" value="Type" name="I2 ren acceptable"> I2 ren acc</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="Type" name="I2 Ren Unacceptable">I2 Ren Unacc</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="Type" name="Cifas">Cifas</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="Type" name="Cifas Id check">Cifas id</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="Type" name="I2 Netreveal">I2 Netreveal</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="Type" name="Iovation deny">Iovation Deny</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" key="true" value="Type" name="I2 B7">I2 B7</button>
+        </div>
+      </div>
+      <!-- policy section START open stage  -->
+      <div class="row open policy-container">
 
         <div class="col-6 input-p">
           <input type="text" class="second previous" placeholder="Previous Insurer">
@@ -68,11 +106,38 @@
         <div class="col-6 input-p">
           <input type="text" class="second policy-number" placeholder="Policy Number">
         </div>
+        <hr>
       </div>
+
+      <!--  dairy stage mail buttons  -->
+      <div class="row dairy policy-container">
+        <div class="col-6">
+          <button type="button" class="mail" name="Corrispondence received" value="received">Received Corrispondence</button>
+        </div>
+        <div class="col-6">
+        <button type="button" class="mail" name="Nothing receieved" value="received">Nothing Recieved</button>
+        </div>
       <hr>
+      </div>
+
+      <!-- confirmed information section -->
+      <div class="row dairy confirmation">
+        <input type="text" class="col-6 handle"  name="Confirmed" placeholder="What have you confirmed?">
+        <input type="text" class="col-6 handle"  name="MTA" placeholder="MTA's made?">
+      </div>
+
+      <div class="row dairy costs">
+        <div class="col-2"><button class="cost-btn" value="Cost" name="Spread over direct debits">Spread</button></div>
+        <div class="col-2"><button class="cost-btn" value="Cost" name="Left Payment Outstanding">Left OS</button></div>
+        <div class="col-2"><button class="cost-btn" value="Cost" name="Paid in full">Paid</button></div>
+        <input type="text" class="col-6 handle cost-notes" name="Cost" placeholder="Cost notes">
+        <hr>
+      </div>
+
+
       <!-- called and sent sections START -->
 
-      <div class="row letter-type">
+      <div class="row open letter-type">
         <div class="col-6"><input type="text" class="call-input" placeholder="Call information"></div>
         <div class="row col-6">
           <div class="col-3"><button value="sent" class="sent-msg" name="IN001">IN001</button></div>
@@ -80,9 +145,25 @@
           <div class="col-3"><button value="sent" class="sent-msg" name="IN011">IN011</button></div>
           <div class="col-3"><button value="sent" class="sent-msg" name="IN003">IN003</button></div>
         </div>
+        <hr>
       </div>
-      <hr>
-      <div class="row called-container">
+
+
+<!-- dairy stage letters and call input field  -->
+      <div class="row dairy letter-type">
+        <div class="col-6"><input type="text" class="call-input handle" name="Called" placeholder="Call information"></div>
+        <div class="row col-6">
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN001">IN001</button></div>
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN005">IN005</button></div>
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN011">IN011</button></div>
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN003">IN003</button></div>
+        </div>
+
+      </div>
+
+
+<!--  opene stage called constainer -->
+      <div class="row open called-container">
         <div class="row col-6">
           <div class="col-4"><button value="called" class="call" name="Left voice mail ">Left msg</button></div>
           <div class="col-4"><button value="called" class="call" name="Policy Holder was unavailable">No Time</button></div>
@@ -93,18 +174,38 @@
           <div class="col-4"><button class="sent-msg" value="sent" name="Letter">Letter</button></div>
           <div class="col-4"><button class="sent-msg" value="sent" name="SMS">SMS</button></div>
         </div>
+          <hr>
       </div>
-      <hr>
-      <div class="row">
+
+      <div class="row open">
         <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
+        <hr>
       </div>
-      <hr>
+
+
+    <!-- dairy stage called container  -->
+      <div class="row dairy called-container">
+        <div class="row col-6">
+          <div class="col-4"><button value="Called" class="call-2" name="Left voice mail ">Left msg</button></div>
+          <div class="col-4"><button value="Called" class="call-2" name="Policy Holder was unavailable">No Time</button></div>
+          <div class="col-4"><button value="Called" class="call-2" name="Number not provided on policy">No Num</button></div>
+        </div>
+        <div class="row col-6">
+          <div class="col-4"><button class="sent-msg" value="Sent" name="Email">Email</button></div>
+          <div class="col-4"><button class="sent-msg" value="Sent" name="Letter">Letter</button></div>
+          <div class="col-4"><button class="sent-msg" value="Sent" name="SMS">SMS</button></div>
+        </div>
+        <hr>
+      </div>
+      <div class="row dairy ">
+        <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
+
+      </div>
+
 
 
       <!-- bottom row of buttons start -->
-      <div class="row bottom-container">
-
-
+      <div class="row open bottom-container">
         <div class="col-3">
           <button class="primary-button" value="required" name="Occupation">Occupation</button>
         </div>
@@ -137,10 +238,44 @@
         </div>
       </div>
 
+<!-- dairy stage bottom buttons  -->
+      <div class="row dairy bottom-container">
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="Occupation">Occupation</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="V5">Ownership</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="Utility Bill">Utility</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="Residency">Residency</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="Mileage">Mileage</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="Claims History">Claims</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="Share My Licence">SML</button>
+        </div>
+        <div class="col-3">
+          <button class="primary-button" value="Required" name="USE">USE</button>
+        </div>
+        <div class="col-6">
+          <button class="primary-button" value="Required" name="Driving licence">Driving Licence</button>
+        </div>
+        <div class="col-6">
+          <button class="primary-button" value="Required" name="NCD">NCD</button>
+        </div>
+      </div>
+
 
       <!-- template display section START-->
-      <div class="para" id="para">
-        <p class="qm">QM:</p>
+      <div class="para open" id="para">
+        <p class="Qm">QM:</p>
         <br>
         <p class="prev">Previous Insurer:</p>
         <br>
@@ -153,12 +288,46 @@
         <br>
         <p class="required">Required:</p>
       </div>
-      <div class="row copier">
+      <div class="row open copier">
         <div class="col-6">
-          <button class="copy" type="button" value="copy" name="button" onClick="copy('para')">Copy Template</button>
+          <button class="clear copy" type="button" value="copy" name="button" onClick="copy('para')">Copy Template</button>
         </div>
         <div class="col-6">
           <button class="clear" type="button" value="clear" name="button" onClick="clearTemplate()"> Clear Template</button>
+        </div>
+      </div>
+
+
+
+      <!-- Dairy stage para template-->
+      <div class=" para-dairy dairy" id="para-dairy">
+        <p class="Type" >Type:</p>
+        <br>
+        <p class="received">Received: </p>
+        <br>
+        <div class="confirmed">
+          <p class="Confirmed" >Confirmed:</p>
+        </div>
+
+        <div class="mta-section">
+          <p class="MTA" ></p>
+          <p class="Cost" ></p>
+        </div>
+        <p class="Called">Called:</p>
+        <div class="Extra">
+          <p class="Extra-para"></p>
+        </div>
+
+        <p class="Sent">Sent:</p>
+        <br>
+        <p class="Required">Required:</p>
+      </div>
+      <div class="row dairy copier">
+        <div class="col-6">
+          <button class="clear copy" type="button" value="copy" name="button" onClick="copy('para-dairy')">Copy Template</button>
+        </div>
+        <div class="col-6">
+          <button class="clear" type="button" value="clear" name="button" onClick="clearDairy()"> Clear Template</button>
         </div>
       </div>
 
@@ -194,10 +363,10 @@
 
         <div class="row">
           <div class="col-6">
-            <button class="copy-notes" value="copy" onClick="copyNotes('further')"> Copy Notes</button>
+            <button class="clear copy-notes" value="copy" onClick="copyNotes('further')"> Copy Notes</button>
           </div>
           <div class="col-6">
-            <button class="clear-notes" value="clear" onClick="clearText('further')">Clear Notes</button>
+            <button class="clear clear-notes" value="clear" onClick="clearText('further')">Clear Notes</button>
           </div>
         </div>
       </div>
@@ -236,7 +405,7 @@
               <div class="col-12"><input type="text" class="claim" name="date" placeholder="DD/MM/YY"></div>
               <div class="col-12"><input type="text" class="claim" name="name" placeholder="Driver name"></div>
               <div class="col-12"><input type="text" class="claim" name="fault" placeholder="Liability"></div>
-              <button class="col-10 claim-button" name="claims" value="claims">Add Claim</button>
+              <button class="clear col-10 claim-button" name="claims" value="claims">Add Claim</button>
             </div>
             <div class="col-6">
               <div class="col-12 default-input">
@@ -251,7 +420,7 @@
               <div class="col-12"><input type="text" class="conviction" name="date" placeholder="DD/MM/YY"></div>
               <div class="col-12"><input type="text" class="conviction" name="name" placeholder="Driver name"></div>
               <div class="col-12"></div>
-              <button class="col-12 conviction-button" name="conviction" value="conviction">Add Conviction</button>
+              <button class="clear col-12 conviction-button" name="conviction" value="conviction">Add Conviction</button>
             </div>
           </div>
 
@@ -275,10 +444,10 @@
             </div>
             <div class="row">
               <div class="col-6">
-                <button class="copy-notes" value="copy" onClick="copy('ncd-template')">Copy Notes</button>
+                <button class="clear copy-notes" value="copy" onClick="copy('ncd-template')">Copy Notes</button>
               </div>
               <div class="col-6">
-                <button class="clear-notes" value="clear" onClick="clearNcd()">Clear Notes</button>
+                <button class="clear clear-notes" value="clear" onClick="clearNcd()">Clear Notes</button>
               </div>
             </div>
           </div>
@@ -303,25 +472,7 @@
               careful not to make a misrepresentation. Is that okay?</p>
           </div>
         </div>
-        <div class="button-control">
-        <div class="hover-button-bottom">
-          <button class="btn-bottom" onClick="statementSlide()"><span class="button-span">Statements</span></button>
-        </div>
-        <div class="hover-button-tools">
-          <button class="btn-tools" onClick="slideTools()"><span class="button-span">Tools</span></button>
-        </div>
 
-        <div class="hover-button-right">
-          <button class="btn-right" onClick="ncdClick('ncd-template')"><span class="button-span">NCD</span></button>
-        </div>
-        <div class="hover-button-left">
-            <button class="btn-left" onClick="sideNotes()"><span class="button-span">Notes</span></button>
-        </div>
-        <div class="hover-button-top">
-          <button class="btn-top" onClick="question('questions')"><span class="button-span">Questions</span></button>
-        </div>
-
-        </div>
         <h5 class="title">2020 &copy; Nathaniel Detsicas</h5>
 
       </div>
@@ -339,7 +490,7 @@
                 <input type="date" class="col-6 new-date" require pattern="\d{2}-\d{2}-\d{4}">
               </div>
               <div class="row">
-                <button class="col-12 date-calc" onclick="dateCalc()">Calculate</button>
+                <button class="clearcol-12 date-calc" onclick="dateCalc()">Calculate</button>
               </div>
               <div class="row">
                 <h6 class="col-12 years-held"><span></span></h6>
@@ -359,7 +510,7 @@
               </div>
               <div class="row">
                 <input class="i1 col-6" type="number" placeholder="Installments">
-                <button class="interest col-6" onClick="interDiff()">Calculate</button>
+                <button class="clear interest col-6" onClick="interDiff()">Calculate</button>
               </div>
               <div class="row">
                 <h6 class="total"></h6>
@@ -460,6 +611,7 @@
       require('./renderer.js');
     </script>
     <script src="./app.js" charset="utf-8"></script>
+    <script src="./spellChecker" charset="utf-8"></script>
 
 
 </body>

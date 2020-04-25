@@ -1,11 +1,9 @@
 const electron = require('electron');
 const path = require('path');
 const url = require('url');
-
-const {app, BrowserWindow, Menu} = electron;
+const {app, BrowserWindow, Menu, shell, webFrame} = electron;
 
 let mainWindow;
-
 
 // listenm for app to be ready
 
@@ -33,12 +31,15 @@ app.on('ready', function(){
 const mainMenuTemplate = [
   {
   label: 'File'
+  
 },
 {
   label: 'Edit',
   submenu: [
     {
-      label: 'Display mode'
+      label: 'Display mode',
+      click(){
+      }
     },
     {
       role: 'reload'
@@ -46,7 +47,39 @@ const mainMenuTemplate = [
   ]
 },
 {
-  label: 'Help'
+  label: 'Insert',
+  submenu:[{label:'Extra Qm Buttons'}]
+},
+{
+  label: 'Help',
+  submenu:[
+    {
+      label:'Toggle DevTools',
+      accelerator: 'Ctrl+t',
+      click(item, focusedWindow){
+        focusedWindow.toggleDevTools();
+      }
+    },
+      {
+        label: 'Quick Links',
+        submenu:[
+          {
+            label: 'Ask harry',
+            accelerator: 'Ctrl+Alt+a',
+              click(){
+
+              shell.openExternal('http://google.com');
+            }
+          },
+          {
+            label: 'New Email',
+            click(){
+              shell.openExternal('mailto:');
+            }
+          },
+        ]
+      }
+  ]
 }
 ];
 

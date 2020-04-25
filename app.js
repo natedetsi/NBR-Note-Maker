@@ -4,14 +4,19 @@ let tog2 = true;
 let tog4 = true;
 /////////////////////////////////template object////////////////////////////////////////
 let template = {
-  qm: ['QM:'],
+  Qm: ['QM:'],
   previous: [''],
   policy: [' ', ''],
   called:'',
+  Called: '',
   cost:'',
+  Cost:'',
   sent: ['Sent: '],
+  Sent: ['Sent: '],
   required: ['Required: '],
-  i2:['']
+  Required: ['Required: '],
+  Type:['Type:'],
+
 
 }
 ////////////////////////////////////////////ncd template objects and arrays///////////////////
@@ -122,11 +127,17 @@ document.querySelectorAll('button').forEach((elem) => {
         document.querySelector('.called').innerText = 'Called: ' +  label;
       });
       e.target.classList.add('toggle');
+    } else if(cat === 'Called') {
+      document.querySelectorAll('.call-2').forEach(elem => {
+        elem.classList.remove('toggle');
+        document.querySelector('.Called').innerText = 'Called: ' + label;
+      })
+      e.target.classList.add('toggle');
     }
-      else if (cat === 'cost') {
+      else if (cat === 'Cost') {
         document.querySelectorAll('.cost-btn').forEach(elem => {
             elem.classList.remove('toggle');
-            document.querySelector('.cost').innerText = 'Cost: ' + label;
+            document.querySelector('.Cost').innerText = 'Cost: ' + label;
         });
         e.target.classList.add('toggle');
 
@@ -138,19 +149,22 @@ document.querySelectorAll('button').forEach((elem) => {
       });
       e.target.classList.add('toggle');
     }
-     else if (cat !== 'copy' && cat !== 'clear' && cat !== 'further' && cat !== 'conviction' && cat !== 'claims') {
-        if(cat === 'qm' && template[cat].length > 4){return};
-      e.target.classList.add('toggle');
-      //get button name and value push name to array = to template.name
-      template[cat].push(label);
-      document.querySelector(`.${cat}`).innerText = template[cat].join(' - ');
-    };
+    //if the button's first class is clear don't excute code
+    else if (e.target.classList[0] !== 'clear') {
+       if(cat === 'Qm' && template[cat].length > 4){return};
+     e.target.classList.add('toggle');
+     //get button name and value push name to array = to template.name
+     template[cat].push(label);
+     document.querySelector(`.${cat}`).innerText =  template[cat].join(' - ');
+   };
+
   });
 });
 
 ////////////////////////////////// universal input handler //////////////////////////////
 document.querySelectorAll('.handle').forEach( elem => {
   elem.addEventListener('keyup', (e) => {
+    if(e.keyCode === 9){return};
     let cat = e.target.name;
     document.querySelector(`.${cat}`).innerText = `${cat}: ${e.target.value}`;
   })
@@ -227,16 +241,22 @@ function copyNotes(id) {
 
 
 function sideNotes() {
+  const btn = document.querySelector('.btn-notes');
+  const ybtn = document.querySelector('.btn-ncd');
   tog = !tog;
   if (tog === false) {
     document.querySelector('#further').focus();
     document.querySelector('.side-notes').style.left = '50%';
-    document.querySelector('.btn-left span').innerText = 'X';
+    btn.style.top = '5px';
+    btn.classList.add('toggle')
     document.querySelector('.ncd-template').style.right = "-100%";
-    document.querySelector('.btn-right span').innerText = 'NCD';
+    ybtn.style.top = 0;
+    ybtn.classList.remove('toggle');
   } else if (tog === true) {
     document.querySelector('.side-notes').style.left = "-100%";
-    document.querySelector('.btn-left span').innerText = 'Notes';
+    btn.style.top = 0;
+    btn.classList.remove('toggle');
+
   };
 };
 
@@ -247,9 +267,9 @@ function sideNotes() {
 
 function ncdClick(className) {
   const x = document.querySelector('.' + className);
-  const btn = document.querySelector('.btn-right span');
+  const btn = document.querySelector('.btn-ncd');
   const y = document.querySelector('.side-notes');
-  const yBtn = document.querySelector('.btn-left span');
+  const yBtn = document.querySelector('.btn-notes');
   const check = document.querySelector('.previous');
   tog = !tog;
   if (tog === false) {
@@ -259,31 +279,40 @@ function ncdClick(className) {
       document.querySelector('#focus-2').focus();
     }
     x.style.right = '50%';
-    btn.innerText = 'X';
+    btn.style.top = '5px';
+    btn.classList.add('toggle');
     y.style.left = '-100%';
-    yBtn.innerText = 'Notes'
+    yBtn.style.top = 0;
+    yBtn.classList.remove('toggle');
   } else if (tog === true) {
     document.querySelector('.focus').focus();
     x.style.right = '-100%';
-    btn.innerText = 'NCD';
+    btn.style.top = 0;
+    btn.classList.remove('toggle');
+
   }
 }
 /////////////////////////////////////////slide in statement section ///////////////////////////
 function statementSlide() {
   const x = document.querySelector('.statement');
-  const btn = document.querySelector('.btn-bottom span');
+  const btn = document.querySelector('.btn-s');
   tog = !tog;
   if (tog === false) {
     document.querySelector('#statement-focus').focus();
     x.style.bottom = '0';
     document.querySelector('.side-notes').style.left = '-100%';
     document.querySelector('.ncd-template').style.right = '-100%';
-    document.querySelector('.btn-left span').innerText = 'Notes';
-    document.querySelector('.btn-right span').innerText = 'NCD';
-    btn.innerText = 'X';
+    document.querySelector('.btn-notes').classList.remove('toggle');
+    document.querySelector('.btn-ncd').classList.remove('toggle');
+    document.querySelector('.btn-notes').style.top = 0;
+    document.querySelector('.btn-ncd').style.top = 0;
+    btn.style.top = '5px';
+    btn.classList.add('toggle');
+
   } else if (tog === true) {
     x.style.bottom = '-100%';
-    btn.innerText = 'Statements';
+    btn.style.top = 0;
+    btn.classList.remove('toggle');
   }
 };
 
@@ -399,39 +428,46 @@ function clearCons() {
   newCon = [];
   document.querySelectorAll('.conviction').forEach(elem => {
     elem.value = '';
-  })
+  });
 }
 
 ////////////////////////////////slide in questions tab//////////////////////////////////
 
 function question() {
   const q = document.querySelector('.questions');
-  const btn = document.querySelector('.btn-top span');
+  const btn = document.querySelector('.btn-questions');
   tog = !tog;
   if (tog === false) {
-    q.style.top = '20px';
-    btn.innerText = 'X';
+    q.style.top = '40px';
+    btn.classList.add('toggle');
+    btn.style.top = '5px';
     document.querySelector('.ncd-template').style.right = '-100%';
-    document.querySelector('.btn-right span').innerText = 'NCD';
     document.querySelector('.side-notes').style.left = '-100%';
-    document.querySelector('.btn-left span').innerText = 'Notes';
   } else {
     q.style.top = '-100%';
-    btn.innerText = 'Questions';
+    btn.classList.remove('toggle');
+    btn.style.top = '0';
+
   }
 }
 /////////////////////////////////////////slide tools/////////////////////////////
 
 function slideTools() {
+  const tools = document.querySelector('.tool-box-holder');
+  const btn = document.querySelector('.btn-t');
   tog = !tog
   if (tog === false) {
     document.querySelector('#tool-focus').focus();
-    document.querySelector('.tool-box-holder').style.left = '0';
-    document.querySelector('.tool-box-holder').style.transitionDelay = '0s';
+    btn.classList.add('toggle');
+    btn.style.top = '5px';
+    tools.style.left = '0';
+    tools.style.transitionDelay = '0s';
     document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.4)';
   } else if (tog === true) {
-    document.querySelector('.tool-box-holder').style.left = '-100%';
-    document.querySelector('.tool-box-holder').style.transitionDelay = '0.25s';
+    btn.classList.remove('toggle');
+    btn.style.top = '0px';
+    tools.style.left = '-100%';
+    tools.style.transitionDelay = '0.25s';
     document.querySelector('.overlay').style.backgroundColor = 'rgba(0,0,0,0.0)';
   }
 };
@@ -440,7 +476,7 @@ function slideTools() {
 function clearTemplate() {
   const a = document;
   template = {
-    qm: ['QM:'],
+    Qm: [''],
     previous: [''],
     policy: [' ', ''],
     called: '',
@@ -448,7 +484,7 @@ function clearTemplate() {
     required: ['Required: ']
   };
   qmList = ['']
-  a.querySelector('.qm').innerText = 'QM: ';
+  a.querySelector('.Qm').innerText = 'QM: ';
   a.querySelector('.prev').innerText = 'Previous insurer: ';
   a.querySelector('#prev').innerText = 'Previous Insurer: ';
   a.querySelector('.called').innerText = 'Called:   ';
@@ -466,6 +502,35 @@ function clearTemplate() {
   });
   document.querySelector('.focus').focus();
 };
+
+function clearDairy(){
+  const a = document;
+  template = {
+      Type: ['Type:'],
+      Cost: '',
+      Called: '',
+      Sent: '',
+      Mta: [''],
+  }
+  a.querySelectorAll('.dairy input').forEach(elem => {
+    elem.value = '';
+  })
+  a.querySelector('.Type').innerText = 'Type: ';
+  a.querySelector('.received').innerText = 'Receieved: ';
+  a.querySelector('.Confirmed').innerText = 'Confirmed: ';
+  a.querySelector('.Called').innerText = 'Called: ';
+  a.querySelector('.Sent ').innerText = 'Sent: ';
+  a.querySelector('.Required').innerText = 'Required: ';
+  a.querySelector('.MTA').innerText = '';
+  a.querySelector('.Cost').innerText = '';
+  document.querySelectorAll('button').forEach((elem) => {
+    elem.classList.remove('toggle');
+    document.querySelector('.focus-dairy').focus();
+  });
+
+}
+
+
 /////////////////////////////////// clear NCD template fields////////////////////////////
 
 function clearNcd() {
@@ -757,17 +822,17 @@ function information() {
   }
 }
 /////////////////////////////////// save light choice /////////////////////////////////////
-// var theme = localStorage.getItem('theme');
-// var togglePosition = localStorage.getItem('togglePosition');
-//
-// if(theme) {
-//   document.querySelector('body').classList.remove('light-mode');
-//   document.querySelector('body').classList.add('dark-mode');
-//   document.querySelector('body').classList.add(theme);
-// }
-// if(togglePosition) {
-//   document.querySelector('.mode-switch').style.left = `${togglePosition}`;
-// }
+var theme = localStorage.getItem('theme');
+var togglePosition = localStorage.getItem('togglePosition');
+
+if(theme) {
+  document.querySelector('body').classList.remove('light-mode');
+  document.querySelector('body').classList.add('dark-mode');
+  document.querySelector('body').classList.add(theme);
+}
+if(togglePosition) {
+  document.querySelector('.mode-switch').style.left = `${togglePosition}`;
+}
 
 //////////////////////////////////// change light mode ////////////////////////////////////
 
@@ -784,5 +849,31 @@ if(tog === false){
   localStorage.setItem('theme', 'light-mode');
   localStorage.setItem('togglePosition', '0');
 }
-
 });
+
+document.querySelector('.btn-mode').addEventListener('click', () => {
+  tog =!tog;
+  if(tog === false){
+    document.querySelectorAll('.dairy').forEach(elem => {
+      elem.style.height = 'auto';
+      elem.style.visibility = 'visible';
+    });
+    document.querySelectorAll('.open').forEach(elem => {
+      elem.style.height = 0;
+      elem.style.visibility = 'collapse';
+    })
+    document.querySelector('.button-control').style.marginBottom = '5px';
+    document.querySelector('.para').style.margin = 0;
+    document.querySelector('.btn-switch').style.left = '50%';
+  } else {
+    document.querySelectorAll('.dairy').forEach((elem) => {
+      elem.style.height = 0;
+      elem.style.visibility = 'collapse';
+    });
+    document.querySelectorAll('.open').forEach(elem => {
+      elem.style.height = 'auto';
+      elem.style.visibility = 'visible';
+    })
+    document.querySelector('.btn-switch').style.left = '0';
+  }
+})
