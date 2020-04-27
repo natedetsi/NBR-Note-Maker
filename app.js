@@ -164,7 +164,8 @@ document.querySelectorAll('button').forEach((elem) => {
 ////////////////////////////////// universal input handler //////////////////////////////
 document.querySelectorAll('.handle').forEach( elem => {
   elem.addEventListener('keyup', (e) => {
-    if(e.keyCode === 9){return};
+    if(e.keyCode === 9){return}
+
     let cat = e.target.name;
     document.querySelector(`.${cat}`).innerText = `${cat}: ${e.target.value}`;
   })
@@ -180,7 +181,7 @@ let questionsArr = [];
 document.querySelectorAll('.top-container button').forEach(button => {
   button.addEventListener('click', () => {
     questionsArr = [];
-    template.qm.map(elem => {
+    template.Qm.map(elem => {
       questionsArr.push(questions[elem]);
       document.querySelector('.q-info').innerHTML = questionsArr.join('<hr />');
     });
@@ -476,12 +477,18 @@ function slideTools() {
 function clearTemplate() {
   const a = document;
   template = {
-    Qm: [''],
+    Qm: ['QM:'],
     previous: [''],
     policy: [' ', ''],
     called: '',
     sent: ['Sent: '],
-    required: ['Required: ']
+    required: ['Required: '],
+    Required:['Required: '],
+    Type: ['Type:'],
+    Cost: '',
+    Called: '',
+    Sent: ['Sent: '],
+    Mta: [''],
   };
   qmList = ['']
   a.querySelector('.Qm').innerText = 'QM: ';
@@ -491,13 +498,13 @@ function clearTemplate() {
   a.querySelector('.sent').innerText = 'Sent:   ';
   a.querySelector('.required').innerText = 'Required:   ';
   a.querySelector('.q-info').innerText = '';
-  a.querySelectorAll('input').forEach((elem) => {
+  a.querySelectorAll('.open input').forEach((elem) => {
     elem.value = '';
   });
   a.querySelector('.extra-notes').value = '';
   a.querySelector('.extra-para').innerText = '';
   a.querySelector('.extra').style.height = '0';
-  document.querySelectorAll('button').forEach((elem) => {
+  document.querySelectorAll('.open button').forEach((elem) => {
     elem.classList.remove('toggle');
   });
   document.querySelector('.focus').focus();
@@ -506,24 +513,31 @@ function clearTemplate() {
 function clearDairy(){
   const a = document;
   template = {
-      Type: ['Type:'],
-      Cost: '',
-      Called: '',
-      Sent: '',
-      Mta: [''],
+    Qm: ['QM:'],
+    previous: [''],
+    policy: [' ', ''],
+    called: '',
+    sent: ['Sent: '],
+    required: ['Required: '],
+    Required:['Required: '],
+    Type: ['Type:'],
+    Cost: '',
+    Called: '',
+    Sent: ['Sent: '],
+    Mta: [''],
   }
   a.querySelectorAll('.dairy input').forEach(elem => {
     elem.value = '';
   })
   a.querySelector('.Type').innerText = 'Type: ';
-  a.querySelector('.received').innerText = 'Receieved: ';
+  a.querySelector('.received').innerText = 'Received: ';
   a.querySelector('.Confirmed').innerText = 'Confirmed: ';
   a.querySelector('.Called').innerText = 'Called: ';
   a.querySelector('.Sent ').innerText = 'Sent: ';
   a.querySelector('.Required').innerText = 'Required: ';
   a.querySelector('.MTA').innerText = '';
   a.querySelector('.Cost').innerText = '';
-  document.querySelectorAll('button').forEach((elem) => {
+  document.querySelectorAll('.dairy button').forEach((elem) => {
     elem.classList.remove('toggle');
     document.querySelector('.focus-dairy').focus();
   });

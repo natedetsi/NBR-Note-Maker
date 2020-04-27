@@ -31,24 +31,15 @@ app.on('ready', function(){
 const mainMenuTemplate = [
   {
   label: 'File'
-  
+
 },
 {
   label: 'Edit',
   submenu: [
     {
-      label: 'Display mode',
-      click(){
-      }
-    },
-    {
       role: 'reload'
     }
   ]
-},
-{
-  label: 'Insert',
-  submenu:[{label:'Extra Qm Buttons'}]
 },
 {
   label: 'Help',

@@ -14,18 +14,16 @@
 
   ::-webkit-scrollbar {
     width: 7px;
-  }
-  /* Track */
-::-webkit-scrollbar-track {
-  background: var(bg);
 
-}
+  }
+
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--text);
     border-radius: 5px;
     border: 1px solid #202020;
+    box-shadow: inset -2px -2px var(--rggrey2);
 }
 
 /* Handle on hover */
@@ -83,7 +81,7 @@
     color:var(--text);
     border: 1.2px solid var(--border2);
     border-radius: 5px;
-    box-shadow: 0 2px 10px -3px var(--box-shadow);
+    box-shadow: 0 2px 10px -3px var(--box-shadow), inset -5px -4px 3px var(--rggrey2);
     min-height: 30px;
   }
 
@@ -159,6 +157,7 @@
     --bg:var(--darkgrey);
     --bg2:var(--darkgrey);
     --btn:var(--grey5);
+    --btn-hover: var(--grey6);
     --text:var(--rgbgreen7);
     --focus:var(--green);
     --box-shadow:var(--green2);
@@ -173,6 +172,7 @@
     --bg:var(--light-blue);
     --bg2:var(--white);
     --btn:var(--white);
+    --btn-hover: var(--rggrey2);
     --focus:var(--dark-blue);
     --border:var(--dark-blue);
     --border2:var(--grey6);
@@ -224,6 +224,7 @@
     width: 30%;
     min-width: 710px;
     margin:0 auto ;
+    transition: all 0.3s ease;
   }
 
   .button-control{
@@ -233,19 +234,21 @@
     margin-bottom: 50px;
     top:0
     color: var(--text);
-    z-index:4;
+    z-index:10;
   }
   .button-control button{
     color: var(--text);
-    background-color: var(--light-grey);
-    border: var(--border);
+    background-color: var(--btn);
+    border: 1px solid var(--border2);
+    transition: background 0.5s ease-in-out;
   }
   .button-control button:hover{
-    transform: translateY(5px);
+    transform: translateY(2px);
+    background-color: var(--btn-hover);
   }
   .btn-t{
     position: relative;
-    z-index:20;
+    z-index:10;
   }
   .dairy{
     height:0;
@@ -716,14 +719,21 @@
     border-color: var(--text);
   }
   /* light mode button toggle */
+
+  .page-controls{
+    position: relative;
+
+  }
   .mode {
     position:relative;
+    margin-right: 5px;
     width: 60px;
     height: 30px;
     border: 1.2px solid var(--border2);
     border-radius: 30px;
     background-color: var(--switch-bg);
     cursor:pointer;
+    transition: background 1s ease;
   }
   .mode-switch {
     position: absolute;
@@ -733,9 +743,14 @@
     background-color:var(--switch-bg2);
     border: 1.2px solid var(--border2);
     border-radius: 50%;
+    box-shadow: inset -4px -4px var(--rggrey2);
     height:30px;
     width:30px;
     transition:all 0.3s linear;
+  }
+  .mode-holder{
+    position: absolute;
+    right: 0;
   }
   .btn-mode {
     position: relative;
@@ -744,6 +759,7 @@
     border: 1.2px solid var(--border2);
     border-radius: 30px;
     background-color: var(--switch-bg);
+    transition: background 1s ease;
     cursor:pointer;
   }
   .btn-switch {
@@ -756,7 +772,11 @@
     border-radius: 50%;
     height:30px;
     width:30px;
+    box-shadow: inset -4px -4px var(--rggrey2);
     transition:all 0.3s linear;
+  }
+  .btn-mode:hover, .mode:hover{
+    background: var(--rggrey2);
   }
 
   #equals {
