@@ -1,4 +1,4 @@
-
+t
   /* **************************** main html tags*************************************** */
   * {
     padding: 0;
@@ -9,8 +9,29 @@
   background-color: var(--text)
   }
   ::placeholder{
-    color var(--text);
+    color: var(--text);
   }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+
+  }
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+    border-radius: 5px;
+    border: 1px solid #202020;
+    box-shadow: inset -2px -2px var(--rggrey2);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text);
+
+}
+
   body {
     background-color: var(--bg);
     color:var(--text);
@@ -21,7 +42,7 @@
     top: 0;
     left: 0;
     right: 0;
-    transition: background 0.5s ease-in-out, color 0.8s ease-in-out;
+    transition: background 0.6s ease-in-out, color 0.9s ease-in-out;
   }
 
   h1,
@@ -48,7 +69,6 @@
   .button-span {
     font-size: 1.2rem;
     font-weight: bold;
-    font-family: monospace;
   }
 
   .bold-span {
@@ -57,11 +77,11 @@
 
   button {
     width: 100%;
-    background-color: var(--bg2);
+    background-color: var(--btn);
     color:var(--text);
     border: 1.2px solid var(--border2);
     border-radius: 5px;
-    box-shadow: 0 2px 10px -3px var(--box-shadow);
+    box-shadow: 0 2px 10px -3px var(--box-shadow), inset -5px -4px 3px var(--rggrey2);
     min-height: 30px;
   }
 
@@ -73,7 +93,7 @@
 
   button:active {
     opacity: 0.7;
-    box-shadow: inset 3px 3px 8px 2px #6f6f6f;
+    box-shadow: inset 3px 3px 8px 2px var(--box-shadow);
     outline: none;
   }
 
@@ -117,37 +137,42 @@
     --dark-blue:#375F7A;
     --rgblue:rgba(82, 238, 255, 1);
     --rgblue2:rgba(82, 238, 255, 0.7);
-    --green: #00ff66;
-    --green2: #00a843;
-    --rgbgreen3:rgba(0, 255, 102, 0.3);
-    --rgbgreen5:rgba(0, 255, 102, 0.5);
-    --rgbgreen7:rgba(0, 255, 102, 0.7);
+    --green: #000;
+    --green2: #000;
     --black:#000;
+    --rgbgreen3:rgba(55, 128, 229, 0.3);
+    --rgbgreen5:rgba(55, 128, 229, 0.5);
+    --rgbgreen7:rgba(55, 128, 229, 0.7);
+    --darkgrey:#404040;
     --white: #ffffff;
     --grey9: #9f9f9f;
     --grey6:#6f6f6f;
-    --grey5:#5f5f5f;
+    --grey5:#4a4a4a;
     --rggrey:rgba(255, 255, 255, .6);
     --rggrey2:rgba(159, 159, 159, 0.3)
 
 
   }
   .dark-mode{
-    --bg:var(--black);
-    --bg2:var(--black);
-    --text:var(--rgbgreen5);
+    --bg:var(--darkgrey);
+    --bg2:var(--darkgrey);
+    --btn:var(--grey5);
+    --btn-hover: var(--grey6);
+    --text:var(--rgbgreen7);
     --focus:var(--green);
     --box-shadow:var(--green2);
-    --border:var(--green2);
+    --border:var(--rgbgreen3);
     --border2:var(--green2);
     --tbtn:var(--rgbgreen3);
     --calc-buttons:var(--rgrey2);
-    --switch-bg:var(--black);
+    --switch-bg:var(--darkgrey);
     --switch-bg2:var(--rgbgreen3);
   }
   .light-mode{
     --bg:var(--light-blue);
     --bg2:var(--white);
+    --btn:var(--white);
+    --btn-hover: var(--rggrey2);
     --focus:var(--dark-blue);
     --border:var(--dark-blue);
     --border2:var(--grey6);
@@ -198,11 +223,41 @@
   .template {
     width: 30%;
     min-width: 710px;
-    margin: 50px auto 0;
+    margin:0 auto ;
+    transition: all 0.3s ease;
   }
 
-
-
+  .button-control{
+    background: var(--bg);
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    margin-bottom: 50px;
+    top:0
+    color: var(--text);
+    z-index:10;
+  }
+  .button-control button{
+    color: var(--text);
+    background-color: var(--btn);
+    border: 1px solid var(--border2);
+    transition: background 0.5s ease-in-out;
+  }
+  .button-control button:hover{
+    transform: translateY(2px);
+    background-color: var(--btn-hover);
+  }
+  .btn-t{
+    position: relative;
+    z-index:10;
+  }
+  .dairy{
+    height:0;
+    visibility: collapse;
+  }
+  .open{
+    height: auto;
+    visibility: visible;
+  }
   .top-container {
     margin-top: 4%;
   }
@@ -210,13 +265,11 @@
     padding: 2px;
   }
 
-
   .toggle {
     opacity: 0.7;
-    box-shadow: inset 3px 3px 8px 2px #6f6f6f;
+    box-shadow: inset 3px 3px 8px 2px var(--box-shadow);
     outline: none;
   }
-
 
   .second {
     width: 100%;
@@ -241,9 +294,15 @@
     border-radius: 5px;
     line-height: 1;
     overflow-y: scroll;
+    word-wrap: break-word;
+    max-height: 300px;
   }
   .para-dairy{
     max-height: 250px;
+  }
+
+  #para-dairy{
+    font-size: 0.8rem;
   }
 
   .extra {
@@ -275,150 +334,10 @@
     height: 50px;
   }
 
-  .hover-button-left {
-    width: 20px;
-    height: 100%;
-    background-color: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: all 0.2s ease;
-  }
-
-  .hover-button-right {
-    width: 20px;
-    height: 100%;
-    background-color: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: all 0.2s ease;
-  }
-
-  .btn-left {
-    width: 120px;
-    height: 35px;
-    position: absolute;
-    top: 50%;
-    right: -50px;
-    transform: translateY(-50%);
-    transform: rotateZ(-90deg);
-    border-radius: 0 0 10px 10px;
-    border: 1px solid var(--border2);
-    box-shadow: -5px 5px 15px -2px var(--box-shadow);
-    background-color: var(--bg2);
-    transition: all 0.1s ease;
-    z-index: 3;
-  }
-
-  .btn-right {
-    width: 120px;
-    height: 35px;
-    position: absolute;
-    bottom: 50%;
-    left: -50px;
-    transform: translateY(-50%);
-    transform: rotateZ(-90deg);
-    border-radius: 10px 10px 0 0;
-    border: 1px solid var(--border2);
-    box-shadow: -5px 5px 15px -2px var(--box-shadow);
-    background-color: var(--bg2);
-    transition: all 0.1s ease;
-    z-index: 3;
-  }
-
-  .btn-top {
-    width: 120px;
-    height: 35px;
-    position: fixed;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 0 0 10px 10px;
-    border: 1px solid var(--border2);
-    box-shadow: 5px 3px 15px -2px var(--box-shadow);
-    background-color: var(--bg2);
-    transition: all 0.1s ease;
-    z-index: 3;
-  }
-
-  .btn-bottom {
-    width: 120px;
-    height: 35px;
-    position: fixed;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 10px 10px 0 0;
-    border: 1px solid var(--border2);
-    box-shadow: 3px 3px 15px -2px var(--box-shadow);
-    background-color: var(--bg2);
-    transition: all 0.1s ease;
-    z-index: 3;
-  }
-
-  .btn-tools {
-    width: 120px;
-    height: 35px;
-    position: fixed;
-    bottom: -8px;
-    left: 100%;
-    transform: translateX(-100%);
-    border-radius: 10px 10px 0 0;
-    border: 1px solid var(--border2);
-    box-shadow: 3px 3px 15px -2px var(--box-shadow);
-    background-color: var(--bg2);
-    transition: all 0.1s ease;
-    z-index: 7;
-  }
-
-  .btn-top:hover {
-    top: -5px;
-    box-shadow: 7px 5px 18px 0px var(--box-shadow);
-  }
-
-  .btn-right:hover {
-    left: -55px;
-    box-shadow: -7px 7px 18px 0px var(--box-shadow);
-  }
-
-  .btn-bottom:hover,
-  .btn-tools:hover {
-    bottom: -5px;
-    box-shadow: 5px 7px 18px 0px var(--box-shadow);
-  }
-
-  .btn-left:hover {
-    right: -55px;
-    box-shadow: -7px 7px 18px 0px var(--box-shadow);
-  }
-
-  .btn-left:active,
-  .btn-top:active,
-  .btn-right:active,
-  .btn-bottom:active,
-  .btn-tools:active {
-    opacity: 0.7;
-    box-shadow: inset 3px 3px 8px 2px #6f6f6f;
-    outline: none;
-  }
-
-  .btn-left:focus,
-  .btn-top:focus {
-    outline: none;
-    border-radius: 0 0 10px 10px;
-  }
-
-  .btn-right:focus,
-  .btn-bottom:focus,
-  .btn-tools:focus {
-    outline: none;
-    border-radius: 10px 10px 0 0;
-  }
 
   .side-notes {
-    height: 95%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     position: absolute;
     left: -100%;
     top: 50%;
@@ -426,10 +345,8 @@
     max-width: 1000px;
     transform: translate(-50%, -50%);
     transition: all 0.2s linear;
-    border-radius: 10px;
-    padding: 20px;
-    border: 1.5px solid var(--border2);
-    background-color: var(--bg2);
+    padding: 50px 20px;
+    background-color: var(--bg);
   }
 
   .side-textarea {
@@ -464,18 +381,15 @@
   .ncd-template {
     position: absolute;
     border-radius: 10px;
-    border: 1.7px outset var(--border2);
-    background-color: var(--bg2);
+    background-color: var(--bg);
     padding: 40px 10px 20px;
-    top: 48%;
+    top: 50%;
     right: -100%;
     transform: translate(50%, -50%);
     transition: all 0.3s linear;
-    height: auto;
-    width: 30%;
+    height: 100vh;
+    width: 100%;
     min-height: 85%;
-    min-width: 500px;
-    max-width: 800px;
   }
 
   .inputs {
@@ -484,9 +398,13 @@
 
   .template-holder {
     position: relative;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
     height: 100%;
     width: 100%;
     min-width: 400px;
+    max-width: 600px;
   }
 
   .ncd-template input {
@@ -535,13 +453,14 @@
     transition: all 0.2s ease;
     padding: 50px;
     z-index: 1;
+    outline:none;
   }
 
   .statement-text {
     border-radius: 10px;
     background-color: var(--bg2);
-    border: 1px solid var(--border);
-    box-shadow: 2px 10px 10px -5px var(--border);
+    border: 1px solid var(--border2);
+    box-shadow: 2px 10px 10px -5px var(--border2);
     padding: 10px;
     text-align: left;
     margin: auto;
@@ -549,14 +468,14 @@
 
   .statement-dropdown {
     width: 300px;
-    box-shadow: 2px 5px 10px -5px var(--border);
+    box-shadow: 2px 5px 10px -5px var(--border2);
     margin: 0 auto 20px;
     outline: none;
   }
 
   .statement-dropdown:focus {
     border-radius: 4px;
-    border: 1.5px solid var(--border);
+    border: 1.5px solid var(--border2);
     outline: none;
   }
 
@@ -564,11 +483,12 @@
   /* tool box slide  */
   .tool-box-holder {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: -100%;
     height: 100%;
     width: 100%;
     transition: all 0.1s linear;
+    outline:none;
   }
 
   .overlay {
@@ -589,10 +509,10 @@
     left: 0;
     top: 50%;
     transform: translate(0, -50%);
-    height: 95%;
+    height: 90%;
     width: 400px;
     background-color: var(--bg2);
-    border: 1.8px solid var(--border);
+    border: 1.2px solid var(--border2);
     border-radius: 0 10px 10px 0;
     padding: 50px 0 50px;
   }
@@ -602,7 +522,7 @@
     width: 80%;
     height: auto;
     background-color: var(--bg2);
-    border: 1.5px solid var(--border2);
+    border: 1.2px solid var(--border2);
     box-shadow: 0px 10px 10px -10px var(--box-shadow);
     border-radius: 7px;
     padding: 5px;
@@ -616,13 +536,12 @@
   .date-calc button {
     background-color: var(--tbtn);
   }
-
   /* interest calculator */
   .interest-calc {
     width: 80%;
     height: auto;
     background-color: var(--bg2);
-    border: 1.5px solid var(--border2);
+    border: 1.2px solid var(--border2);
     box-shadow: 0px 10px 10px -10px var(--box-shadow);
     border-radius: 7px;
     padding: 5px;
@@ -635,17 +554,18 @@
 
   /* calculator CSS Section */
   .calculator-wrapper {
-    border: 1.5px solid var(--border2);
+    border: 1.2px solid var(--border2);
     border-radius: 7px;
     box-shadow: 0px 10px 5px -10px var(--box-shadow);
     width: 80%;
     margin: 0 auto;
+      transition: all 0.3s ease;
     padding: 10px 0 0;
   }
 
   .calculator-wrapper:focus {
     border-radius: 7px;
-    border: 1.5px solid var(--border);
+    border: 1.3px solid var(--border2);
     box-shadow: 0px 20px 10px -10px var(--box-shadow);
     outline: none;
   }
@@ -657,6 +577,7 @@
     align-content: center;
     min-height: 80%;
     width: 100%;
+
     grid-template-columns: repeat(4, 80px);
     grid-template-rows: minmax(120px, auto) repeat(5, 40px);
   }
@@ -699,47 +620,43 @@
   }
 
   .output .previous-operand {
-    color: rgba(0, 255, 102, 0.5);
+    color: rgba(55, 128, 229, 0.5);
     font-size: 1.5rem;
   }
 
   .output .current-operand {
-    color: rgba(0, 255, 102, 0.7);
+    color: rgba(55, 128, 229, 0.7);
     font-size: 2.5rem;
   }
 
   /* information section */
   .information {
+    text-align: center;
+    font-size: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
     max-width: 800px;
-    max-height: 95%;
+    max-height: 92%;
     height: auto;
     background-color: var(--bg2);
-    border: 2px solid var(--border);
-    visibility: hidden;
+    border: 2px solid var(--border2);
     border-radius: 10px;
     padding: 30px;
     overflow-y:scroll;
-
+    overflow-x: hidden;
   }
-
-  .info-main {
-    font-size: 0.8rem;
-  }
-
-  .info-calculator {
-    font-size: 0.8rem;
+  .information h3 {
+    text-decoration: underline;
   }
 
   .info-sec {
     border: 1px solid var(--border2);
     border-radius: 5px;
     margin: 2px 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 5px 20px;
     text-align: left;
   }
@@ -798,14 +715,21 @@
     border-color: var(--text);
   }
   /* light mode button toggle */
+
+  .page-controls{
+    position: relative;
+
+  }
   .mode {
     position:relative;
+    margin-right: 5px;
     width: 60px;
     height: 30px;
     border: 1.2px solid var(--border2);
     border-radius: 30px;
     background-color: var(--switch-bg);
     cursor:pointer;
+    transition: background 1s ease;
   }
   .mode-switch {
     position: absolute;
@@ -815,9 +739,40 @@
     background-color:var(--switch-bg2);
     border: 1.2px solid var(--border2);
     border-radius: 50%;
+    box-shadow: inset -4px -4px var(--rggrey2);
     height:30px;
     width:30px;
-    transition:all 0.3s ease;
+    transition:all 0.3s linear;
+  }
+  .mode-holder{
+    position: absolute;
+    right: 0;
+  }
+  .btn-mode {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border: 1.2px solid var(--border2);
+    border-radius: 30px;
+    background-color: var(--switch-bg);
+    transition: background 1s ease;
+    cursor:pointer;
+  }
+  .btn-switch {
+    position: absolute;
+    left:0;
+    top:50%;
+    transform:translate(0, -50%);
+    background-color:var(--switch-bg2);
+    border: 1.2px solid var(--border2);
+    border-radius: 50%;
+    height:30px;
+    width:30px;
+    box-shadow: inset -4px -4px var(--rggrey2);
+    transition:all 0.3s linear;
+  }
+  .btn-mode:hover, .mode:hover{
+    background: var(--rggrey2);
   }
 
   #equals {
@@ -849,14 +804,6 @@
 
     button {
       font-size: 1.5vh;
-    }
-
-    .side-notes {
-      width: 90%;
-    }
-
-    .ncd-template {
-      width: 90%;
     }
 
     .btn-top {
@@ -915,18 +862,4 @@
 
     }
 
-    .information {
-      width: 98%;
-      font-size: 0.7rem;
-      padding: 0px;
-      overflow: scroll;
-    }
-
-    .info-sec h6 {
-      margin-bottom: 2px;
-    }
-
-    .info-button {
-      top: 5%;
-    }
   }
