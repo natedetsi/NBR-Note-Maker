@@ -816,25 +816,7 @@ calculatorWrapper.addEventListener('focus', () => {
   })
 
 });
-/////////////////////////////////// Information page section //////////////////////////////
 
-document.querySelector('.close-icon').addEventListener('click', (e) => {
-  document.querySelector('.information').style.visibility = 'hidden';
-})
-
-document.querySelector('.info-button').addEventListener('click', (e) => {
-
-  document.querySelector('.information').style.visibility = 'visible';
-})
-
-function information() {
-  tog = !tog;
-  if (tog === false) {
-    document.querySelector('.information').style.visibility = 'hidden';
-  } else {
-    document.querySelector('.information').style.visibility = 'visible';
-  }
-}
 /////////////////////////////////// save light choice /////////////////////////////////////
 var theme = localStorage.getItem('theme');
 var togglePosition = localStorage.getItem('togglePosition');

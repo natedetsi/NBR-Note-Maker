@@ -58,17 +58,38 @@ const mainMenuTemplate = [
             label: 'Ask harry',
             accelerator: 'Ctrl+Alt+a',
               click(){
-
               shell.openExternal('http://google.com');
             }
           },
           {
             label: 'New Email',
+            accelerator: 'Ctrl+e',
             click(){
               shell.openExternal('mailto:');
             }
           },
+
         ]
+      },
+      {
+        label: 'About',
+        click(){
+          new BrowserWindow({width: 800, height: 1200}).loadURL(url.format({
+            pathname: path.join(__dirname + './about.html'),
+            protocol: 'file',
+            slashes: true
+          }))
+        }
+      },
+      {
+         label: 'ideas',
+         click(){
+           new  BrowserWindow({width: 800, height: 1200}).loadURL(url.format({
+             pathname: path.join(__dirname + './ideas.html'),
+             protocol: 'file',
+            slashes: true
+          }));
+         }
       }
   ]
 }
