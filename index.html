@@ -109,7 +109,7 @@
         <div class="col-6 input-p">
           <input type="text" class="second policy-number" placeholder="Policy Number">
         </div>
-        <hr>
+
       </div>
 
       <!--  dairy stage mail buttons  -->
@@ -128,7 +128,7 @@
         <input type="text" class="col-6 handle"  name="Confirmed" placeholder="What have you confirmed?">
         <input type="text" class="col-6 handle"  name="MTA" placeholder="MTA's made?">
       </div>
-
+      <hr>
       <div class="row dairy costs">
         <div class="col-2"><button class="cost-btn" value="Cost" name="Spread over direct debits">Spread</button></div>
         <div class="col-2"><button class="cost-btn" value="Cost" name="Left Payment Outstanding">Left OS</button></div>
@@ -154,14 +154,12 @@
 
 <!-- dairy stage letters and call input field  -->
       <div class="row dairy letter-type">
-        <div class="col-6"><input type="text" class="call-input handle" name="Called" placeholder="Call information"></div>
-        <div class="row col-6">
-          <div class="col-3"><button value="Sent" class="sent-msg" name="IN001">IN001</button></div>
-          <div class="col-3"><button value="Sent" class="sent-msg" name="IN005">IN005</button></div>
-          <div class="col-3"><button value="Sent" class="sent-msg" name="IN011">IN011</button></div>
-          <div class="col-3"><button value="Sent" class="sent-msg" name="IN003">IN003</button></div>
-        </div>
 
+        <div class="col-2"><button value="Called" name="Not required" class="call-2">N/A</button></div>
+          <div class="col-2"><button value="Called" class="call-2" name="Left voice mail ">Left msg</button></div>
+          <div class="col-2"><button value="Called" class="call-2" name="Policy Holder was unavailable">No Time</button></div>
+          <div class="col-2"><button value="Called" class="call-2" name="Number not provided on policy">No Num</button></div>
+          <input type="text" class=" col-4 call-input handle" name="Called" placeholder="Call Notes">
       </div>
 
 
@@ -189,9 +187,10 @@
     <!-- dairy stage called container  -->
       <div class="row dairy called-container">
         <div class="row col-6">
-          <div class="col-4"><button value="Called" class="call-2" name="Left voice mail ">Left msg</button></div>
-          <div class="col-4"><button value="Called" class="call-2" name="Policy Holder was unavailable">No Time</button></div>
-          <div class="col-4"><button value="Called" class="call-2" name="Number not provided on policy">No Num</button></div>
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN001">IN001</button></div>
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN005">IN005</button></div>
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN011">IN011</button></div>
+          <div class="col-3"><button value="Sent" class="sent-msg" name="IN003">IN003</button></div>
         </div>
         <div class="row col-6">
           <div class="col-4"><button class="sent-msg" value="Sent" name="Email">Email</button></div>
@@ -202,7 +201,6 @@
       </div>
       <div class="row dairy ">
         <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
-
       </div>
 
 
@@ -279,16 +277,15 @@
       <!-- template display section START-->
       <div class="para open" id="para">
         <p class="Qm">QM:</p>
-        <br>
+
         <p class="prev">Previous Insurer:</p>
-        <br>
+
         <p class="called">Called:</p>
         <div class="extra">
           <p class="extra-para"></p>
         </div>
-        <br>
         <p class="sent">Sent:</p>
-        <br>
+
         <p class="required">Required:</p>
       </div>
       <div class="row open copier">
@@ -305,9 +302,9 @@
       <!-- Dairy stage para template-->
       <div class=" para-dairy dairy" id="para-dairy">
         <p class="Type" >Type:</p>
-        <br>
+
         <p class="received">Received: </p>
-        <br>
+
         <div class="confirmed">
           <p class="Confirmed" >Confirmed:</p>
         </div>
@@ -322,7 +319,7 @@
         </div>
 
         <p class="Sent">Sent:</p>
-        <br>
+
         <p class="Required">Required:</p>
       </div>
       <div class="row dairy copier">

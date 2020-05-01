@@ -292,10 +292,14 @@ t
     border: 1.4px inset var(--border2);
     padding: 10px;
     border-radius: 5px;
-    line-height: 1;
     overflow-y: scroll;
     word-wrap: break-word;
     max-height: 300px;
+  }
+  .para .called, .para-dairy .called {
+    width: 95%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
   }
   .para-dairy{
     max-height: 250px;
