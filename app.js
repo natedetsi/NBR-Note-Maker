@@ -537,6 +537,7 @@ function clearDairy(){
   a.querySelector('.Required').innerText = 'Required: ';
   a.querySelector('.MTA').innerText = '';
   a.querySelector('.Cost').innerText = '';
+  a.querySelector('.Further-Notes').innerText = '';
   document.querySelectorAll('.dairy button').forEach((elem) => {
     elem.classList.remove('toggle');
     document.querySelector('.focus-dairy').focus();

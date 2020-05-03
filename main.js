@@ -69,6 +69,7 @@ const mainMenuTemplate = [
             }
           },
 
+
         ]
       },
       {
@@ -81,7 +82,19 @@ const mainMenuTemplate = [
           }))
         }
       },
-      {
+
+        {
+          label: 'TD',
+          click(){
+            new BrowserWindow({width: 800, height: 1200}).loadURL(url.format({
+              pathname: path.join(__dirname + './td.html'),
+              protocol: 'file',
+              slashes: true
+            }));
+          }
+        },
+        {
+
          label: 'ideas',
          click(){
            new  BrowserWindow({width: 800, height: 1200}).loadURL(url.format({

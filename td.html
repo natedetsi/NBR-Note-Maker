@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Time Deductions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="td.css">
+  </head>
+  <body class="dark-mode">
+    <div class="main-container">
+    <div class="row email-box">
+      <input type="email" class="col-8 tlEmail" placeholder="Team Leader's Email">
+      <button class="col-4 save"> Save </button>
+    </div>
+    <h4>Time Deductions</h4>
+    <div class="deductions">
+    </div>
+    <div class="row addTd">
+    <select name="reason" class="col-3 reason" id="focus" focus>
+      <option value="Meeting">Meeting</option>
+      <option value="Coaching">Coaching</option>
+      <option value="121">121</option>
+      <option value="Admin">Admin</option>
+    </select>
+
+      <input type="time" class="col-3 start-time" name="start" value="" placeholder="Start Time" />
+
+      <input type="time" class="col-3 finish-time" name="finish" value="" placeholder="Finish Time" />
+
+    <div class="col-3">
+      <button class="add clear">Add</button>
+    </div>
+    </div>
+
+    <div class=" open-counter">
+          <h4>Open slot counter</h4>
+      <div class="row">
+      <button class="col-3 minus"> - </button>
+      <p class="col-6 number">0</p>
+      <button class="col-3 plus"> + </button>
+    </div>
+    </div>
+    <div class="email-data">
+      <button class="email clear">Email TD</button>
+    </div>
+
+    </div>
+  <script src="td.js" charset="utf-8"></script>
+  </body>
+</html>
