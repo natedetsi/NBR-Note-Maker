@@ -43,12 +43,12 @@
       });
       document.querySelector('.email').addEventListener('click', () => {
 
-        tdArr.push(`Open slot total: ${count}`);
+
         const message = tdArr.join('  //  ');
 
         window.location.href = `mailto:${teamLeaderEmail}`
                                 + "?subject=Time%20Deductions%20and%20Stats"
-                                + "&body=" + message;
+                                + "&body=" + message + `Open slot total: ${count}`;
       });
 
 
