@@ -48,7 +48,7 @@
 
         window.location.href = `mailto:${teamLeaderEmail}`
                                 + "?subject=Time%20Deductions%20and%20Stats"
-                                + "&body=" + message + `Open slot total: ${count}`;
+                                + "&body=" + message + `// Open slot total: ${count}`;
       });
 
 
