@@ -74,7 +74,7 @@
         </div>
       </div>
       <!-- dairy stage buttons  -->
-      <div class="row dairy">
+      <!-- <div class="row dairy">
         <div class="col-3">
           <button class="primary-button focus-dairy" key="true" value="Type" name="I2 ren acceptable"> I2 Ren Acc</button>
         </div>
@@ -99,7 +99,7 @@
         <div class="col-3">
           <button class="primary-button" key="true" value="Type" name="I2">I2</button>
         </div>
-      </div>
+      </div> -->
       <!-- policy section START open stage  -->
       <div class="row open policy-container">
 
@@ -115,7 +115,7 @@
       <!--  dairy stage mail buttons  -->
       <div class="row dairy policy-container">
         <div class="col-6">
-          <button type="button" class="mail" name="Corrispondence received" value="received">Received Corrispondence</button>
+          <button type="button" class="mail focus-dairy" name="Correspondence recieved" value="received">Received Correspondence</button>
         </div>
         <div class="col-6">
         <button type="button" class="mail" name="Nothing receieved" value="received">Nothing Recieved</button>
@@ -200,7 +200,8 @@
         <hr>
       </div>
       <div class="row dairy ">
-        <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
+        <input type="text" name="Further-Notes"class="col-12 extra-notes handle" placeholder="Extra notes">
+      <hr>
       </div>
 
 
@@ -273,19 +274,31 @@
         </div>
       </div>
 
+      <!-- dairy stage closed or open  -->
+      <div class=" dairy stage">
+        <div class="row">
+          <div class="col-6">
+            <button type="button" name="ongoing" value="Case ongoing">Case ongoing</button>
+          </div>
+          <div class="col-6">
+            <button type="button" name="closed" value="Case closed">Case closed</button>
+          </div>
+        </div>
+      </div>
+
 
       <!-- template display section START-->
       <div class="para open" id="para">
         <p class="Qm">QM:</p>
-        <br>
+
         <p class="prev">Previous Insurer:</p>
-        <br>
+
         <p class="called">Called:</p>
         <div class="extra">
           <p class="extra-para"></p>
         </div>
         <p class="sent">Sent:</p>
-        <br>
+
         <p class="required">Required:</p>
       </div>
       <div class="row open copier">
@@ -301,25 +314,23 @@
 
       <!-- Dairy stage para template-->
       <div class=" para-dairy dairy" id="para-dairy">
-        <p class="Type" >Type:</p>
-        <br>
         <p class="received">Received: </p>
-        <br>
+
         <div class="confirmed">
           <p class="Confirmed" >Confirmed:</p>
         </div>
+
         <div class="mta-section">
           <p class="MTA" ></p>
           <p class="Cost" ></p>
         </div>
-        <br>
         <p class="Called">Called:</p>
         <div class="Extra">
-          <p class="Extra-para"></p>
+          <p class="Further-Notes"></p>
         </div>
-        <br>
+
         <p class="Sent">Sent:</p>
-        <br>
+
         <p class="Required">Required:</p>
       </div>
       <div class="row dairy copier">
