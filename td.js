@@ -5,9 +5,10 @@
 
 
 
-    const tdArr = [];
+    let tdArr = [];
     let teamLeaderEmail = ' ';
     let count = 0;
+    let key = 0;
 
     /////////////// save email to localStorage ////////////////////
 
@@ -25,31 +26,41 @@
 
       document.querySelector('.add').addEventListener('click', () => {
 
-        const td = {
+        let td = {
+          id:`${key}`,
           reason: document.querySelector('.reason').options[document.querySelector('.reason').selectedIndex].value,
           start: document.querySelector('.start-time').value,
           finish: document.querySelector('.finish-time').value,
-          total: ''
 
         };
         const node = document.createElement('p');
-        const deductions = `${td.reason}: ${td.start} - ${td.finish}`;
+        node.setAttribute('id', td.id);
+        const deductions = ` ${td.reason}: ${td.start} - ${td.finish}`;
         tdArr.push(deductions);
         node.innerText = deductions;
+        key++
+        //add eventlistener to the node
+        //if clicked remove node and filter from array
+        node.addEventListener('click', (e) => {
+          e.target.parentNode.removeChild(e.target);
+          let i = tdArr.map(item => item.id).indexOf(e.target.id);
+          tdArr.splice(i, 1);
+
+        });
         document.querySelector('.deductions').appendChild(node);
         document.querySelector('#focus').focus();
-
 
       });
       document.querySelector('.email').addEventListener('click', () => {
 
-        tdArr.push(`Open slot total: ${count}`);
+
         const message = tdArr.join('  //  ');
 
         window.location.href = `mailto:${teamLeaderEmail}`
                                 + "?subject=Time%20Deductions%20and%20Stats"
-                                + "&body=" + message;
+                                + "&body=" + message + `// Open slot total: ${count}`;
       });
+
 
 
       // open counter functions

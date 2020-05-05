@@ -84,9 +84,9 @@ const mainMenuTemplate = [
       },
 
         {
-          label: 'TD',
+          label: 'Time Deductions and opens',
           click(){
-            new BrowserWindow({width: 800, height: 1200}).loadURL(url.format({
+            new BrowserWindow({width: 600, height: 1200}).loadURL(url.format({
               pathname: path.join(__dirname + './td.html'),
               protocol: 'file',
               slashes: true
@@ -97,7 +97,7 @@ const mainMenuTemplate = [
 
          label: 'ideas',
          click(){
-           new  BrowserWindow({width: 800, height: 1200}).loadURL(url.format({
+           new  BrowserWindow({width: 600, height: 1200}).loadURL(url.format({
              pathname: path.join(__dirname + './ideas.html'),
              protocol: 'file',
             slashes: true

@@ -73,33 +73,6 @@
           <button class="primary-button" key="true" value="Qm" name="NCD">NCD</button>
         </div>
       </div>
-      <!-- dairy stage buttons  -->
-      <div class="row dairy">
-        <div class="col-3">
-          <button class="primary-button focus-dairy" key="true" value="Type" name="I2 ren acceptable"> I2 Ren Acc</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="Type" name="I2 Ren Unacceptable">I2 Ren Unacc</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="Type" name="Cifas">Cifas</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="Type" name="Cifas Id check">Cifas id</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="Type" name="I2 Netreveal">I2 Netreveal</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="Type" name="Iovation deny">Iovation Deny</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="Type" name="I2 B7">I2 B7</button>
-        </div>
-        <div class="col-3">
-          <button class="primary-button" key="true" value="Type" name="I2">I2</button>
-        </div>
-      </div>
       <!-- policy section START open stage  -->
       <div class="row open policy-container">
 
@@ -115,7 +88,7 @@
       <!--  dairy stage mail buttons  -->
       <div class="row dairy policy-container">
         <div class="col-6">
-          <button type="button" class="mail" name="Corrispondence received" value="received">Received Corrispondence</button>
+          <button type="button" class="mail focus-dairy" name="Correspondence recieved" value="received">Received Correspondence</button>
         </div>
         <div class="col-6">
         <button type="button" class="mail" name="Nothing receieved" value="received">Nothing Recieved</button>
@@ -141,7 +114,7 @@
       <!-- called and sent sections START -->
 
       <div class="row open letter-type">
-        <div class="col-6"><input type="text" class="call-input" placeholder="Call information"></div>
+        <div class="col-6"><input name="called" type="text" class="call-input handle" placeholder="Call information"></div>
         <div class="row col-6">
           <div class="col-3"><button value="sent" class="sent-msg" name="IN001">IN001</button></div>
           <div class="col-3"><button value="sent" class="sent-msg" name="IN005">IN005</button></div>
@@ -159,7 +132,7 @@
           <div class="col-2"><button value="Called" class="call-2" name="Left voice mail ">Left msg</button></div>
           <div class="col-2"><button value="Called" class="call-2" name="Policy Holder was unavailable">No Time</button></div>
           <div class="col-2"><button value="Called" class="call-2" name="Number not provided on policy">No Num</button></div>
-          <input type="text" class=" col-4 call-input handle" name="Called" placeholder="Call Notes">
+          <input type="text" class=" col-4 handle" name="Called" placeholder="Call Notes">
       </div>
 
 
@@ -179,7 +152,7 @@
       </div>
 
       <div class="row open">
-        <input type="text" class="col-12 extra-notes" placeholder="Extra notes">
+        <input type="text" class="col-12 extra-notes handle" name="extra-para" placeholder="Extra notes">
         <hr>
       </div>
 
@@ -241,7 +214,7 @@
       </div>
 
 <!-- dairy stage bottom buttons  -->
-      <div class="row dairy bottom-container">
+      <div class="row dairy bottom-container" id="status-update">
         <div class="col-3">
           <button class="primary-button" value="Required" name="Occupation">Occupation</button>
         </div>
@@ -302,17 +275,15 @@
 
       <!-- Dairy stage para template-->
       <div class=" para-dairy dairy" id="para-dairy">
-        <p class="Type" >Type:</p>
-
         <p class="received">Received: </p>
 
         <div class="confirmed">
-          <p class="Confirmed" >Confirmed:</p>
+          <p class="Confirmed" ></p>
         </div>
 
         <div class="mta-section">
-          <p class="MTA" ></p>
-          <p class="Cost" ></p>
+          <p class="MTA"></p>
+          <p class="Cost"></p>
         </div>
         <p class="Called">Called:</p>
         <div class="Extra">
@@ -322,6 +293,7 @@
         <p class="Sent">Sent:</p>
 
         <p class="Required">Required:</p>
+        <p class="status"></p>
       </div>
       <div class="row dairy copier">
         <div class="col-6">

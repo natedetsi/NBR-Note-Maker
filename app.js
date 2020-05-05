@@ -13,9 +13,9 @@ let template = {
   Cost:'',
   sent: ['Sent: '],
   Sent: ['Sent: '],
+  status: '',
   required: ['Required: '],
   Required: ['Required: '],
-  Type:['Type:'],
 
 
 }
@@ -152,6 +152,7 @@ document.querySelectorAll('button').forEach((elem) => {
     //if the button's first class is clear don't excute code
     else if (e.target.classList[0] !== 'clear') {
        if(cat === 'Qm' && template[cat].length > 4){return};
+
      e.target.classList.add('toggle');
      //get button name and value push name to array = to template.name
      template[cat].push(label);
@@ -161,20 +162,33 @@ document.querySelectorAll('button').forEach((elem) => {
   });
 });
 
+
+setInterval(() => {
+  if(template.Required.length > 1){
+    document.querySelector('.status').innerText = 'Case ongoing';
+  } else {
+    document.querySelector('.status').innerText = 'Case Closed';
+  }
+},100)
+
 ////////////////////////////////// universal input handler //////////////////////////////
 document.querySelectorAll('.handle').forEach( elem => {
   elem.addEventListener('keyup', (e) => {
     if(e.keyCode === 9){return}
+    const cat = e.target.name;
+    const label = e.target.value;
+    document.querySelector(`.${cat}`).innerText = `${cat}: ${label}`;
+    });
+  });
 
-    let cat = e.target.name;
-    document.querySelector(`.${cat}`).innerText = `${cat}: ${e.target.value}`;
-  })
-})
-/////////////////////////////////call input event handler ////////////////////////////////
-
-document.querySelector('.call-input').addEventListener('keyup', (e) => {
-  document.querySelector('.called').innerText = `Called: ${e.target.value}`;
-});
+  setInterval(() => {
+    const a = document;
+    a.querySelectorAll('.handle').forEach(elem => {
+     if(elem.value.length < 1 && a.querySelector(`.${elem.name}`).innerText.length < 1){
+        a.querySelector(`.${elem.name}`).innerText = '';
+      }
+    })
+  },100)
 ////////////////////////////get questions for qm data/////////////////////////////
 
 let questionsArr = [];
@@ -205,19 +219,6 @@ document.querySelectorAll('.second').forEach((elem) => {
 
   });
 });
-/////////////////////////////////// extra notes section handlers//////////////////////////
-
-
-document.querySelector('.extra-notes').addEventListener('keyup', (e) => {
-  if (e.target.value === '') {
-    document.querySelector('.extra').style.visibility = 'hidden';
-    document.querySelector('.extra').style.height = '0';
-  } else {
-    document.querySelector('.extra').style.visibility = 'visible';
-    document.querySelector('.extra').style.height = 'auto';
-    document.querySelector('.extra-para').innerText = e.target.value;
-  }
-})
 
 
 /////////////////////////select all inside .para and copy to clipboard/////////////////////
@@ -529,10 +530,9 @@ function clearDairy(){
   a.querySelectorAll('.dairy input').forEach(elem => {
     elem.value = '';
   })
-  a.querySelector('.Type').innerText = 'Type: ';
   a.querySelector('.received').innerText = 'Received: ';
-  a.querySelector('.Confirmed').innerText = 'Confirmed: ';
-  a.querySelector('.Called').innerText = 'Called: ';
+  a.querySelector('.Confirmed').innerText = '';
+  a.querySelector('.Called').innerText = '';
   a.querySelector('.Sent ').innerText = 'Sent: ';
   a.querySelector('.Required').innerText = 'Required: ';
   a.querySelector('.MTA').innerText = '';
